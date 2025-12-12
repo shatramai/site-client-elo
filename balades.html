@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Balades — Amitié Canine</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container navbar">
+    <a class="brand" href="index.html"><span class="logo">🐾</span><span>Amitié Canine<small>Balades</small></span></a>
+    <nav class="navlinks">
+      <a data-nav href="index.html">Accueil</a><a data-nav href="presentation-formations.html">Présentation & Formations</a>
+      <a data-nav href="education.html">Éducation</a><a data-nav href="balades.html">Balades</a><a data-nav href="garde.html">Garde</a>
+      <a data-nav href="temoignages.html">Témoignages</a><a data-nav href="localisation.html">Localisation</a><a data-nav href="tarifs.html">Tarifs</a><a data-nav href="contact.html">Contact</a>
+    </nav>
+    <div class="cta"><a class="btn primary" href="contact.html">Demander une balade</a><button class="mobile-toggle" data-mobile-toggle>☰</button></div>
+  </div>
+  <div class="container mobile-menu" data-mobile-menu hidden><nav class="navlinks">
+    <a data-nav href="index.html">Accueil</a><a data-nav href="presentation-formations.html">Présentation & Formations</a>
+    <a data-nav href="education.html">Éducation</a><a data-nav href="balades.html">Balades</a><a data-nav href="garde.html">Garde</a>
+    <a data-nav href="temoignages.html">Témoignages</a><a data-nav href="localisation.html">Localisation</a><a data-nav href="tarifs.html">Tarifs</a><a data-nav href="contact.html">Contact</a>
+  </nav></div>
+</header>
+
+<main class="container">
+  <section class="page-hero">
+    <div class="crumbs">Amitié Canine / Balades</div>
+    <h1>Balades nature encadrées</h1>
+    <p class="lead">Exploration, socialisation et détente — dans le respect des chiens et des lieux.</p>
+  </section>
+
+  <section class="section split">
+    <div class="card block">
+      <h2>Formats</h2>
+      <ul>
+        <li>Balade individuelle</li>
+        <li>Balade duo / petit groupe (selon compatibilités)</li>
+        <li>Balade “éducative” (objectifs précis)</li>
+      </ul>
+    </div>
+    <div class="card block">
+      <h2>Ce que ça apporte</h2>
+      <ul>
+        <li>Stimulation mentale</li>
+        <li>Apprentissage des codes</li>
+        <li>Décompression & confiance</li>
+      </ul>
+      <a class="btn primary" href="tarifs.html">Tarifs balades</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="container">© <span id="year"></span> Amitié Canine</div></footer>
+<script src="app.js"></script><script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
+

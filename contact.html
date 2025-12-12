@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Amitié Canine</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container navbar">
+    <a class="brand" href="index.html"><span class="logo">🐾</span><span>Amitié Canine<small>Contact</small></span></a>
+    <nav class="navlinks">
+      <a data-nav href="index.html">Accueil</a><a data-nav href="presentation-formations.html">Présentation & Formations</a>
+      <a data-nav href="education.html">Éducation</a><a data-nav href="balades.html">Balades</a><a data-nav href="garde.html">Garde</a>
+      <a data-nav href="temoignages.html">Témoignages</a><a data-nav href="localisation.html">Localisation</a><a data-nav href="tarifs.html">Tarifs</a><a data-nav href="contact.html">Contact</a>
+    </nav>
+    <div class="cta"><a class="btn primary" href="index.html">Retour accueil</a><button class="mobile-toggle" data-mobile-toggle>☰</button></div>
+  </div>
+  <div class="container mobile-menu" data-mobile-menu hidden><nav class="navlinks">
+    <a data-nav href="index.html">Accueil</a><a data-nav href="presentation-formations.html">Présentation & Formations</a>
+    <a data-nav href="education.html">Éducation</a><a data-nav href="balades.html">Balades</a><a data-nav href="garde.html">Garde</a>
+    <a data-nav href="temoignages.html">Témoignages</a><a data-nav href="localisation.html">Localisation</a><a data-nav href="tarifs.html">Tarifs</a><a data-nav href="contact.html">Contact</a>
+  </nav></div>
+</header>
+
+<main class="container">
+  <section class="page-hero">
+    <div class="crumbs">Amitié Canine / Contact</div>
+    <h1>Me contacter</h1>
+    <p class="lead">On part de votre situation (chien, âge, difficultés, objectif) et je vous propose une solution.</p>
+  </section>
+
+  <section class="section split">
+    <div class="card form">
+      <h2 style="margin:0 0 10px;">Formulaire</h2>
+      <!-- GitHub Pages = pas d’envoi serveur. On met un "mailto" temporaire. -->
+      <form action="mailto:contact@exemple.fr" method="post" enctype="text/plain">
+        <div class="field">
+          <label for="name">Nom</label>
+          <input class="input" id="name" name="Nom" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" id="email" type="email" name="Email" required />
+        </div>
+        <div class="field">
+          <label for="msg">Message</label>
+          <textarea id="msg" name="Message" required placeholder="Âge du chien, race (si connue), difficultés, objectifs, ville…"></textarea>
+        </div>
+        <button class="btn primary" type="submit">Envoyer</button>
+        <p style="color: rgba(15,26,20,.65); margin-top:10px; font-size:13px">
+          (On remplacera ce formulaire par un vrai envoi plus tard : Formspree / Netlify Forms / backend.)
+        </p>
+      </form>
+    </div>
+
+    <div class="card block">
+      <h2>Infos</h2>
+      <p><strong>Téléphone :</strong> …</p>
+      <p><strong>Email :</strong> …</p>
+      <p><strong>Réseaux :</strong> …</p>
+      <p><strong>Zone :</strong> voir <a href="localisation.html" style="text-decoration:underline;">localisation</a></p>
+
+      <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn" href="tarifs.html">Tarifs</a>
+        <a class="btn" href="temoignages.html">Témoignages</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="container">© <span id="year"></span> Amitié Canine</div></footer>
+<script src="app.js"></script><script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
+

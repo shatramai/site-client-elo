@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tarifs — Amitié Canine</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container navbar">
+    <a class="brand" href="index.html"><span class="logo">🐾</span><span>Amitié Canine<small>Tarifs</small></span></a>
+    <nav class="navlinks">
+      <a data-nav href="index.html">Accueil</a><a data-nav href="presentation-formations.html">Présentation & Formations</a>
+      <a data-nav href="education.html">Éducation</a><a data-nav href="balades.html">Balades</a><a data-nav href="garde.html">Garde</a>
+      <a data-nav href="temoignages.html">Témoignages</a><a data-nav href="localisation.html">Localisation</a><a data-nav href="tarifs.html">Tarifs</a><a data-nav href="contact.html">Contact</a>
+    </nav>
+    <div class="cta"><a class="btn primary" href="contact.html">Réserver</a><button class="mobile-toggle" data-mobile-toggle>☰</button></div>
+  </div>
+  <div class="container mobile-menu" data-mobile-menu hidden><nav class="navlinks">
+    <a data-nav href="index.html">Accueil</a><a data-nav href="presentation-formations.html">Présentation & Formations</a>
+    <a data-nav href="education.html">Éducation</a><a data-nav href="balades.html">Balades</a><a data-nav href="garde.html">Garde</a>
+    <a data-nav href="temoignages.html">Témoignages</a><a data-nav href="localisation.html">Localisation</a><a data-nav href="tarifs.html">Tarifs</a><a data-nav href="contact.html">Contact</a>
+  </nav></div>
+</header>
+
+<main class="container">
+  <section class="page-hero">
+    <div class="crumbs">Amitié Canine / Tarifs</div>
+    <h1>Tarifs clairs</h1>
+    <p class="lead">À ajuster selon les offres réelles.</p>
+  </section>
+
+  <section class="section grid3">
+    <div class="card feature">
+      <span class="badge">🐾</span>
+      <h3>Bilan</h3>
+      <p>Durée : … • Déplacement : …</p>
+      <p><strong>… €</strong></p>
+      <a class="btn primary" href="contact.html">Choisir</a>
+    </div>
+
+    <div class="card feature">
+      <span class="badge">🚶‍♂️</span>
+      <h3>Séance éducation</h3>
+      <p>Durée : … • Objectifs : …</p>
+      <p><strong>… €</strong></p>
+      <a class="btn primary" href="contact.html">Choisir</a>
+    </div>
+
+    <div class="card feature">
+      <span class="badge">🌿</span>
+      <h3>Balade</h3>
+      <p>Individuelle / groupe • …</p>
+      <p><strong>… €</strong></p>
+      <a class="btn primary" href="contact.html">Choisir</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="container">© <span id="year"></span> Amitié Canine</div></footer>
+<script src="app.js"></script><script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
+

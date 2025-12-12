@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Garde — Amitié Canine</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container navbar">
+    <a class="brand" href="index.html"><span class="logo">🐾</span><span>Amitié Canine<small>Garde</small></span></a>
+    <nav class="navlinks">
+      <a data-nav href="index.html">Accueil</a><a data-nav href="presentation-formations.html">Présentation & Formations</a>
+      <a data-nav href="education.html">Éducation</a><a data-nav href="balades.html">Balades</a><a data-nav href="garde.html">Garde</a>
+      <a data-nav href="temoignages.html">Témoignages</a><a data-nav href="localisation.html">Localisation</a><a data-nav href="tarifs.html">Tarifs</a><a data-nav href="contact.html">Contact</a>
+    </nav>
+    <div class="cta"><a class="btn primary" href="contact.html">Demander une garde</a><button class="mobile-toggle" data-mobile-toggle>☰</button></div>
+  </div>
+  <div class="container mobile-menu" data-mobile-menu hidden><nav class="navlinks">
+    <a data-nav href="index.html">Accueil</a><a data-nav href="presentation-formations.html">Présentation & Formations</a>
+    <a data-nav href="education.html">Éducation</a><a data-nav href="balades.html">Balades</a><a data-nav href="garde.html">Garde</a>
+    <a data-nav href="temoignages.html">Témoignages</a><a data-nav href="localisation.html">Localisation</a><a data-nav href="tarifs.html">Tarifs</a><a data-nav href="contact.html">Contact</a>
+  </nav></div>
+</header>
+
+<main class="container">
+  <section class="page-hero">
+    <div class="crumbs">Amitié Canine / Garde</div>
+    <h1>Garde & visites — en confiance</h1>
+    <p class="lead">Des solutions ponctuelles, avec une attention particulière au rythme et au bien-être.</p>
+  </section>
+
+  <section class="section grid3">
+    <div class="card feature"><span class="badge">🏡</span><h3>Visite à domicile</h3><p>Repas, sorties, jeux calmes, présence rassurante.</p></div>
+    <div class="card feature"><span class="badge">⏱️</span><h3>Garde courte</h3><p>Sur un créneau défini (selon disponibilité).</p></div>
+    <div class="card feature"><span class="badge">📌</span><h3>Conditions</h3><p>Entretien préalable + infos santé / habitudes.</p></div>
+  </section>
+
+  <section class="section">
+    <div class="card block">
+      <h2>Important</h2>
+      <p>À compléter : assurance, modalités, nombre de chiens, zones, etc.</p>
+      <a class="btn primary" href="contact.html">Me contacter</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="container">© <span id="year"></span> Amitié Canine</div></footer>
+<script src="app.js"></script><script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
+

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Éducation — Amitié Canine</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container navbar">
+    <a class="brand" href="index.html"><span class="logo">🐾</span><span>Amitié Canine<small>Éducation</small></span></a>
+    <nav class="navlinks">
+      <a data-nav href="index.html">Accueil</a>
+      <a data-nav href="presentation-formations.html">Présentation & Formations</a>
+      <a data-nav href="education.html">Éducation</a>
+      <a data-nav href="balades.html">Balades</a>
+      <a data-nav href="garde.html">Garde</a>
+      <a data-nav href="temoignages.html">Témoignages</a>
+      <a data-nav href="localisation.html">Localisation</a>
+      <a data-nav href="tarifs.html">Tarifs</a>
+      <a data-nav href="contact.html">Contact</a>
+    </nav>
+    <div class="cta"><a class="btn primary" href="contact.html">Réserver</a><button class="mobile-toggle" data-mobile-toggle>☰</button></div>
+  </div>
+  <div class="container mobile-menu" data-mobile-menu hidden><nav class="navlinks">
+    <a data-nav href="index.html">Accueil</a><a data-nav href="presentation-formations.html">Présentation & Formations</a>
+    <a data-nav href="education.html">Éducation</a><a data-nav href="balades.html">Balades</a><a data-nav href="garde.html">Garde</a>
+    <a data-nav href="temoignages.html">Témoignages</a><a data-nav href="localisation.html">Localisation</a><a data-nav href="tarifs.html">Tarifs</a><a data-nav href="contact.html">Contact</a>
+  </nav></div>
+</header>
+
+<main class="container">
+  <section class="page-hero">
+    <div class="crumbs">Amitié Canine / Éducation</div>
+    <h1>Éducation canine — séances sur-mesure</h1>
+    <p class="lead">Objectifs concrets + progression simple : on travaille ce qui compte pour votre quotidien.</p>
+  </section>
+
+  <section class="section grid3">
+    <div class="card feature"><span class="badge">🚶‍♂️</span><h3>Marche en laisse</h3><p>Calme, attention, gestion des distances et des déclencheurs.</p></div>
+    <div class="card feature"><span class="badge">📣</span><h3>Rappel</h3><p>Fiabilité, motivation, sécurité en extérieur.</p></div>
+    <div class="card feature"><span class="badge">🧠</span><h3>Gestion émotions</h3><p>Excitation, frustration, réactivité : outils adaptés.</p></div>
+  </section>
+
+  <section class="section split">
+    <div class="card block">
+      <h2>Déroulé type</h2>
+      <ol>
+        <li>Échange + observation</li>
+        <li>Plan d’action clair</li>
+        <li>Exercices progressifs</li>
+        <li>Suivi entre séances</li>
+      </ol>
+      <a class="btn primary" href="tarifs.html">Voir les formules</a>
+    </div>
+    <div class="card block">
+      <h2>Pour qui ?</h2>
+      <ul>
+        <li>Chiots (bases, socialisation)</li>
+        <li>Adultes (routines, objectifs)</li>
+        <li>Adoptions récentes</li>
+      </ul>
+      <a class="btn" href="contact.html">Me décrire votre situation</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="container">© <span id="year"></span> Amitié Canine</div></footer>
+<script src="app.js"></script><script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
+
