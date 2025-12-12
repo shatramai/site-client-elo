@@ -1,216 +1,48 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Amitié Canine — Éducation & bien-être</title>
-  <meta name="description" content="Amitié Canine : éducation, balades, garde, accompagnement et formations. Approche bienveillante, axée nature et relation." />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Amitié Canine</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip" href="#content">Aller au contenu</a>
 
-<header class="header">
-  <div class="container navbar">
-    <a class="brand" href="index.html">
-      <span class="logo" aria-hidden="true">🐾</span>
-      <span>
-        Amitié Canine
-        <small>Éducatrice canine — nature & relation</small>
-      </span>
-    </a>
-
-    <nav class="navlinks" aria-label="Navigation principale">
-      <a data-nav href="index.html">Accueil</a>
-      <a data-nav href="presentation-formations.html">Présentation & Formations</a>
-      <a data-nav href="education.html">Éducation</a>
-      <a data-nav href="balades.html">Balades</a>
-      <a data-nav href="garde.html">Garde</a>
-      <a data-nav href="temoignages.html">Témoignages</a>
-      <a data-nav href="localisation.html">Localisation</a>
-      <a data-nav href="tarifs.html">Tarifs</a>
-      <a data-nav href="contact.html">Contact</a>
-    </nav>
-
-    <div class="cta">
-      <a class="btn primary" href="contact.html">Prendre contact</a>
-      <button class="mobile-toggle" data-mobile-toggle aria-label="Ouvrir le menu">☰</button>
-    </div>
-  </div>
-
-  <div class="container mobile-menu" data-mobile-menu hidden>
-    <nav class="navlinks" aria-label="Navigation mobile">
-      <a data-nav href="index.html">Accueil</a>
-      <a data-nav href="presentation-formations.html">Présentation & Formations</a>
-      <a data-nav href="education.html">Éducation</a>
-      <a data-nav href="balades.html">Balades</a>
-      <a data-nav href="garde.html">Garde</a>
-      <a data-nav href="temoignages.html">Témoignages</a>
-      <a data-nav href="localisation.html">Localisation</a>
-      <a data-nav href="tarifs.html">Tarifs</a>
-      <a data-nav href="contact.html">Contact</a>
-    </nav>
-  </div>
+<header>
+  <nav class="container">
+    <a href="index.html">Accueil</a>
+    <a href="presentation.html">Présentation</a>
+    <a href="education.html">Éducation</a>
+    <a href="balades.html">Balades</a>
+    <a href="garde.html">Garde</a>
+    <a href="temoignages.html">Témoignages</a>
+    <a href="localisation.html">Localisation</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
-<main id="content">
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="card hero-copy">
-        <span class="kicker">🌿 Approche bienveillante • 🐶 Éducation positive • 🧭 Nature</span>
-        <h1>Une relation claire, sereine et joyeuse avec votre chien.</h1>
-        <p class="lead">
-          Amitié Canine accompagne les humains et leurs chiens avec une méthode
-          progressive, respectueuse et adaptée à votre quotidien.
-        </p>
-        <div class="hero-actions">
-          <a class="btn primary" href="education.html">Découvrir l’éducation</a>
-          <a class="btn" href="presentation-formations.html">Qui suis-je ?</a>
-          <a class="btn" href="tarifs.html">Voir les tarifs</a>
-        </div>
-      </div>
-
-      <div class="card hero-side" data-slider>
-        <div class="slider" aria-label="Slider photos">
-          <!-- Placeholders (tu remplaceras par des images dans /assets) -->
-          <div class="slide active"><div class="ph">Photo 1 — Balade en nature</div></div>
-          <div class="slide"><div class="ph">Photo 2 — Éducation au calme</div></div>
-          <div class="slide"><div class="ph">Photo 3 — Moment de jeu</div></div>
-
-          <div class="slider-controls">
-            <div class="dots" aria-label="Navigation du slider">
-              <button class="dot active" aria-label="Aller à la slide 1"></button>
-              <button class="dot" aria-label="Aller à la slide 2"></button>
-              <button class="dot" aria-label="Aller à la slide 3"></button>
-            </div>
-
-            <div style="display:flex; gap:8px;">
-              <button class="iconbtn" data-prev aria-label="Slide précédente">←</button>
-              <button class="iconbtn" data-next aria-label="Slide suivante">→</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<main class="container">
+  <section>
+    <h1>Bienvenue chez Amitié Canine</h1>
+    <p>Accompagnement éducatif et bien-être pour votre chien — fondé sur la confiance et la relation.</p>
+    <a class="btn" href="contact.html">Me contacter</a>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <h2>Services</h2>
-      <p>Des formats simples, lisibles, et adaptés au tempérament de votre chien.</p>
-
-      <div class="grid3">
-        <div class="card feature">
-          <span class="badge">🐾 Éducation</span>
-          <h3>Séances personnalisées</h3>
-          <p>Marche en laisse, rappel, gestion des émotions, cohérence maison/extérieur.</p>
-          <a class="btn" href="education.html">En savoir plus</a>
-        </div>
-
-        <div class="card feature">
-          <span class="badge">🌿 Balades</span>
-          <h3>Balades encadrées</h3>
-          <p>Socialisation, exploration, stimulation mentale — en sécurité et avec plaisir.</p>
-          <a class="btn" href="balades.html">Découvrir</a>
-        </div>
-
-        <div class="card feature">
-          <span class="badge">🏡 Garde</span>
-          <h3>Garde & visites</h3>
-          <p>Solutions ponctuelles, avec attention au rythme, aux besoins et au confort.</p>
-          <a class="btn" href="garde.html">Voir les options</a>
-        </div>
-      </div>
-    </div>
+  <section>
+    <h2>Nos services</h2>
+    <p>Éducation • Balades • Garde</p>
   </section>
 
-  <section class="section">
-    <div class="container split">
-      <div class="card block">
-        <h2>Une méthode claire</h2>
-        <p>
-          Objectif : comprendre votre chien, construire une communication simple,
-          et obtenir des résultats durables sans brutalité.
-        </p>
-        <ul>
-          <li>Observation & routine</li>
-          <li>Exercices progressifs</li>
-          <li>Renforcement + gestion de l’environnement</li>
-          <li>Plan d’action entre les séances</li>
-        </ul>
-      </div>
-
-      <div class="card block accordion" data-accordion>
-        <h2 style="padding:18px 18px 0; margin:0;">FAQ</h2>
-
-        <div class="item">
-          <button type="button">À partir de quel âge ? <span>+</span></button>
-          <div class="panel"><p>Dès chiot, et aussi à l’âge adulte. L’accompagnement s’adapte.</p></div>
-        </div>
-
-        <div class="item">
-          <button type="button">Est-ce que c’est “éducation positive” ? <span>+</span></button>
-          <div class="panel"><p>Approche respectueuse : motivation, cohérence, et sécurité en priorité.</p></div>
-        </div>
-
-        <div class="item">
-          <button type="button">Où ont lieu les séances ? <span>+</span></button>
-          <div class="panel"><p>À domicile, en extérieur, ou sur des lieux adaptés (selon l’objectif).</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="card testimonials" data-testimonials>
-        <h2>Ils en parlent</h2>
-
-        <div class="quote active">
-          “On a retrouvé des balades sereines en 3 semaines. Méthode douce et super claire.”
-          <strong>— Client(e) • (à remplacer)</strong>
-        </div>
-        <div class="quote">
-          “Notre chien écoute beaucoup mieux, et surtout on comprend ce qu’on faisait mal.”
-          <strong>— Client(e) • (à remplacer)</strong>
-        </div>
-        <div class="quote">
-          “Pro, rassurante, et très humaine. On sent l’amour des chiens et de la nature.”
-          <strong>— Client(e) • (à remplacer)</strong>
-        </div>
-
-        <div class="quote-nav">
-          <button class="btn" data-tprev>←</button>
-          <button class="btn" data-tnext>→</button>
-          <a class="btn primary" href="temoignages.html">Tous les témoignages</a>
-        </div>
-      </div>
-    </div>
+  <section>
+    <h2>Philosophie</h2>
+    <p>Approche bienveillante, centrée sur la compréhension et l’harmonie entre vous et votre compagnon.</p>
   </section>
 </main>
 
-<footer class="footer">
-  <div class="container footer-grid">
-    <div>
-      <strong>Amitié Canine</strong><br/>
-      <span>Éducatrice canine • Balades • Garde</span><br/>
-      <span style="opacity:.8">© <span id="year"></span> — Tous droits réservés</span>
-    </div>
-    <div>
-      <div style="display:flex; gap:10px; flex-wrap:wrap;">
-        <a href="localisation.html">Zone d’intervention</a>
-        <a href="tarifs.html">Tarifs</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div style="margin-top:10px; opacity:.85">
-        <span>Instagram / Facebook / Doctolib (liens à ajouter)</span>
-      </div>
-    </div>
-  </div>
+<footer>
+  © 2025 Amitié Canine — Tous droits réservés
 </footer>
 
-<script src="app.js"></script>
-<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
 
