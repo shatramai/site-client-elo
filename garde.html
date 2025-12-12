@@ -1,53 +1,86 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Garde — Amitié Canine</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Amitié Canine — Éducation & Bien-être</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="header">
-  <div class="container navbar">
-    <a class="brand" href="index.html"><span class="logo">🐾</span><span>Amitié Canine<small>Garde</small></span></a>
-    <nav class="navlinks">
-      <a data-nav href="index.html">Accueil</a><a data-nav href="presentation-formations.html">Présentation & Formations</a>
-      <a data-nav href="education.html">Éducation</a><a data-nav href="balades.html">Balades</a><a data-nav href="garde.html">Garde</a>
-      <a data-nav href="temoignages.html">Témoignages</a><a data-nav href="localisation.html">Localisation</a><a data-nav href="tarifs.html">Tarifs</a><a data-nav href="contact.html">Contact</a>
-    </nav>
-    <div class="cta"><a class="btn primary" href="contact.html">Demander une garde</a><button class="mobile-toggle" data-mobile-toggle>☰</button></div>
+
+<header class="topbar">
+  <div class="container topbar-inner">
+    <div>📞 06 52 90 55 26</div>
+    <div>📷 @amitiecanine</div>
   </div>
-  <div class="container mobile-menu" data-mobile-menu hidden><nav class="navlinks">
-    <a data-nav href="index.html">Accueil</a><a data-nav href="presentation-formations.html">Présentation & Formations</a>
-    <a data-nav href="education.html">Éducation</a><a data-nav href="balades.html">Balades</a><a data-nav href="garde.html">Garde</a>
-    <a data-nav href="temoignages.html">Témoignages</a><a data-nav href="localisation.html">Localisation</a><a data-nav href="tarifs.html">Tarifs</a><a data-nav href="contact.html">Contact</a>
-  </nav></div>
 </header>
 
-<main class="container">
-  <section class="page-hero">
-    <div class="crumbs">Amitié Canine / Garde</div>
-    <h1>Garde & visites — en confiance</h1>
-    <p class="lead">Des solutions ponctuelles, avec une attention particulière au rythme et au bien-être.</p>
-  </section>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" class="brand-logo" alt="Amitié Canine">
+      <div class="brand-text">
+        <div class="brand-name">Amitié Canine</div>
+        <div class="brand-sub">Éducatrice canine — Île-de-France</div>
+      </div>
+    </a>
 
-  <section class="section grid3">
-    <div class="card feature"><span class="badge">🏡</span><h3>Visite à domicile</h3><p>Repas, sorties, jeux calmes, présence rassurante.</p></div>
-    <div class="card feature"><span class="badge">⏱️</span><h3>Garde courte</h3><p>Sur un créneau défini (selon disponibilité).</p></div>
-    <div class="card feature"><span class="badge">📌</span><h3>Conditions</h3><p>Entretien préalable + infos santé / habitudes.</p></div>
-  </section>
+    <nav class="main-nav">
+      <a href="index.html">Accueil</a>
+      <a href="presentation.html">Présentation</a>
+      <a href="education.html">Éducation</a>
+      <a href="balades.html">Balades</a>
+      <a href="garde.html">Garde</a>
+      <a href="temoignages.html">Témoignages</a>
+      <a href="localisation.html">Localisation</a>
+      <a href="contact.html" class="btn-nav">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <section class="section">
-    <div class="card block">
-      <h2>Important</h2>
-      <p>À compléter : assurance, modalités, nombre de chiens, zones, etc.</p>
-      <a class="btn primary" href="contact.html">Me contacter</a>
+<!-- HERO -->
+<section class="hero" style="background-image: url('assets/hero-home.jpg');">
+  <div class="container hero-content">
+    <h1 class="fade-in">Une relation sereine avec votre chien</h1>
+    <p class="fade-in delay-1">Approche bienveillante & respectueuse, accompagnement personnalisé.</p>
+    <a href="education.html" class="btn-primary fade-in delay-2">Découvrir l’éducation</a>
+  </div>
+</section>
+
+<main class="container main-content">
+  <section class="section services">
+    <h2 class="fade-on-scroll">Nos prestations</h2>
+    <div class="cards">
+      <div class="card fade-on-scroll">
+        <h3>Éducation canine</h3>
+        <p>Accompagnement personnalisé pour une communication claire et apaisée.</p>
+      </div>
+      <div class="card fade-on-scroll delay-1">
+        <h3>Balades collectives</h3>
+        <p>Moments de socialisation, exploration et détente en plein air.</p>
+      </div>
+      <div class="card fade-on-scroll delay-2">
+        <h3>Garde</h3>
+        <p>Visites ou garde ponctuelle, dans le respect des besoins du chien.</p>
+      </div>
     </div>
+  </section>
+
+  <section class="section about">
+    <h2 class="fade-on-scroll">Pourquoi nous ?</h2>
+    <p class="fade-on-scroll delay-1">
+      Une approche centrée sur l’écoute, la compréhension des besoins, et
+      une relation apaisée entre humain et chien.
+    </p>
   </section>
 </main>
 
-<footer class="footer"><div class="container">© <span id="year"></span> Amitié Canine</div></footer>
-<script src="app.js"></script><script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+<footer class="footer">
+  <div class="container">
+    © 2025 Amitié Canine — Tous droits réservés
+  </div>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>
-

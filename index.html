@@ -1,48 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Amitié Canine</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amitié Canine — Éducation & bien-être</title>
+  <meta name="description" content="Amitié Canine : éducation canine, balades, garde. Une approche bienveillante, axée nature et relation." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="home">
 
-<header>
-  <nav class="container">
-    <a href="index.html">Accueil</a>
-    <a href="presentation.html">Présentation</a>
-    <a href="education.html">Éducation</a>
-    <a href="balades.html">Balades</a>
-    <a href="garde.html">Garde</a>
-    <a href="temoignages.html">Témoignages</a>
-    <a href="localisation.html">Localisation</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<header class="site-header">
+  <!-- GRAND HEADER : logo + nom -->
+  <div class="container brand-row">
+    <a class="brand" href="index.html" aria-label="Retour à l'accueil">
+      <span class="logo-badge" aria-hidden="true">
+        <span class="logo-paw">🐾</span>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">Amitié Canine</span>
+        <span class="brand-sub">Éducatrice canine • Nature • Bienveillance</span>
+      </span>
+    </a>
+  </div>
+
+  <!-- MENU CENTRÉ -->
+  <div class="nav-wrap">
+    <div class="container">
+      <nav class="nav-center" aria-label="Navigation principale">
+        <a class="active" href="index.html">Accueil</a>
+        <a href="presentation.html">Présentation</a>
+        <a href="education.html">Éducation</a>
+        <a href="balades.html">Balades</a>
+        <a href="garde.html">Garde</a>
+        <a href="temoignages.html">Témoignages</a>
+        <a href="localisation.html">Localisation</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
 </header>
 
-<main class="container">
-  <section>
-    <h1>Bienvenue chez Amitié Canine</h1>
-    <p>Accompagnement éducatif et bien-être pour votre chien — fondé sur la confiance et la relation.</p>
-    <a class="btn" href="contact.html">Me contacter</a>
-  </section>
+<!-- HERO FULL IMAGE -->
+<main class="hero" style="--hero: url('assets/hero-home.jpg');">
+  <div class="hero-overlay"></div>
 
-  <section>
-    <h2>Nos services</h2>
-    <p>Éducation • Balades • Garde</p>
-  </section>
+  <div class="container hero-content">
+    <blockquote class="quote fade-in">
+      “Éduquer, c’est créer une relation de confiance.
+      Comprendre avant de demander.”
+    </blockquote>
 
-  <section>
-    <h2>Philosophie</h2>
-    <p>Approche bienveillante, centrée sur la compréhension et l’harmonie entre vous et votre compagnon.</p>
-  </section>
+    <p class="values fade-in delay-1">
+      Bienveillance • Cohérence • Respect du chien • Progression • Nature
+    </p>
+
+    <p class="lead fade-in delay-2">
+      Des accompagnements simples, personnalisés, et pensés pour votre quotidien.
+    </p>
+
+    <a class="btn-primary fade-in delay-3" href="presentation.html">Découvrir</a>
+  </div>
 </main>
-
-<footer>
-  © 2025 Amitié Canine — Tous droits réservés
-</footer>
 
 </body>
 </html>
-
