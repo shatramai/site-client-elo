@@ -1,65 +1,110 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Amitié Canine — Éducation & bien-être</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amitié Canine</title>
   <meta name="description" content="Amitié Canine — Éducation canine bienveillante, nature et relation." />
-  <link rel="stylesheet" href="styles.css">
+
+  <!-- Fonts: Charm (titres) + Lato (texte) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body class="home">
+<body>
+  <div class="page-shell">
 
-  <!-- HEADER = zone kaki (brand plein espace) -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand" aria-label="Amitié Canine">
-        <span class="logo-badge" aria-hidden="true">🐾</span>
-        <span class="brand-text">
-          <span class="brand-name">Amitié Canine</span>
-          <span class="brand-sub">Éducatrice canine • Bienveillance & Nature</span>
-        </span>
-      </a>
+    <!-- Feuillage (1 seul asset, 4 coins, transformations CSS) -->
+    <div class="corner-leaves" aria-hidden="true">
+      <img class="leaf tl" src="assets/leaf_transparent.png" alt="">
+      <img class="leaf tr" src="assets/leaf_transparent.png" alt="">
+      <img class="leaf bl" src="assets/leaf_transparent.png" alt="">
+      <img class="leaf br" src="assets/leaf_transparent.png" alt="">
     </div>
-  </header>
 
-  <!-- MENU EN DEHORS DU HEADER (posé en bas) -->
-  <div class="nav-outside">
-    <div class="container">
-      <nav class="nav-center" aria-label="Navigation principale">
-        <a class="active" href="index.html">Accueil</a>
-        <a href="presentation.html">Présentation</a>
-        <a href="education.html">Éducation</a>
-        <a href="balades.html">Balades</a>
-        <a href="garde.html">Garde</a>
-        <a href="temoignages.html">Témoignages</a>
-        <a href="localisation.html">Localisation</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand-badge" aria-hidden="true">
+          <span class="brand-icon">🐕</span>
+        </div>
+
+        <h1 class="brand-title">Amitié Canine</h1>
+        <p class="brand-sub">Éducation • Balades • Garde</p>
+      </div>
+    </header>
+
+    <!-- NAV (hors header) -->
+    <div class="nav-outside">
+      <div class="container">
+        <nav class="nav" aria-label="Navigation principale">
+          <a class="active" href="index.html">Accueil</a>
+          <a href="presentation.html">Présentation</a>
+          <a href="education.html">Éducation</a>
+          <a href="balades.html">Balades</a>
+          <a href="garde.html">Garde</a>
+          <a href="temoignages.html">Témoignages</a>
+          <a href="localisation.html">Localisation</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
     </div>
+
+    <!-- CONTENT -->
+    <main class="page">
+      <div class="container page-inner">
+        <h2 class="page-title fade-in">Séance d’éducation</h2>
+
+        <section class="panel fade-in delay-1">
+          <div class="panel-kicker">
+            <span class="kicker-emoji" aria-hidden="true">🐾</span>
+            <span>Séances d’éducation personnalisées</span>
+          </div>
+
+          <p>
+            Chaque séance est entièrement personnalisée pour répondre aux besoins spécifiques
+            de votre binôme chien/humain. Que vous soyez confronté à des comportements gênants,
+            que vous veniez d’adopter un chiot ou envisagiez une adoption, je suis à votre écoute
+            pour vous accompagner.
+          </p>
+
+          <div class="panel-section">
+            <div class="bullet">
+              <span class="bullet-emoji" aria-hidden="true">🔎</span>
+              <p>
+                Après analyse de l’environnement de votre chien et de son profil, je vous propose
+                des solutions adaptées. Mon objectif est de vous fournir des outils concrets et efficaces
+                pour favoriser une relation équilibrée et harmonieuse.
+              </p>
+            </div>
+
+            <div class="bullet">
+              <span class="bullet-emoji" aria-hidden="true">🛠️</span>
+              <p>
+                Je peux vous accompagner sur : gestion de la solitude, malpropreté, socialisation,
+                familiarisation, habituation, gestion émotionnelle, rappel, réactivité…
+              </p>
+            </div>
+
+            <div class="bullet">
+              <span class="bullet-emoji" aria-hidden="true">📝</span>
+              <p>
+                Vous pouvez demander un compte rendu de la séance après notre rendez-vous.
+              </p>
+            </div>
+          </div>
+
+          <div class="actions">
+            <a class="btn" href="contact.html">Prendre rendez-vous</a>
+            <a class="btn btn-ghost" href="presentation.html">En savoir plus</a>
+          </div>
+        </section>
+      </div>
+    </main>
+
   </div>
-
-  <!-- HERO -->
-  <main class="hero">
-    <div class="container hero-content">
-      <blockquote class="quote fade-in">
-        « Éduquer, c’est créer une relation de confiance.
-        Comprendre avant de demander. »
-      </blockquote>
-
-      <p class="values fade-in delay-1">
-        Bienveillance • Cohérence • Respect • Progression • Nature
-      </p>
-
-      <p class="lead fade-in delay-2">
-        Des accompagnements personnalisés pour construire une relation sereine
-        entre vous et votre chien.
-      </p>
-
-      <a href="presentation.html" class="btn-primary fade-in delay-3">Découvrir</a>
-    </div>
-  </main>
-
 </body>
 </html>
-
