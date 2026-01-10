@@ -15,52 +15,46 @@
 </head>
 
 <body>
-  <div class="page-shell">
+  <div class="page">
 
-    <!-- Feuillage (1 seul asset, 4 coins, transformations CSS) -->
-    <div class="corner-leaves" aria-hidden="true">
+    <!-- Décor feuillage (dans la page, scroll) -->
+    <div class="leaves" aria-hidden="true">
       <img class="leaf tl" src="assets/leaf_transparent.png" alt="">
       <img class="leaf tr" src="assets/leaf_transparent.png" alt="">
       <img class="leaf bl" src="assets/leaf_transparent.png" alt="">
       <img class="leaf br" src="assets/leaf_transparent.png" alt="">
     </div>
 
-    <!-- HEADER -->
-    <header class="site-header">
-      <div class="container header-inner">
-        <div class="brand-badge" aria-hidden="true">
-          <span class="brand-icon">🐕</span>
-        </div>
-
-        <h1 class="brand-title">Amitié Canine</h1>
-        <p class="brand-sub">Éducation • Balades • Garde</p>
+    <header class="header">
+      <div class="container header__inner">
+        <div class="badge" aria-hidden="true">🐕</div>
+        <h1 class="brand">Amitié Canine</h1>
+        <p class="tagline">Éducation • Balades • Garde</p>
       </div>
     </header>
 
-    <!-- NAV (hors header) -->
-    <div class="nav-outside">
+    <div class="navwrap">
       <div class="container">
         <nav class="nav" aria-label="Navigation principale">
-          <a class="active" href="index.html">Accueil</a>
-          <a href="presentation.html">Présentation</a>
-          <a href="education.html">Éducation</a>
-          <a href="balades.html">Balades</a>
-          <a href="garde.html">Garde</a>
-          <a href="temoignages.html">Témoignages</a>
-          <a href="localisation.html">Localisation</a>
-          <a href="contact.html">Contact</a>
+          <a class="nav__link is-active" href="index.html">Accueil</a>
+          <a class="nav__link" href="presentation.html">Présentation</a>
+          <a class="nav__link" href="education.html">Éducation</a>
+          <a class="nav__link" href="balades.html">Balades</a>
+          <a class="nav__link" href="garde.html">Garde</a>
+          <a class="nav__link" href="temoignages.html">Témoignages</a>
+          <a class="nav__link" href="localisation.html">Localisation</a>
+          <a class="nav__link" href="contact.html">Contact</a>
         </nav>
       </div>
     </div>
 
-    <!-- CONTENT -->
-    <main class="page">
-      <div class="container page-inner">
-        <h2 class="page-title fade-in">Séance d’éducation</h2>
+    <main class="main">
+      <div class="container main__inner">
+        <h2 class="title">Séance d’éducation</h2>
 
-        <section class="panel fade-in delay-1">
-          <div class="panel-kicker">
-            <span class="kicker-emoji" aria-hidden="true">🐾</span>
+        <section class="panel">
+          <div class="pill">
+            <span aria-hidden="true">🐾</span>
             <span>Séances d’éducation personnalisées</span>
           </div>
 
@@ -71,37 +65,37 @@
             pour vous accompagner.
           </p>
 
-          <div class="panel-section">
+          <div class="bullets">
             <div class="bullet">
-              <span class="bullet-emoji" aria-hidden="true">🔎</span>
+              <div class="bullet__icon" aria-hidden="true">🔎</div>
               <p>
                 Après analyse de l’environnement de votre chien et de son profil, je vous propose
-                des solutions adaptées. Mon objectif est de vous fournir des outils concrets et efficaces
-                pour favoriser une relation équilibrée et harmonieuse.
+                des solutions adaptées et des outils concrets pour favoriser une relation harmonieuse.
               </p>
             </div>
 
             <div class="bullet">
-              <span class="bullet-emoji" aria-hidden="true">🛠️</span>
+              <div class="bullet__icon" aria-hidden="true">🛠️</div>
               <p>
-                Je peux vous accompagner sur : gestion de la solitude, malpropreté, socialisation,
-                familiarisation, habituation, gestion émotionnelle, rappel, réactivité…
+                Thèmes possibles : solitude, malpropreté, socialisation, habituation,
+                gestion émotionnelle, rappel, réactivité…
               </p>
             </div>
 
             <div class="bullet">
-              <span class="bullet-emoji" aria-hidden="true">📝</span>
+              <div class="bullet__icon" aria-hidden="true">📝</div>
               <p>
-                Vous pouvez demander un compte rendu de la séance après notre rendez-vous.
+                Un compte rendu peut être fourni après le rendez-vous.
               </p>
             </div>
           </div>
 
           <div class="actions">
             <a class="btn" href="contact.html">Prendre rendez-vous</a>
-            <a class="btn btn-ghost" href="presentation.html">En savoir plus</a>
+            <a class="btn btn--ghost" href="presentation.html">En savoir plus</a>
           </div>
         </section>
+
       </div>
     </main>
 
