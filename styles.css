@@ -292,6 +292,28 @@ a{ color: inherit; text-decoration: none; }
   border: 1px solid rgba(0,0,0,.10);
 }
 
+/* =========================
+   TRACE DE PATTES (DIAGONALE)
+   ========================= */
+
+.paw-trail{
+  position: absolute;
+  top: -20%;
+  left: 125%;
+  width: 2500px;
+  height: 120%;
+  transform: translateX(-80%) rotate(-30deg);
+
+  background-image: url("assets/paw_transparent.png");
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+
+  opacity: .10;              /* très léger */
+  pointer-events: none;
+  z-index: 0;                /* derrière tout */
+}
+
+
 /* Responsive */
 @media (max-width: 900px){
   :root{
