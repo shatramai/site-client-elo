@@ -1,17 +1,16 @@
 :root{
-  /* Palette inspirée du calendrier */
-  --bg: #B8D7C6;                 /* fond vert gris */
+  /* Palette */
+  --bg: #B8D7C6;
   --surface: rgba(255,255,255,.72);
   --surface-strong: rgba(255,255,255,.84);
   --border: rgba(0,0,0,.06);
 
-  --accent: #7EAC92;             /* style "JANVIER 2026" */
-  --accent-2: #7cb58a;           /* hover/active */
+  --accent: #7EAC92;
+  --accent-2: #7cb58a;
   --text: #152018;
   --muted: rgba(21,32,24,.70);
 
   --max: 980px;
-  --shadow: 0 18px 42px rgba(0,0,0,.12);
 
   --leaf-size: 420px;
   --leaf-opacity: .70;
@@ -71,18 +70,12 @@ a{ color: inherit; text-decoration: none; }
   right: calc(var(--leaf-inset) * -1);
   transform: scale(-1) rotate(8deg);
 }
-.leaf.bl{
-  bottom: calc(var(--leaf-inset) * -1);
-  left: calc(var(--leaf-inset) * -1);
-  transform: rotate(6deg);
-}
-.leaf.br{
-  bottom: calc(var(--leaf-inset) * -1);
-  right: calc(var(--leaf-inset) * -1);
-  transform: scaleX(-1) rotate(-6deg);
-}
 
-/* ===== PATTES ===== */
+/* ✅ feuilles bas supprimées */
+.leaf.bl,
+.leaf.br{ display:none; }
+
+/* ===== PATTES (si tu les veux) ===== */
 .paw-trail{
   position: absolute;
   top: -18%;
@@ -118,8 +111,8 @@ a{ color: inherit; text-decoration: none; }
 
 /* ===== LOGO BANNIÈRE ===== */
 .logo{
-  width: 730px;                 /* largeur du rectangle */
-  height: 170px;                /* hauteur du rectangle */
+  width: 730px;
+  height: 170px;
   margin: 0 auto;
 
   background: var(--accent-2);
@@ -136,23 +129,7 @@ a{ color: inherit; text-decoration: none; }
   max-height: 190%;
 }
 
-.brand{
-  margin: 0;
-  font-family: "Charm", serif;
-  font-weight: 700;
-  font-size: 36px;
-  letter-spacing: .3px;
-}
-
-.tagline{
-  margin: 0;
-  font-size: 13px;
-  letter-spacing: .10em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-/* ===== NAV ===== */
+/* ===== NAV (retour “comme avant”) ===== */
 .navwrap{
   position: relative;
   z-index: 4;
@@ -161,8 +138,10 @@ a{ color: inherit; text-decoration: none; }
 }
 
 .nav{
+  /* ✅ clé : nav centrée + “pill” autour */
   width: fit-content;
   margin: 0 auto;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -170,6 +149,7 @@ a{ color: inherit; text-decoration: none; }
 
   padding: 10px 12px;
   border-radius: 999px;
+
   background: var(--surface);
   border: 1px solid rgba(255,255,255,.35);
   box-shadow: 0 14px 34px rgba(0,0,0,.10);
@@ -180,10 +160,14 @@ a{ color: inherit; text-decoration: none; }
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: .08em;
+
   padding: 8px 10px;
   border-radius: 999px;
+
   color: rgba(21,32,24,.82);
-  transition: background .2s ease, transform .12s ease;
+
+  /* ✅ hover smooth + petit lift */
+  transition: background .2s ease, transform .12s ease, color .2s ease;
 }
 
 .nav__link:hover{
@@ -196,36 +180,37 @@ a{ color: inherit; text-decoration: none; }
   font-weight: 900;
 }
 
-/* ===== BACKGROUND PHOTO SECTION (remplace le hero) ===== */
-/* ===== BACKGROUND PHOTO SECTION (full width comme canisharmonie) ===== */
+/* ===================================================== */
+/* ===== BACKGROUND PHOTO — FULL WIDTH (Option A) ===== */
+/* ===================================================== */
 .background-section{
   position: relative;
   z-index: 2;
 
-  /* ✅ FULL WIDTH */
   width: 100%;
   margin: 14px 0 22px;
-
-  /* ✅ look “pro / site vitrine” */
-  border-radius: 0;                 /* <- mets 18px si tu veux garder des coins arrondis */
   overflow: hidden;
 
-  /* (optionnel) une ligne très légère */
   border-top: 1px solid rgba(255,255,255,.25);
   border-bottom: 1px solid rgba(0,0,0,.06);
 
-  /* ✅ Hauteur : utilise vh (plus stable que vw) */
   min-height: clamp(520px, 72vh, 900px);
 
   background-image: url("assets/home-bg.jpg");
   background-size: cover;
-
-  /* ✅ CENTRAGE / CADRAGE DE LA PHOTO
-     - baisse % -> montre + le bas
-     - monte % -> montre + le haut */
   background-position: center 50%;
-
   background-repeat: no-repeat;
+}
+
+/* Overlay (moins “transparent”) */
+.background-overlay{
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(1000px 420px at 50% 35%, rgba(255,255,255,.10), rgba(0,0,0,.22)),
+    linear-gradient(180deg, rgba(184,215,198,.35), rgba(184,215,198,.10));
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Contenu au-dessus */
@@ -233,58 +218,25 @@ a{ color: inherit; text-decoration: none; }
   position: relative;
   z-index: 2;
 
-  /* ✅ IMPORTANT : doit matcher la hauteur de .background-section,
-     sinon tu as des comportements “bizarres” */
-  min-height: clamp(520px, 70vh, 900px);
+  /* même hauteur que section pour centrer parfaitement */
+  min-height: clamp(520px, 72vh, 900px);
 
   display: grid;
-
-  /* ✅ ICI : où se place la carte dans la photo
-     - end = en bas
-     - center = milieu
-     - start = en haut */
-  align-items: end;
-
-  padding-bottom: 22px;
+  place-items: center;
 }
 
-/* Responsive (mobile) */
-@media (max-width: 520px){
-
-  .background-section{
-    /* ✅ ICI : taille de la zone affichée sur mobile
-       - évite les valeurs absurdes en vh (290vh etc)
-       - là c’est grand sans être “infini” */
-    min-height: clamp(520px, 85vh, 760px);
-
-    /* ✅ ICI : recadrage mobile (souvent différent)
-       - mobile = écran plus haut, donc on remonte souvent un peu */
-    background-position: center 40%;
-  }
-
-  .background-content{
-    /* ✅ ICI : pareil, on aligne la hauteur */
-    min-height: clamp(520px, 85vh, 760px);
-
-    align-items: end;
-    padding-bottom: 12px;
-  }
-
-  .hero__card{
-    max-width: 100%;
-  }
-}
-
-
-/* ===== Carte Hero (réutilisée) ===== */
+/* ===== HERO CARD (Option A : un poil plus haut) ===== */
 .hero__card{
-  max-width: 620px;
+  width: min(620px, 100%);
   background: rgba(255,255,255,.76);
   border: 1px solid rgba(255,255,255,.35);
   border-radius: 16px;
-  padding: 16px 16px;
+
+  padding: 18px;
   box-shadow: 0 16px 34px rgba(0,0,0,.12);
   backdrop-filter: blur(6px);
+
+  transform: translateY(-24px);
 }
 
 .hero__kicker{
@@ -292,12 +244,15 @@ a{ color: inherit; text-decoration: none; }
   font-size: 12px;
   letter-spacing: .10em;
   text-transform: uppercase;
-  color: rgba(21,32,24,.70);
+  color: var(--muted);
 }
 
 .hero__title{
   margin: 0 0 8px;
-  font-family: "Charm", serif;
+
+  /* ✅ tu veux garder LETO */
+  font-family: "Leto", "Lato", system-ui, sans-serif;
+
   font-size: 34px;
   line-height: 1.05;
 }
@@ -315,94 +270,7 @@ a{ color: inherit; text-decoration: none; }
   gap: 10px;
 }
 
-/* ===== MAIN ===== */
-.main{ position: relative; z-index: 2; }
-
-.main__inner{
-  padding-bottom: 60px;
-  text-align: center;
-}
-
-.title{
-  margin: 18px 0 18px;
-  font-family: "Charm", serif;
-  font-weight: 700;
-  font-size: 40px;
-  letter-spacing: .3px;
-}
-
-/* ===== PANEL ===== */
-.panel{
-  margin: 0 auto;
-  max-width: 760px;
-  padding: 26px 24px;
-
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-
-  box-shadow:
-    0 18px 36px rgba(0,0,0,.10),
-    0 4px 12px rgba(0,0,0,.05);
-}
-
-.panel p{
-  margin: 12px 0;
-  line-height: 1.75;
-  color: rgba(21,32,24,.90);
-}
-
-.pill{
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 999px;
-
-  background: rgba(126,172,146,.35);
-  border: 1px solid rgba(0,0,0,.06);
-  color: rgba(21,32,24,.92);
-
-  font-weight: 800;
-  margin-bottom: 12px;
-}
-
-/* bullets */
-.bullets{
-  margin-top: 14px;
-  display: grid;
-  gap: 14px;
-  text-align: left;
-}
-
-.bullet{
-  display: grid;
-  grid-template-columns: 28px 1fr;
-  gap: 10px;
-  align-items: start;
-
-  padding: 14px 14px;
-  border-radius: 12px;
-
-  background: var(--surface-strong);
-  border: 1px solid var(--border);
-}
-
-.bullet__icon{
-  font-size: 18px;
-  line-height: 1;
-  margin-top: 2px;
-}
-
-/* Buttons */
-.actions{
-  margin-top: 18px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
+/* ===== BUTTONS (retour “comme avant”) ===== */
 .btn{
   display: inline-block;
   padding: 11px 16px;
@@ -410,6 +278,7 @@ a{ color: inherit; text-decoration: none; }
 
   background: var(--accent-2);
   color: rgba(255,255,255,.95);
+
   border: 1px solid rgba(255,255,255,.18);
   box-shadow: 0 14px 28px rgba(0,0,0,.10);
 
@@ -429,9 +298,9 @@ a{ color: inherit; text-decoration: none; }
   border: 1px solid rgba(0,0,0,.10);
 }
 
-/* Footer */
+/* ===== FOOTER (compact) ===== */
 .footer{
-  padding: 18px 0 28px;
+  padding: 12px 0 18px;
   position: relative;
   z-index: 2;
 }
@@ -447,39 +316,34 @@ a{ color: inherit; text-decoration: none; }
   color: rgba(21,32,24,.70);
 }
 
-/* Responsive */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 900px){
   :root{
     --leaf-size: 300px;
     --leaf-inset: 70px;
   }
-  .brand{ font-size: 32px; }
   .hero__title{ font-size: 28px; }
-  .title{ font-size: 34px; }
-  .panel{ padding: 20px 18px; }
-  .hero__card{ padding: 14px 14px; }
-}
-
-@media (max-width: 520px){
-  .background-section{
-    min-height: clamp(1200px, 290vh, 1720px);
-    background-position: center 40%;
-
-  }
-
-  .background-content{
-    align-items: end;
-    padding-bottom: 12px;
-  }
-
-  .hero__card{
-    max-width: 100%;
-  }
 }
 
 @media (max-width: 700px){
   .logo{
     width: 90%;
     height: 120px;
+  }
+}
+
+@media (max-width: 520px){
+  .background-section{
+    min-height: clamp(520px, 85vh, 760px);
+    background-position: center 40%;
+  }
+
+  .background-content{
+    min-height: clamp(520px, 85vh, 760px);
+    place-items: center;
+  }
+
+  .hero__card{
+    transform: translateY(-14px);
   }
 }
