@@ -1,30 +1,23 @@
 :root{
-  /* Palette (exacte) */
-  --c1: #aeb79d;
-  --c2: #959d83;
-  --c3: #868f75;
-  --c4: #9fa88d;
-  --c5: #707f62;
+  /* Palette inspirée du calendrier */
+  --bg: #B8D7C6;                 /* fond vert gris */
+  --surface: rgba(255,255,255,.72);
+  --surface-strong: rgba(255,255,255,.84);
+  --border: rgba(0,0,0,.06);
 
-  /* Fond uniforme (choisis celui que tu veux garder partout) */
-  --bg: var(--c1);
-
-  /* Surface légèrement teintée (menu + panels) */
-  --surface: rgba(255,255,255,.80);
-  --surface-border: rgba(0,0,0,.06);
-
-  /* Texte */
+  --accent: #7EAC92;             /* style "JANVIER 2026" */
+  --accent-2: #6E9E86;           /* hover/active */
   --text: #152018;
-  --muted: rgba(21,32,24,.72);
+  --muted: rgba(21,32,24,.70);
 
-  /* Layout */
   --max: 980px;
-  --shadow: 0 18px 42px rgba(0,0,0,.14);
+  --shadow: 0 18px 42px rgba(0,0,0,.12);
 
-  /* Feuillage */
   --leaf-size: 420px;
-  --leaf-opacity: .75;
-  --leaf-inset: 90px; /* combien ça déborde en dehors du cadre */
+  --leaf-opacity: .70;
+  --leaf-inset: 90px;
+
+  --paw-opacity: .06;
 }
 
 *{ box-sizing: border-box; }
@@ -34,7 +27,7 @@ body{
   margin: 0;
   font-family: "Lato", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: var(--text);
-  background: var(--bg);          /* IMPORTANT: fond uniforme */
+  background: var(--bg);
   overflow-x: hidden;
 }
 
@@ -44,19 +37,16 @@ a{ color: inherit; text-decoration: none; }
   width: min(var(--max), calc(100% - 40px));
   margin: 0 auto;
   position: relative;
-  z-index: 2; /* au-dessus du décor */
+  z-index: 2;
 }
 
-/* Page wrapper */
 .page{
   position: relative;
   min-height: 100vh;
-  overflow: hidden; /* évite débordement du feuillage */
+  overflow: hidden;
 }
 
-/* =========================
-   FEUILLAGE (simple, clean)
-   ========================= */
+/* ===== FEUILLES ===== */
 .leaves{
   position: absolute;
   inset: 0;
@@ -71,7 +61,6 @@ a{ color: inherit; text-decoration: none; }
   display: block;
 }
 
-/* Orientation : haut inversé, bas normal */
 .leaf.tl{
   top: calc(var(--leaf-inset) * -1);
   left: calc(var(--leaf-inset) * -1);
@@ -93,15 +82,32 @@ a{ color: inherit; text-decoration: none; }
   transform: scaleX(-1) rotate(-6deg);
 }
 
-/* =========================
-   HEADER
-   ========================= */
+/* ===== PATTES ===== */
+.paw-trail{
+  position: absolute;
+  top: -18%;
+  left: 118%;
+  width: 2400px;
+  height: 130%;
+  transform: translateX(-80%) rotate(-30deg);
+
+  background-image: url("assets/paw_transparent.png");
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+
+  opacity: var(--paw-opacity);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===== HEADER ===== */
 .header{
-  padding-top: 24px;
-  padding-bottom: 12px;
+  padding-top: 26px;
+  padding-bottom: 10px;
   text-align: center;
   position: relative;
   z-index: 3;
+  background: transparent;
 }
 
 .header__inner{
@@ -110,17 +116,30 @@ a{ color: inherit; text-decoration: none; }
   gap: 10px;
 }
 
-.badge{
-  width: 96px;
-  height: 96px;
-  border-radius: 999px;
-  background: rgba(112,127,98,.62); /* c5 */
-  border: 1px solid rgba(255,255,255,.35);
-  box-shadow: var(--shadow);
-  display: grid;
-  place-items: center;
-  font-size: 34px;
+/* ===== LOGO BANNIÈRE ===== */
+
+.logo{
+  width: 520px;                 /* largeur du rectangle */
+  height: 140px;                /* hauteur du rectangle */
+  margin: 0 auto;
+
+  background: rgba(255,255,255,.45); /* fond doux */
+  border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(0,0,0,.12);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.logo img{
+  max-width: 190%;
+  max-height: 280%;
+  
+}
+
+
+
 
 .brand{
   margin: 0;
@@ -138,14 +157,12 @@ a{ color: inherit; text-decoration: none; }
   color: var(--muted);
 }
 
-/* =========================
-   NAV (hors header)
-   ========================= */
+/* ===== NAV ===== */
 .navwrap{
   position: relative;
   z-index: 4;
   margin-top: 6px;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .nav{
@@ -159,8 +176,9 @@ a{ color: inherit; text-decoration: none; }
   padding: 10px 12px;
   border-radius: 999px;
   background: var(--surface);
-  border: 1px solid rgba(255,255,255,.45);
-  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,.35);
+  box-shadow: 0 14px 34px rgba(0,0,0,.10);
+  backdrop-filter: blur(6px);
 }
 
 .nav__link{
@@ -174,53 +192,130 @@ a{ color: inherit; text-decoration: none; }
 }
 
 .nav__link:hover{
-  background: rgba(174,183,157,.45);
+  background: rgba(126,172,146,.18);
   transform: translateY(-1px);
 }
 
 .nav__link.is-active{
-  background: rgba(159,168,141,.55);
+  background: rgba(126,172,146,.30);
   font-weight: 900;
 }
 
-/* =========================
-   MAIN + PANEL
-   ========================= */
-.main{
+/* ===== HERO ===== */
+.hero{
   position: relative;
+  z-index: 2;
+  width: min(var(--max), calc(100% - 40px));
+  margin: 6px auto 18px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.35);
+  box-shadow: 0 18px 40px rgba(0,0,0,.12);
+  height: clamp(260px, 34vw, 460px);
+}
+
+.hero__img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;            /* net */
+  object-position: center 55%;  /* ajuste si besoin */
+}
+
+/* Overlay pastel + contraste */
+.hero::after{
+  content:"";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(1200px 420px at 50% 40%, rgba(255,255,255,.12), rgba(0,0,0,.28)),
+    linear-gradient(180deg, rgba(184,215,198,.22), rgba(184,215,198,.12));
+  pointer-events: none;
+}
+
+/* Contenu hero */
+.hero__content{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-items: end;
+  padding-bottom: 18px;
   z-index: 2;
 }
 
+.hero__card{
+  max-width: 620px;
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 16px;
+  padding: 16px 16px;
+  box-shadow: 0 16px 34px rgba(0,0,0,.12);
+  backdrop-filter: blur(6px);
+}
+
+.hero__kicker{
+  margin: 0 0 6px;
+  font-size: 12px;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: rgba(21,32,24,.70);
+}
+
+.hero__title{
+  margin: 0 0 8px;
+  font-family: "Charm", serif;
+  font-size: 34px;
+  line-height: 1.05;
+}
+
+.hero__text{
+  margin: 0;
+  line-height: 1.6;
+  color: rgba(21,32,24,.90);
+}
+
+.hero__actions{
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ===== MAIN ===== */
+.main{ position: relative; z-index: 2; }
+
 .main__inner{
-  padding-bottom: 80px;
+  padding-bottom: 60px;
   text-align: center;
 }
 
 .title{
-  margin: 18px 0 22px;
+  margin: 18px 0 18px;
   font-family: "Charm", serif;
   font-weight: 700;
-  font-size: 44px;
-  letter-spacing: .4px;
+  font-size: 40px;
+  letter-spacing: .3px;
 }
 
+/* ===== PANEL ===== */
 .panel{
   margin: 0 auto;
   max-width: 760px;
   padding: 26px 24px;
 
-  background: var(--surface);                 /* même teinte que le menu */
-  border: 1px solid var(--surface-border);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 14px;
+
   box-shadow:
-    0 20px 40px rgba(0,0,0,.12),
-    0 4px 12px rgba(0,0,0,.06);
+    0 18px 36px rgba(0,0,0,.10),
+    0 4px 12px rgba(0,0,0,.05);
 }
 
 .panel p{
   margin: 12px 0;
   line-height: 1.75;
-  color: rgba(21,32,24,.88);
+  color: rgba(21,32,24,.90);
 }
 
 .pill{
@@ -229,13 +324,16 @@ a{ color: inherit; text-decoration: none; }
   gap: 10px;
   padding: 10px 14px;
   border-radius: 999px;
-  background: rgba(255,255,255,.55);
+
+  background: rgba(126,172,146,.35);
   border: 1px solid rgba(0,0,0,.06);
-  font-weight: 700;
+  color: rgba(21,32,24,.92);
+
+  font-weight: 800;
   margin-bottom: 12px;
 }
 
-/* Bullets */
+/* bullets */
 .bullets{
   margin-top: 14px;
   display: grid;
@@ -251,8 +349,9 @@ a{ color: inherit; text-decoration: none; }
 
   padding: 14px 14px;
   border-radius: 12px;
-  background: rgba(255,255,255,.60);
-  border: 1px solid rgba(0,0,0,.06);
+
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
 }
 
 .bullet__icon{
@@ -275,44 +374,44 @@ a{ color: inherit; text-decoration: none; }
   padding: 11px 16px;
   border-radius: 999px;
 
-  background: rgba(112,127,98,.78); /* c5 */
+  background: var(--accent-2);
   color: rgba(255,255,255,.95);
   border: 1px solid rgba(255,255,255,.18);
-  box-shadow: 0 14px 30px rgba(0,0,0,.12);
+  box-shadow: 0 14px 28px rgba(0,0,0,.10);
 
   font-weight: 900;
   letter-spacing: .02em;
+  transition: transform .12s ease, filter .2s ease;
 }
 
-.btn:hover{ filter: saturate(1.05); }
+.btn:hover{
+  transform: translateY(-1px);
+  filter: saturate(1.05);
+}
 
 .btn--ghost{
-  background: rgba(255,255,255,.60);
-  color: rgba(21,32,24,.88);
+  background: rgba(255,255,255,.45);
+  color: rgba(21,32,24,.90);
   border: 1px solid rgba(0,0,0,.10);
 }
 
-/* =========================
-   TRACE DE PATTES (DIAGONALE)
-   ========================= */
-
-.paw-trail{
-  position: absolute;
-  top: -20%;
-  left: 125%;
-  width: 2500px;
-  height: 120%;
-  transform: translateX(-80%) rotate(-30deg);
-
-  background-image: url("assets/paw_transparent.png");
-  background-repeat: repeat-y;
-  background-size: 100% auto;
-
-  opacity: .10;              /* très léger */
-  pointer-events: none;
-  z-index: 0;                /* derrière tout */
+/* Footer */
+.footer{
+  padding: 18px 0 28px;
+  position: relative;
+  z-index: 2;
 }
 
+.footer__inner{
+  text-align: center;
+}
+
+.footer__text{
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: .03em;
+  color: rgba(21,32,24,.70);
+}
 
 /* Responsive */
 @media (max-width: 900px){
@@ -321,6 +420,29 @@ a{ color: inherit; text-decoration: none; }
     --leaf-inset: 70px;
   }
   .brand{ font-size: 32px; }
-  .title{ font-size: 38px; }
+  .hero__title{ font-size: 28px; }
+  .title{ font-size: 34px; }
   .panel{ padding: 20px 18px; }
+  .hero__card{ padding: 14px 14px; }
 }
+
+@media (max-width: 520px){
+  .hero{
+    height: clamp(320px, 70vw, 520px);
+  }
+  .hero__content{
+    align-items: end;
+    padding-bottom: 12px;
+  }
+  .hero__card{
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 700px){
+  .logo{
+    width: 90%;
+    height: 120px;
+  }
+}
+

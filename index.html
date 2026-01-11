@@ -4,9 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Amitié Canine</title>
-  <meta name="description" content="Amitié Canine — Éducation canine bienveillante, nature et relation." />
+  <meta name="description" content="Amitié Canine — Éducation canine bienveillante, balades et garde, dans le respect du chien et de la relation." />
 
-  <!-- Fonts: Charm (titres) + Lato (texte) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -17,19 +16,23 @@
 <body>
   <div class="page">
 
-    <!-- Décor feuillage (dans la page, scroll) -->
+    <!-- Décor feuillage -->
     <div class="leaves" aria-hidden="true">
       <img class="leaf tl" src="assets/leaf_transparent.png" alt="">
       <img class="leaf tr" src="assets/leaf_transparent.png" alt="">
       <img class="leaf bl" src="assets/leaf_transparent.png" alt="">
       <img class="leaf br" src="assets/leaf_transparent.png" alt="">
     </div>
-    <div class="paw-trail" aria-hidden="true"></div>
 
+    <!-- Trace de pattes (très discrète) -->
+    <div class="paw-trail" aria-hidden="true"></div>
 
     <header class="header">
       <div class="container header__inner">
-        <div class="badge" aria-hidden="true">🐕</div>
+        <div class="logo">
+          <img src="assets/logo-banniere.png" alt="Amitié Canine — Éducation, Balade, Garde">
+        </div>
+
         <h1 class="brand">Amitié Canine</h1>
         <p class="tagline">Éducation • Balades • Garde</p>
       </div>
@@ -50,9 +53,30 @@
       </div>
     </div>
 
+    <!-- HERO photo -->
+    <section class="hero" aria-label="Photo nature">
+      <img class="hero__img" src="assets/forest.jpeg" alt="Chemin en forêt, lumière douce" />
+
+      <div class="container hero__content">
+        <!-- <div class="hero__card">
+          <p class="hero__kicker">Bienveillance • Nature • Harmonie</p>
+          <h2 class="hero__title">Pour une relation sereine avec votre chien</h2>
+          <p class="hero__text">
+            Séances d’éducation personnalisées, balades et accompagnement au quotidien.
+            Une approche respectueuse, adaptée à votre binôme.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn" href="presentation.html">Découvrir</a>
+            <a class="btn btn--ghost" href="contact.html">Me contacter</a>
+          </div>
+        </div> -->
+      </div>
+    </section>
+
     <main class="main">
       <div class="container main__inner">
-        <h2 class="title">Séance d’éducation</h2>
+        <h3 class="title">Séance d’éducation</h3>
 
         <section class="panel">
           <div class="pill">
@@ -94,13 +118,23 @@
 
           <div class="actions">
             <a class="btn" href="contact.html">Prendre rendez-vous</a>
-            <a class="btn btn--ghost" href="presentation.html">En savoir plus</a>
+            <a class="btn btn--ghost" href="education.html">Voir les prestations</a>
           </div>
         </section>
 
       </div>
     </main>
 
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p class="footer__text">© <span id="year"></span> Amitié Canine — Éducateur canin comportementaliste</p>
+      </div>
+    </footer>
+
   </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
