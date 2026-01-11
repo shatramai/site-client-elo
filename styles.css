@@ -6,7 +6,7 @@
   --border: rgba(0,0,0,.06);
 
   --accent: #7EAC92;             /* style "JANVIER 2026" */
-  --accent-2: #6E9E86;           /* hover/active */
+  --accent-2: #7cb58a;           /* hover/active */
   --text: #152018;
   --muted: rgba(21,32,24,.70);
 
@@ -118,11 +118,11 @@ a{ color: inherit; text-decoration: none; }
 
 /* ===== LOGO BANNIÈRE ===== */
 .logo{
-  width: 530px;                 /* largeur du rectangle */
-  height: 200px;                /* hauteur du rectangle */
+  width: 730px;                 /* largeur du rectangle */
+  height: 170px;                /* hauteur du rectangle */
   margin: 0 auto;
 
-  background: rgba(255,255,255,.45);
+  background: var(--accent-2);
   border-radius: 16px;
   box-shadow: 0 14px 30px rgba(0,0,0,.12);
 
