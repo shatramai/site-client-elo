@@ -1,86 +1,168 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Amitié Canine — Éducation & Bien-être</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Garde — Amitié Canine</title>
+  <meta name="description" content="Garde — Amitié Canine. Accueil en vie de famille, sans box, avec respect des besoins." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
+  <div class="page">
 
-<header class="topbar">
-  <div class="container topbar-inner">
-    <div>📞 06 52 90 55 26</div>
-    <div>📷 @amitiecanine</div>
-  </div>
-</header>
+    <!-- Décor feuillage -->
+    <div class="leaves" aria-hidden="true">
+      <img class="leaf tl" src="assets/leaf_transparent.png" alt="">
+      <img class="leaf tr" src="assets/leaf_transparent.png" alt="">
+      <img class="leaf bl" src="assets/leaf_transparent.png" alt="">
+      <img class="leaf br" src="assets/leaf_transparent.png" alt="">
+    </div>
 
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="index.html" class="brand">
-      <img src="assets/logo.png" class="brand-logo" alt="Amitié Canine">
-      <div class="brand-text">
-        <div class="brand-name">Amitié Canine</div>
-        <div class="brand-sub">Éducatrice canine — Île-de-France</div>
+    <!-- Trace de pattes (discrète) -->
+    <div class="paw-trail" aria-hidden="true"></div>
+
+    <header class="header">
+      <div class="container header__inner">
+        <div class="logo">
+          <img src="assets/logo-banniere.png" alt="Amitié Canine — Éducation, Balade, Garde">
+        </div>
       </div>
-    </a>
+    </header>
 
-    <nav class="main-nav">
-      <a href="index.html">Accueil</a>
-      <a href="presentation.html">Présentation</a>
-      <a href="education.html">Éducation</a>
-      <a href="balades.html">Balades</a>
-      <a href="garde.html">Garde</a>
-      <a href="temoignages.html">Témoignages</a>
-      <a href="localisation.html">Localisation</a>
-      <a href="contact.html" class="btn-nav">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero" style="background-image: url('assets/hero-home.jpg');">
-  <div class="container hero-content">
-    <h1 class="fade-in">Une relation sereine avec votre chien</h1>
-    <p class="fade-in delay-1">Approche bienveillante & respectueuse, accompagnement personnalisé.</p>
-    <a href="education.html" class="btn-primary fade-in delay-2">Découvrir l’éducation</a>
-  </div>
-</section>
-
-<main class="container main-content">
-  <section class="section services">
-    <h2 class="fade-on-scroll">Nos prestations</h2>
-    <div class="cards">
-      <div class="card fade-on-scroll">
-        <h3>Éducation canine</h3>
-        <p>Accompagnement personnalisé pour une communication claire et apaisée.</p>
-      </div>
-      <div class="card fade-on-scroll delay-1">
-        <h3>Balades collectives</h3>
-        <p>Moments de socialisation, exploration et détente en plein air.</p>
-      </div>
-      <div class="card fade-on-scroll delay-2">
-        <h3>Garde</h3>
-        <p>Visites ou garde ponctuelle, dans le respect des besoins du chien.</p>
+    <div class="navwrap">
+      <div class="container">
+        <nav class="nav" aria-label="Navigation principale">
+          <a class="nav__link" href="index.html">Accueil</a>
+          <a class="nav__link" href="presentation.html">Présentation</a>
+          <a class="nav__link" href="education.html">Éducation</a>
+          <a class="nav__link" href="balades.html">Balades</a>
+          <a class="nav__link is-active" href="garde.html">Garde</a>
+          <a class="nav__link" href="temoignages.html">Témoignages</a>
+          <a class="nav__link" href="localisation.html">Localisation</a>
+          <a class="nav__link" href="contact.html">Contact</a>
+        </nav>
       </div>
     </div>
-  </section>
 
-  <section class="section about">
-    <h2 class="fade-on-scroll">Pourquoi nous ?</h2>
-    <p class="fade-on-scroll delay-1">
-      Une approche centrée sur l’écoute, la compréhension des besoins, et
-      une relation apaisée entre humain et chien.
-    </p>
-  </section>
-</main>
+    <!-- Bandeau photo (tu peux changer l'image pour cette page) -->
+    <section
+      class="background-section background-section--small"
+      aria-label="Garde"
+      style="background-image:url('assets/forest.jpeg');"
+    >
+      <div class="background-overlay" aria-hidden="true"></div>
 
-<footer class="footer">
-  <div class="container">
-    © 2025 Amitié Canine — Tous droits réservés
+      <div class="container background-content">
+        <div class="hero__card reveal">
+          <p class="hero__kicker">Garde à domicile</p>
+          <h1 class="hero__title">Parce qu’ils ont aussi droit à leurs vacances</h1>
+          <p class="hero__text">
+            Accueil en vie de famille, sans box, avec une attention particulière portée au bien-être
+            et aux besoins de chaque chien.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn" href="contact.html">Demander une place</a>
+            <a class="btn btn--ghost" href="localisation.html">Voir le secteur</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main class="main">
+      <div class="container main__inner">
+
+        <section class="section reveal">
+          <h2 class="section__title">La garde</h2>
+
+          <div class="panel panel--tight">
+            <p>
+              Je vous propose de prendre soin de votre chien pendant vos absences. Accueilli à mon domicile,
+              il vivra en vie de famille, avec mes chiens et moi, sans box, comme à la maison.
+            </p>
+
+            <p>
+              Ses besoins physiques et mentaux seront pleinement respectés, avec des temps de repos adaptés
+              et une balade en forêt de deux heures chaque jour, permettant de générer une bonne fatigue.
+            </p>
+
+            <p>
+              À la maison, un large choix d’objets de mastication (sabots de veau, corne de buffle, etc.)
+              sera à sa disposition, lui offrant détente, calme et apaisement.
+            </p>
+
+            <p>
+              Chaque chien étant unique, j’accorde une attention particulière à son individualité pour lui offrir
+              un séjour adapté. Je veille à respecter ses besoins spécifiques, qu’il s’agisse de son alimentation,
+              de ses soins (traitements, entretien...) ou de son confort, afin de lui offrir un séjour des plus sereins.
+            </p>
+
+            <div class="actions">
+              <a class="btn" href="contact.html">Poser une question</a>
+              <a class="btn btn--ghost" href="contact.html">Réserver</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <h2 class="section__title">Tarif</h2>
+
+          <!-- utilise tes styles "pricing/price-card" (si tu les as déjà ajoutés via education.html) -->
+          <div class="pricing">
+            <article class="price-card reveal">
+              <header class="price-card__head">
+                <h3 class="price-card__title">Garde</h3>
+                <div class="price-card__meta">
+                  <span class="price-card__price">35€ / jour</span>
+                </div>
+              </header>
+
+              <p class="price-card__text">
+                Accueil en vie de famille, sorties quotidiennes, mastication et respect des besoins spécifiques.
+              </p>
+
+              <div class="price-card__actions">
+                <a class="btn" href="contact.html">Demander une place</a>
+                <a class="btn btn--ghost" href="contact.html">Conditions / infos</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p class="footer__text">© <span id="year"></span> Amitié Canine — Éducateur canin comportementaliste</p>
+      </div>
+    </footer>
+
   </div>
-</footer>
 
-<script src="app.js"></script>
+  <script>
+    // année automatique
+    const y = document.getElementById("year");
+    if (y) y.textContent = new Date().getFullYear();
+
+    // reveal / slide-in
+    const els = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add("is-visible");
+          io.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.18 });
+
+    els.forEach(el => io.observe(el));
+  </script>
 </body>
 </html>
