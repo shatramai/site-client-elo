@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Présentation — Amitié Canine</title>
+  <meta name="description" content="Présentation — Amitié Canine. Approche, méthode et accompagnement." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="page--presentation">
+  <div class="page">
+
+    <!-- Décor feuillage -->
+    <div class="leaves" aria-hidden="true">
+      <img class="leaf tl" src="assets/leaf_transparent.png" alt="">
+      <img class="leaf tr" src="assets/leaf_transparent.png" alt="">
+      <img class="leaf bl" src="assets/leaf_transparent.png" alt="">
+      <img class="leaf br" src="assets/leaf_transparent.png" alt="">
+    </div>
+
+    <!-- Trace de pattes -->
+    <div class="paw-trail" aria-hidden="true"></div>
+
+    <header class="header">
+      <div class="container header__inner">
+        <div class="logo">
+          <img src="assets/logo-banniere.png" alt="Amitié Canine — Éducation, Balade, Garde">
+        </div>
+      </div>
+    </header>
+
+    <div class="navwrap">
+      <div class="container">
+        <nav class="nav" aria-label="Navigation principale">
+          <a class="nav__link" href="index.html">Accueil</a>
+          <a class="nav__link is-active" href="presentation.html">Présentation</a>
+          <a class="nav__link" href="education.html">Éducation</a>
+          <a class="nav__link" href="balades.html">Balades</a>
+          <a class="nav__link" href="garde.html">Garde</a>
+          <a class="nav__link" href="temoignages.html">Témoignages</a>
+          <a class="nav__link" href="localisation.html">Localisation</a>
+          <a class="nav__link" href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- HERO présentation (texte à gauche + photo cliente à droite) -->
+    <section class="hero hero--presentation" aria-label="Présentation">
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="container hero__inner hero__inner--split">
+        <div class="hero__card hero__card--vertical reveal reveal--left">
+          <p class="hero__kicker">Qui je suis</p>
+          <h1 class="hero__title">Une approche respectueuse et personnalisée</h1>
+          <p class="hero__text">
+            J’accompagne les humains et leurs chiens dans la compréhension mutuelle, avec une éducation
+            bienveillante, adaptée à chaque situation.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn" href="contact.html">Prendre rendez-vous</a>
+            <a class="btn btn--ghost" href="education.html">Voir l’éducation</a>
+          </div>
+        </div>
+
+        <div class="hero__photo reveal reveal--right" aria-hidden="false">
+          <img src="assets/photo-cliente.jpg" alt="Éducatrice canine en extérieur">
+        </div>
+      </div>
+    </section>
+
+    <main class="main">
+      <div class="container main__inner">
+
+        <section class="section reveal">
+          <h2 class="section__title">Mes valeurs</h2>
+
+          <div class="cards">
+            <div class="card reveal reveal--left delay-1">
+              <h3>Bienveillance</h3>
+              <p>Une éducation qui respecte l’émotion et le rythme du chien, et qui guide l’humain avec clarté.</p>
+            </div>
+
+            <div class="card reveal delay-2">
+              <h3>Compréhension</h3>
+              <p>On cherche la cause d’un comportement, on adapte l’environnement, puis on construit des solutions.</p>
+            </div>
+
+            <div class="card reveal reveal--right delay-3">
+              <h3>Nature</h3>
+              <p>Sorties, explorations, enrichissement : la dépense mentale compte autant que la dépense physique.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <h2 class="section__title">Comment se passe un accompagnement</h2>
+
+          <div class="steps">
+            <div class="step reveal reveal--left delay-1">
+              <div class="step__num">1</div>
+              <div>
+                <h3 class="step__title">Échange & objectifs</h3>
+                <p class="step__text">On fait le point sur votre quotidien, vos difficultés, et votre objectif principal.</p>
+              </div>
+            </div>
+
+            <div class="step reveal delay-2">
+              <div class="step__num">2</div>
+              <div>
+                <h3 class="step__title">Analyse & plan d’action</h3>
+                <p class="step__text">On identifie les déclencheurs, on ajuste l’environnement, et on choisit des exercices adaptés.</p>
+              </div>
+            </div>
+
+            <div class="step reveal reveal--right delay-3">
+              <div class="step__num">3</div>
+              <div>
+                <h3 class="step__title">Suivi & progression</h3>
+                <p class="step__text">On suit vos progrès, on ajuste, et on consolide des habitudes durables.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <h2 class="section__title">Où j’interviens</h2>
+
+          <div class="panel panel--tight reveal">
+            <p>
+              J’interviens principalement autour de <strong>[Ville / Secteur]</strong> et ses environs.
+              Les rendez-vous peuvent se dérouler à domicile, en extérieur (parcs/forêts),
+              ou sur un lieu convenu ensemble selon votre besoin.
+            </p>
+
+            <div class="actions">
+              <a class="btn" href="localisation.html">Voir la localisation</a>
+              <a class="btn btn--ghost" href="contact.html">Poser une question</a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p class="footer__text">© <span id="year"></span> Amitié Canine — Éducateur canin comportementaliste</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    const reveals = document.querySelectorAll(".reveal");
+    if (reveals.length) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      reveals.forEach(el => io.observe(el));
+    }
+  </script>
+</body>
+</html>

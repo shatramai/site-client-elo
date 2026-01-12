@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
+<body class="page--home">
   <div class="page">
 
     <!-- Décor feuillage -->
@@ -24,7 +24,7 @@
       <img class="leaf br" src="assets/leaf_transparent.png" alt="">
     </div>
 
-    <!-- Trace de pattes (très discrète) -->
+    <!-- Trace de pattes -->
     <div class="paw-trail" aria-hidden="true"></div>
 
     <header class="header">
@@ -32,9 +32,6 @@
         <div class="logo">
           <img src="assets/logo-banniere.png" alt="Amitié Canine — Éducation, Balade, Garde">
         </div>
-
-        <!-- <h1 class="brand">Amitié Canine</h1>
-        <p class="tagline">Éducation • Balades • Garde</p> -->
       </div>
     </header>
 
@@ -53,14 +50,14 @@
       </div>
     </div>
 
-    <!-- BACKGROUND PHOTO SECTION (remplace le HERO) -->
-    <section class="background-section" aria-label="Photo nature en arrière-plan">
-      <div class="background-overlay" aria-hidden="true"></div>
+    <!-- HERO home (photo forêt + carte centrée) -->
+    <section class="hero hero--home" aria-label="Amitié Canine — accueil">
+      <div class="hero__overlay" aria-hidden="true"></div>
 
-      <div class="container background-content">
-        <div class="hero__card">
+      <div class="container hero__inner">
+        <div class="hero__card reveal reveal--left">
           <p class="hero__kicker">Bienveillance • Nature • Harmonie</p>
-          <h2 class="hero__title">Pour une relation sereine avec votre chien</h2>
+          <h1 class="hero__title">Pour une relation sereine avec votre chien</h1>
           <p class="hero__text">
             Séances d’éducation personnalisées, balades et accompagnement au quotidien.
             Une approche respectueuse, adaptée à votre binôme.
@@ -74,57 +71,6 @@
       </div>
     </section>
 
-    <main class="main">
-      <div class="container main__inner">
-        <!-- <h3 class="title">Séance d’éducation</h3> -->
-
-        <!-- <section class="panel">
-          <div class="pill">
-            <span aria-hidden="true">🐾</span>
-            <span>Séances d’éducation personnalisées</span>
-          </div>
-
-          <p>
-            Chaque séance est entièrement personnalisée pour répondre aux besoins spécifiques
-            de votre binôme chien/humain. Que vous soyez confronté à des comportements gênants,
-            que vous veniez d’adopter un chiot ou envisagiez une adoption, je suis à votre écoute
-            pour vous accompagner.
-          </p>
-
-          <div class="bullets">
-            <div class="bullet">
-              <div class="bullet__icon" aria-hidden="true">🔎</div>
-              <p>
-                Après analyse de l’environnement de votre chien et de son profil, je vous propose
-                des solutions adaptées et des outils concrets pour favoriser une relation harmonieuse.
-              </p>
-            </div>
-
-            <div class="bullet">
-              <div class="bullet__icon" aria-hidden="true">🛠️</div>
-              <p>
-                Thèmes possibles : solitude, malpropreté, socialisation, habituation,
-                gestion émotionnelle, rappel, réactivité…
-              </p>
-            </div>
-
-            <div class="bullet">
-              <div class="bullet__icon" aria-hidden="true">📝</div>
-              <p>
-                Un compte rendu peut être fourni après le rendez-vous.
-              </p>
-            </div>
-          </div>
-
-          <div class="actions">
-            <a class="btn" href="contact.html">Prendre rendez-vous</a>
-            <a class="btn btn--ghost" href="education.html">Voir les prestations</a>
-          </div>
-        </section> -->
-
-      </div>
-    </main>
-
     <footer class="footer">
       <div class="container footer__inner">
         <p class="footer__text">© <span id="year"></span> Amitié Canine — Éducateur canin comportementaliste</p>
@@ -134,7 +80,24 @@
   </div>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Année auto
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Reveal / slide-in
+    const reveals = document.querySelectorAll(".reveal");
+    if (reveals.length) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      reveals.forEach(el => io.observe(el));
+    }
   </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 :root{
-  /* Palette */
+  /* Palette douce (tu peux affiner plus tard) */
   --bg: #B8D7C6;
   --surface: rgba(255,255,255,.72);
   --surface-strong: rgba(255,255,255,.84);
@@ -7,6 +7,7 @@
 
   --accent: #7EAC92;
   --accent-2: #7cb58a;
+
   --text: #152018;
   --muted: rgba(21,32,24,.70);
 
@@ -17,6 +18,10 @@
   --leaf-inset: 90px;
 
   --paw-opacity: .06;
+
+  /* Hero images (par page) */
+  --hero-bg-home: url("assets/forest.jpeg");
+  --hero-bg-presentation: url("assets/forest.jpeg"); /* change ici si tu veux une autre image */
 }
 
 *{ box-sizing: border-box; }
@@ -71,11 +76,11 @@ a{ color: inherit; text-decoration: none; }
   transform: scale(-1) rotate(8deg);
 }
 
-/* ✅ feuilles bas supprimées */
+/* feuilles bas masquées (comme tu le voulais) */
 .leaf.bl,
 .leaf.br{ display:none; }
 
-/* ===== PATTES (si tu les veux) ===== */
+/* ===== PATTES ===== */
 .paw-trail{
   position: absolute;
   top: -18%;
@@ -125,11 +130,14 @@ a{ color: inherit; text-decoration: none; }
 }
 
 .logo img{
-  max-width: 150%;
-  max-height: 190%;
+  max-width: 92%;
+  max-height: 92%;
+  height: auto;
+  width: auto;
+  display: block;
 }
 
-/* ===== NAV (retour “comme avant”) ===== */
+/* ===== NAV ===== */
 .navwrap{
   position: relative;
   z-index: 4;
@@ -138,7 +146,6 @@ a{ color: inherit; text-decoration: none; }
 }
 
 .nav{
-  /* ✅ clé : nav centrée + “pill” autour */
   width: fit-content;
   margin: 0 auto;
 
@@ -165,8 +172,6 @@ a{ color: inherit; text-decoration: none; }
   border-radius: 999px;
 
   color: rgba(21,32,24,.82);
-
-  /* ✅ hover smooth + petit lift */
   transition: background .2s ease, transform .12s ease, color .2s ease;
 }
 
@@ -180,10 +185,10 @@ a{ color: inherit; text-decoration: none; }
   font-weight: 900;
 }
 
-/* ===================================================== */
-/* ===== BACKGROUND PHOTO — FULL WIDTH (Option A) ===== */
-/* ===================================================== */
-.background-section{
+/* =====================================================
+   HERO (commun)
+   ===================================================== */
+.hero{
   position: relative;
   z-index: 2;
 
@@ -194,16 +199,23 @@ a{ color: inherit; text-decoration: none; }
   border-top: 1px solid rgba(255,255,255,.25);
   border-bottom: 1px solid rgba(0,0,0,.06);
 
-  min-height: clamp(520px, 72vh, 900px);
-
-  background-image: url("assets/home-bg.jpg");
   background-size: cover;
   background-position: center 50%;
   background-repeat: no-repeat;
 }
 
-/* Overlay (moins “transparent”) */
-.background-overlay{
+.page--home .hero--home{
+  min-height: clamp(520px, 72vh, 900px);
+  background-image: var(--hero-bg-home);
+}
+
+.page--presentation .hero--presentation{
+  min-height: clamp(420px, 55vh, 720px);
+  background-image: var(--hero-bg-presentation);
+  background-position: center 45%;
+}
+
+.hero__overlay{
   position: absolute;
   inset: 0;
   background:
@@ -213,30 +225,41 @@ a{ color: inherit; text-decoration: none; }
   z-index: 1;
 }
 
-/* Contenu au-dessus */
-.background-content{
+.hero__inner{
   position: relative;
   z-index: 2;
-
-  /* même hauteur que section pour centrer parfaitement */
-  min-height: clamp(520px, 72vh, 900px);
+  min-height: inherit;
 
   display: grid;
   place-items: center;
 }
 
-/* ===== HERO CARD (Option A : un poil plus haut) ===== */
+/* Split (Présentation) */
+.hero__inner--split{
+  place-items: stretch;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 24px;
+}
+
+/* ===== HERO CARD ===== */
 .hero__card{
   width: min(620px, 100%);
   background: rgba(255,255,255,.76);
   border: 1px solid rgba(255,255,255,.35);
   border-radius: 16px;
-
   padding: 18px;
+
   box-shadow: 0 16px 34px rgba(0,0,0,.12);
   backdrop-filter: blur(6px);
 
   transform: translateY(-24px);
+}
+
+.hero__card--vertical{
+  width: min(420px, 100%);
+  justify-self: start;
+  transform: none; /* pas de lift sur présentation */
 }
 
 .hero__kicker{
@@ -249,10 +272,7 @@ a{ color: inherit; text-decoration: none; }
 
 .hero__title{
   margin: 0 0 8px;
-
-  /* ✅ tu veux garder LETO */
-  font-family: "Leto", "Lato", system-ui, sans-serif;
-
+  font-family: "Charm", serif;
   font-size: 34px;
   line-height: 1.05;
 }
@@ -270,7 +290,30 @@ a{ color: inherit; text-decoration: none; }
   gap: 10px;
 }
 
-/* ===== BUTTONS (retour “comme avant”) ===== */
+/* ===== PHOTO CLIENTE (droite) ===== */
+.hero__photo{
+  justify-self: end;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero__photo img{
+  /* ✅ clé : cadre + object-fit, donc jamais géant */
+  width: 420px;
+  max-width: 100%;
+  height: 520px;
+  max-height: 62vh;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.18);
+  border: 4px solid rgba(255,255,255,.35);
+  display: block;
+}
+
+/* ===== BUTTONS ===== */
 .btn{
   display: inline-block;
   padding: 11px 16px;
@@ -298,7 +341,127 @@ a{ color: inherit; text-decoration: none; }
   border: 1px solid rgba(0,0,0,.10);
 }
 
-/* ===== FOOTER (compact) ===== */
+/* ===== MAIN + SECTIONS ===== */
+.main{
+  position: relative;
+  z-index: 2;
+}
+
+.main__inner{
+  padding-bottom: 28px;
+}
+
+.section{
+  padding: 18px 0 6px;
+  position: relative;
+  z-index: 2;
+}
+
+.section__title{
+  margin: 0 0 14px;
+  font-family: "Charm", serif;
+  font-size: 34px;
+  text-align: center;
+}
+
+/* Cards */
+.cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.card{
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 28px rgba(0,0,0,.08);
+}
+
+.card h3{
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.card p{
+  margin: 0;
+  line-height: 1.55;
+  color: rgba(21,32,24,.88);
+}
+
+/* Steps */
+.steps{
+  display: grid;
+  gap: 12px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.step{
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px;
+  align-items: start;
+
+  padding: 14px 14px;
+  border-radius: 16px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 24px rgba(0,0,0,.07);
+}
+
+.step__num{
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+
+  background: rgba(126,172,146,.30);
+  border: 1px solid rgba(0,0,0,.06);
+  font-weight: 900;
+}
+
+.step__title{
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.step__text{
+  margin: 0;
+  line-height: 1.6;
+  color: rgba(21,32,24,.88);
+}
+
+/* Panel compact */
+.panel{
+  margin: 0 auto;
+  max-width: 820px;
+  padding: 18px 18px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.08);
+}
+
+.panel p{
+  margin: 0;
+  line-height: 1.7;
+  color: rgba(21,32,24,.88);
+}
+
+.actions{
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* ===== FOOTER ===== */
 .footer{
   padding: 12px 0 18px;
   position: relative;
@@ -316,34 +479,81 @@ a{ color: inherit; text-decoration: none; }
   color: rgba(21,32,24,.70);
 }
 
+/* =========================
+   REVEAL / SLIDE-IN
+   ========================= */
+/* Fallback safe: si JS ne tourne pas, on ne cache pas */
+.reveal{
+  opacity: 1;
+  transform: none;
+}
+
+/* Quand JS est actif, on ajoute la classe sur <html> via JS ? (option simple: on force par défaut) */
+/* Ici on fait simple : on active l'effet grâce à la présence du script (il ajoute is-visible). */
+.reveal{
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s ease;
+  will-change: opacity, transform;
+}
+.reveal--left{ transform: translateX(-22px); }
+.reveal--right{ transform: translateX(22px); }
+
+.reveal.is-visible{
+  opacity: 1;
+  transform: translate(0,0);
+}
+
+.delay-1{ transition-delay: .08s; }
+.delay-2{ transition-delay: .16s; }
+.delay-3{ transition-delay: .24s; }
+
+@media (prefers-reduced-motion: reduce){
+  .reveal, .reveal.is-visible{
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px){
   :root{
     --leaf-size: 300px;
     --leaf-inset: 70px;
   }
-  .hero__title{ font-size: 28px; }
-}
 
-@media (max-width: 700px){
   .logo{
     width: 90%;
     height: 120px;
   }
-}
 
-@media (max-width: 520px){
-  .background-section{
-    min-height: clamp(520px, 85vh, 760px);
-    background-position: center 40%;
-  }
+  .hero__title{ font-size: 28px; }
 
-  .background-content{
-    min-height: clamp(520px, 85vh, 760px);
+  .hero__inner--split{
+    grid-template-columns: 1fr;
+    gap: 16px;
     place-items: center;
   }
 
-  .hero__card{
-    transform: translateY(-14px);
+  .hero__card--vertical{
+    justify-self: center;
+    width: min(620px, 100%);
   }
+
+  .hero__photo{
+    justify-self: center;
+    justify-content: center;
+  }
+
+  .hero__photo img{
+    width: min(340px, 100%);
+    height: 420px;
+    max-height: 55vh;
+  }
+}
+
+@media (max-width: 860px){
+  .cards{ grid-template-columns: 1fr; }
+  .section__title{ font-size: 30px; }
 }
