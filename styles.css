@@ -13,15 +13,15 @@
 
   --max: 980px;
 
-  --leaf-size: 420px;
+  --leaf-size: 520px;
   --leaf-opacity: .70;
-  --leaf-inset: 90px;
+  --leaf-inset: 50px;
 
-  --paw-opacity: .06;
+  --paw-opacity: .20;
 
   /* Hero images (par page) */
-  --hero-bg-home: url("assets/forest.jpeg");
-  --hero-bg-presentation: url("assets/forest.jpeg"); /* change ici si tu veux une autre image */
+  --hero-bg-home: url("assets/home-bg.jpg");
+  --hero-bg-presentation: url("assets/home-bg.jpg"); /* change ici si tu veux une autre image */
 }
 
 *{ box-sizing: border-box; }
@@ -81,13 +81,30 @@ a{ color: inherit; text-decoration: none; }
 .leaf.br{ display:none; }
 
 /* ===== PATTES ===== */
-.paw-trail{
+.paw-trail1{
   position: absolute;
-  top: -18%;
-  left: 118%;
+  top: -54%;
+  left: 122%;
   width: 2400px;
   height: 130%;
-  transform: translateX(-80%) rotate(-30deg);
+  transform: translateX(-80%) rotate(20deg);
+
+  background-image: url("assets/paw_transparent.png");
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+
+  opacity: var(--paw-opacity);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.paw-trail2{
+  position: absolute;
+  top: -43%;
+  left: 50%;
+  width: 2400px;
+  height: 130%;
+  transform: translateX(-80%) rotate(-20deg);
 
   background-image: url("assets/paw_transparent.png");
   background-repeat: repeat-y;
@@ -116,7 +133,7 @@ a{ color: inherit; text-decoration: none; }
 
 /* ===== LOGO BANNIÈRE ===== */
 .logo{
-  width: 730px;
+  width: 650px;
   height: 170px;
   margin: 0 auto;
 
@@ -272,7 +289,7 @@ a{ color: inherit; text-decoration: none; }
 
 .hero__title{
   margin: 0 0 8px;
-  font-family: "Charm", serif;
+  font-family: "Leto", serif;
   font-size: 34px;
   line-height: 1.05;
 }
@@ -359,7 +376,7 @@ a{ color: inherit; text-decoration: none; }
 
 .section__title{
   margin: 0 0 14px;
-  font-family: "Charm", serif;
+  font-family: "Leto", serif;
   font-size: 34px;
   text-align: center;
 }
