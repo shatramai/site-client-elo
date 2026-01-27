@@ -1,6 +1,7 @@
 :root{
   /* Palette */
-  --bg: #DFF1E7; /* ✅ plus clair */
+  --bg: #DFF1E7;
+
   --surface: rgba(255,255,255,.72);
   --surface-strong: rgba(255,255,255,.84);
   --border: rgba(0,0,0,.06);
@@ -249,11 +250,11 @@ a{ color: inherit; text-decoration: none; }
 /* cadrage optionnel */
 .page--presentation .hero{ background-position: center 45%; }
 
-/* ✅ plus de voile sur les photos */
+/* overlay léger (tu avais demandé de garder la photo plus “originale”) */
 .hero__overlay{
   position: absolute;
   inset: 0;
-  background: transparent;
+  background: radial-gradient(900px 420px at 50% 35%, rgba(255,255,255,.10), rgba(255,255,255,0));
   pointer-events: none;
   z-index: 1;
 }
@@ -500,7 +501,7 @@ a{ color: inherit; text-decoration: none; }
 }
 
 /* =========================
-   FOOTER (identique partout)
+   FOOTER
    ========================= */
 .footer{
   padding: 12px 0 18px;
@@ -662,19 +663,45 @@ a{ color: inherit; text-decoration: none; }
   .pricing{ grid-template-columns: 1fr; }
 }
 
-/* =========================
-   TÉMOIGNAGES — CAROUSEL (aligné avec app.js)
-   ========================= */
-.testimonials{
+/* =====================================================
+   TÉMOIGNAGES — version “propre” (cercle + capsule lisible)
+   (Scoped pour ne pas casser les autres pages)
+   ===================================================== */
+.page--temoignages .testimonials{
   width: min(860px, 100%);
+  margin: 0 auto;
 }
 
-.testimonials__top{
+/* capsule top lisible */
+.page--temoignages .testimonials__top{
+  width: min(760px, 100%);
+  margin: 0 auto 12px;
+  padding: 14px 16px;
+  border-radius: 18px;
+
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(255,255,255,.35);
+  box-shadow: 0 16px 34px rgba(0,0,0,.12);
+  backdrop-filter: blur(6px);
+
   text-align: center;
-  margin-bottom: 10px;
 }
 
-.t-carousel{
+.page--temoignages .testimonials__top .hero__kicker{
+  color: rgba(21,32,24,.70);
+}
+
+.page--temoignages .testimonials__top .hero__title{
+  margin-bottom: 6px;
+}
+
+.page--temoignages .testimonials__top .hero__text{
+  margin: 0;
+  color: rgba(21,32,24,.88);
+}
+
+/* carousel container */
+.page--temoignages .t-carousel{
   position: relative;
   border-radius: 18px;
   overflow: hidden;
@@ -683,16 +710,18 @@ a{ color: inherit; text-decoration: none; }
   border: 1px solid rgba(255,255,255,.25);
   box-shadow: 0 18px 42px rgba(0,0,0,.14);
   backdrop-filter: blur(6px);
+
+  margin: 0 auto;
 }
 
 /* viewport */
-.tcar__viewport{
+.page--temoignages .tcar__viewport{
   overflow: hidden;
   touch-action: pan-y;
 }
 
 /* track */
-.tcar__track{
+.page--temoignages .tcar__track{
   display: flex;
   width: 100%;
   transform: translateX(0);
@@ -700,52 +729,69 @@ a{ color: inherit; text-decoration: none; }
 }
 
 /* slide */
-.tcar__slide{
+.page--temoignages .tcar__slide{
   min-width: 100%;
-  padding: 16px;
+  padding: 18px;
+
   display: grid;
   gap: 12px;
-  align-content: start;
+
+  justify-items: center; /* ✅ centre (corrige ton décalage) */
 }
 
-.tcar__media{
-  width: 100%;
-  height: clamp(180px, 34vh, 300px);
-  border-radius: 14px;
+/* ✅ PHOTO EN GRAND CERCLE */
+.page--temoignages .tcar__media{
+  width: clamp(220px, 42vw, 320px);
+  height: clamp(220px, 42vw, 320px);
+
+  border-radius: 999px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,.30);
+
+  border: 4px solid rgba(255,255,255,.40);
+  box-shadow: 0 18px 40px rgba(0,0,0,.18);
   background: rgba(255,255,255,.22);
+
+  margin: 0 auto;
 }
 
-.tcar__media img{
+.page--temoignages .tcar__media img{
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center; /* si un chien est coupé, tu peux ajuster via inline style */
   display: block;
 }
 
-.tcar__card{
-  background: var(--surface);
+/* ✅ CARTE TEXTE */
+.page--temoignages .tcar__card{
+  width: min(760px, 100%);
+  margin: 0 auto;
+
+  background: rgba(255,255,255,.78);
   border: 1px solid rgba(255,255,255,.35);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 14px 14px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  box-shadow: 0 12px 28px rgba(0,0,0,.10);
+  backdrop-filter: blur(6px);
+
+  text-align: left;
 }
 
-.tcar__title{
+.page--temoignages .tcar__title{
   margin: 0 0 6px;
   font-weight: 900;
   letter-spacing: .02em;
+  text-align: center; /* joli sous le cercle */
 }
 
-.tcar__text{
+.page--temoignages .tcar__text{
   margin: 0;
   line-height: 1.65;
   color: rgba(21,32,24,.90);
 }
 
 /* arrows */
-.t-nav{
+.page--temoignages .t-nav{
   position: absolute;
   top: 42%;
   transform: translateY(-50%);
@@ -753,7 +799,7 @@ a{ color: inherit; text-decoration: none; }
   height: 44px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.35);
-  background: rgba(255,255,255,.72);
+  background: rgba(255,255,255,.78);
   box-shadow: 0 14px 28px rgba(0,0,0,.10);
   cursor: pointer;
   z-index: 3;
@@ -764,14 +810,14 @@ a{ color: inherit; text-decoration: none; }
   place-items: center;
 }
 
-.t-nav--prev{ left: 12px; }
-.t-nav--next{ right: 12px; }
+.page--temoignages .t-nav--prev{ left: 12px; }
+.page--temoignages .t-nav--next{ right: 12px; }
 
-.t-nav:hover{ transform: translateY(-50%) scale(1.03); }
-.t-nav:disabled{ opacity: .45; cursor: default; }
+.page--temoignages .t-nav:hover{ transform: translateY(-50%) scale(1.03); }
+.page--temoignages .t-nav:disabled{ opacity: .45; cursor: default; }
 
 /* dots */
-.tcar__dots{
+.page--temoignages .tcar__dots{
   display: flex;
   justify-content: center;
   gap: 8px;
@@ -780,7 +826,7 @@ a{ color: inherit; text-decoration: none; }
   border-top: 1px solid rgba(255,255,255,.22);
 }
 
-.tcar__dots button{
+.page--temoignages .tcar__dots button{
   width: 10px;
   height: 10px;
   border-radius: 999px;
@@ -790,12 +836,12 @@ a{ color: inherit; text-decoration: none; }
   padding: 0;
 }
 
-.tcar__dots button.is-active{
+.page--temoignages .tcar__dots button.is-active{
   background: rgba(126,172,146,.55);
   border-color: rgba(255,255,255,.85);
 }
 
-.testimonials__cta{
+.page--temoignages .testimonials__cta{
   margin-top: 12px;
   display: flex;
   gap: 10px;
@@ -803,72 +849,68 @@ a{ color: inherit; text-decoration: none; }
   justify-content: center;
 }
 
-@media (min-width: 860px){
-  .tcar__slide{ padding: 18px; }
+/* =====================================================
+   FIX DÉCALAGE À DROITE — TÉMOIGNAGES
+   À COLLER TOUT EN BAS DU CSS
+   ===================================================== */
+
+/* 1) Le hero center réellement son contenu */
+.page--temoignages .hero__inner{
+  place-items: center;
 }
 
-/* =========================
-   PATCH TÉMOIGNAGES : lisibilité + photos rondes
-   (colle ici pour override propre sans casser le reste)
-   ========================= */
-.page--temoignages .testimonials__top{
-  margin-bottom: 12px;
-  text-align: center;
-
-  display: inline-block;
-  padding: 14px 16px;
-  border-radius: 16px;
-
-  background: rgba(255,255,255,.78);
-  border: 1px solid rgba(255,255,255,.35);
-  box-shadow: 0 12px 28px rgba(0,0,0,.10);
-  backdrop-filter: blur(6px);
-}
-
-.page--temoignages .testimonials__top .hero__title{
-  color: rgba(21,32,24,.95);
-}
-.page--temoignages .testimonials__top .hero__text{
-  color: rgba(21,32,24,.88);
-}
-
-/* Grand cercle pour les photos */
-.page--temoignages .tcar__media{
-  width: clamp(200px, 34vh, 320px);
-  height: clamp(200px, 34vh, 320px);
-
-  margin: 6px auto 4px;
-  border-radius: 999px;
-  overflow: hidden;
-
-  border: 4px solid rgba(255,255,255,.35);
-  box-shadow: 0 18px 40px rgba(0,0,0,.18);
-
-  background: rgba(255,255,255,.22);
-}
-
-.page--temoignages .tcar__media img{
+/* 2) Le wrapper testimonials ne doit JAMAIS être décalé */
+.page--temoignages .testimonials{
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Slide : centre la photo, garde texte lisible */
+/* 3) Le bloc top (titre + texte) centré */
+.page--temoignages .testimonials__top{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 4) Le carousel doit être centré ET occuper la largeur dispo */
+.page--temoignages .t-carousel{
+  width: 100%;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 5) Le viewport et le track doivent faire 100% (sinon translateX donne un “décalage”) */
+.page--temoignages .tcar__viewport{
+  width: 100%;
+  overflow: hidden;
+}
+
+.page--temoignages .tcar__track{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; /* track = slides en ligne */
+}
+
+/* 6) Chaque slide prend 100% et centre son contenu */
 .page--temoignages .tcar__slide{
+  width: 100%;
+  min-width: 100%;
+  margin: 0;
+  padding-left: 18px;
+  padding-right: 18px;
   justify-items: center;
-  text-align: center;
 }
 
+/* 7) Bonus anti-bug : aucune translation ou marge “fantôme” */
+.page--temoignages .tcar__media,
 .page--temoignages .tcar__card{
-  width: min(720px, 100%);
-  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-@media (max-width: 860px){
-  .page--temoignages .testimonials__top{
-    width: 100%;
-    box-sizing: border-box;
-  }
+
+@media (min-width: 860px){
+  .page--temoignages .tcar__slide{ padding: 20px; }
 }
