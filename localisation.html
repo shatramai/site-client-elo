@@ -4,56 +4,123 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Localisation — Amitié Canine</title>
+  <meta name="description" content="Localisation — Amitié Canine. Zone d’intervention et secteurs couverts." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-<header class="header">
-  <div class="container navbar">
-    <a class="brand" href="index.html"><span class="logo">🐾</span><span>Amitié Canine<small>Localisation</small></span></a>
-    <nav class="navlinks">
-      <a data-nav href="index.html">Accueil</a><a data-nav href="presentation-formations.html">Présentation & Formations</a>
-      <a data-nav href="education.html">Éducation</a><a data-nav href="balades.html">Balades</a><a data-nav href="garde.html">Garde</a>
-      <a data-nav href="temoignages.html">Témoignages</a><a data-nav href="localisation.html">Localisation</a><a data-nav href="tarifs.html">Tarifs</a><a data-nav href="contact.html">Contact</a>
-    </nav>
-    <div class="cta"><a class="btn primary" href="contact.html">Contact</a><button class="mobile-toggle" data-mobile-toggle>☰</button></div>
-  </div>
-  <div class="container mobile-menu" data-mobile-menu hidden><nav class="navlinks">
-    <a data-nav href="index.html">Accueil</a><a data-nav href="presentation-formations.html">Présentation & Formations</a>
-    <a data-nav href="education.html">Éducation</a><a data-nav href="balades.html">Balades</a><a data-nav href="garde.html">Garde</a>
-    <a data-nav href="temoignages.html">Témoignages</a><a data-nav href="localisation.html">Localisation</a><a data-nav href="tarifs.html">Tarifs</a><a data-nav href="contact.html">Contact</a>
-  </nav></div>
-</header>
 
-<main class="container">
-  <section class="page-hero">
-    <div class="crumbs">Amitié Canine / Localisation</div>
-    <h1>Zone d’intervention</h1>
-    <p class="lead">Indique la ville + rayon (ex: “Paris & proche banlieue”, ou “X km autour de …”).</p>
-  </section>
+<body class="page--localisation">
+  <div class="page">
 
-  <section class="section split">
-    <div class="card block">
-      <h2>Informations</h2>
-      <ul>
-        <li>Ville principale : …</li>
-        <li>Rayon : … km</li>
-        <li>Déplacements : …</li>
-      </ul>
-      <p>Ajoute ici les créneaux, conditions, etc.</p>
+    <div class="leaves" aria-hidden="true">
+      <img class="leaf tl" src="assets/leaf_transparent.png" alt="">
+      <img class="leaf tr" src="assets/leaf_transparent.png" alt="">
+      <img class="leaf bl" src="assets/leaf_transparent.png" alt="">
+      <img class="leaf br" src="assets/leaf_transparent.png" alt="">
     </div>
 
-    <div class="card block">
-      <h2>Carte</h2>
-      <p style="margin-top:0">Option GitHub Pages : intégrer une carte via iframe (Google Maps) ou une image de zone.</p>
-      <div class="card" style="padding:18px; background: rgba(159,215,179,.18); border-radius:16px;">
-        Placeholder carte
+    <div class="paw-trail1" aria-hidden="true"></div>
+    <div class="paw-trail2" aria-hidden="true"></div>
+
+    <header class="header">
+      <div class="container header__inner">
+        <div class="logo">
+          <img src="assets/logo-banniere.png" alt="Amitié Canine — Éducation, Balade, Garde">
+        </div>
+      </div>
+    </header>
+
+    <div class="navwrap">
+      <div class="container">
+        <nav class="nav" aria-label="Navigation principale">
+          <a class="nav__link" href="index.html">Accueil</a>
+          <a class="nav__link" href="presentation.html">Présentation</a>
+          <a class="nav__link" href="education.html">Éducation</a>
+          <a class="nav__link" href="balades.html">Balades</a>
+          <a class="nav__link" href="garde.html">Garde</a>
+          <a class="nav__link" href="temoignages.html">Témoignages</a>
+          <a class="nav__link is-active" href="localisation.html">Localisation</a>
+          <a class="nav__link" href="contact.html">Contact</a>
+        </nav>
       </div>
     </div>
-  </section>
-</main>
 
-<footer class="footer"><div class="container">© <span id="year"></span> Amitié Canine</div></footer>
-<script src="app.js"></script><script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+    <main class="main">
+      <div class="container main__inner">
+
+        <!-- Intro épurée (pas de hero) -->
+        <section class="section reveal">
+          <h1 class="section__title">Zone d’intervention</h1>
+          <div class="panel panel--tight">
+            <p>
+              Je me déplace autour de <strong>[Ville / Secteur]</strong> et ses environs.
+              Les rendez-vous peuvent se faire à domicile, en extérieur (parcs/forêts) ou sur un lieu convenu ensemble.
+            </p>
+            <div class="actions">
+              <a class="btn" href="contact.html">Vérifier votre secteur</a>
+              <a class="btn btn--ghost" href="balades.html">Voir les balades</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <h2 class="section__title">Informations pratiques</h2>
+
+          <div class="panel panel--tight">
+            <p><strong>Ville principale :</strong> [Ville]</p>
+            <p><strong>Rayon :</strong> [XX] km autour de [Ville] (selon prestation)</p>
+            <p><strong>Déplacements :</strong> domicile / parcs / forêts / lieux convenus ensemble</p>
+
+            <div class="actions">
+              <a class="btn" href="contact.html">Me contacter</a>
+              <a class="btn btn--ghost" href="garde.html">Voir la garde</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <h2 class="section__title">Carte</h2>
+
+          <div class="panel panel--tight">
+            <p style="margin-top:0">
+              Tu peux intégrer ici une carte (Google Maps en iframe) ou une image de zone.
+              Sur GitHub Pages, l’iframe marche très bien.
+            </p>
+
+            <div style="border-radius:16px; overflow:hidden; border:1px solid rgba(0,0,0,.06); box-shadow:0 12px 28px rgba(0,0,0,.08);">
+              <iframe
+                title="Carte — zone d’intervention"
+                src="about:blank"
+                width="100%"
+                height="360"
+                style="border:0; display:block;"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+
+            <div class="actions">
+              <a class="btn" href="contact.html">Demander un rendez-vous</a>
+              <a class="btn btn--ghost" href="education.html">Voir l’éducation</a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p class="footer__text">© <span id="year"></span> Amitié Canine — Éducateur canin comportementaliste</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
-

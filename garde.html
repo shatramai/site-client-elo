@@ -13,10 +13,9 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
+<body class="page--garde">
   <div class="page">
 
-    <!-- Décor feuillage -->
     <div class="leaves" aria-hidden="true">
       <img class="leaf tl" src="assets/leaf_transparent.png" alt="">
       <img class="leaf tr" src="assets/leaf_transparent.png" alt="">
@@ -24,8 +23,8 @@
       <img class="leaf br" src="assets/leaf_transparent.png" alt="">
     </div>
 
-    <!-- Trace de pattes (discrète) -->
-    <div class="paw-trail" aria-hidden="true"></div>
+    <div class="paw-trail1" aria-hidden="true"></div>
+    <div class="paw-trail2" aria-hidden="true"></div>
 
     <header class="header">
       <div class="container header__inner">
@@ -50,26 +49,25 @@
       </div>
     </div>
 
-    <!-- Bandeau photo (tu peux changer l'image pour cette page) -->
-    <section
-      class="background-section background-section--small"
-      aria-label="Garde"
-      style="background-image:url('assets/forest.jpeg');"
-    >
-      <div class="background-overlay" aria-hidden="true"></div>
+    <!-- HERO (même taille que toutes les pages) -->
+    <section class="hero" aria-label="Garde à domicile"
+      style="--hero-bg: url('assets/forest.jpeg');">
+      <div class="hero__overlay" aria-hidden="true"></div>
 
-      <div class="container background-content">
-        <div class="hero__card reveal">
-          <p class="hero__kicker">Garde à domicile</p>
-          <h1 class="hero__title">Parce qu’ils ont aussi droit à leurs vacances</h1>
-          <p class="hero__text">
-            Accueil en vie de famille, sans box, avec une attention particulière portée au bien-être
-            et aux besoins de chaque chien.
-          </p>
+      <div class="container">
+        <div class="hero__inner">
+          <div class="hero__card reveal reveal--left">
+            <p class="hero__kicker">Garde à domicile</p>
+            <h1 class="hero__title">Parce qu’ils ont aussi droit à leurs vacances</h1>
+            <p class="hero__text">
+              Accueil en vie de famille, sans box, avec une attention particulière portée au bien-être
+              et aux besoins de chaque chien.
+            </p>
 
-          <div class="hero__actions">
-            <a class="btn" href="contact.html">Demander une place</a>
-            <a class="btn btn--ghost" href="localisation.html">Voir le secteur</a>
+            <div class="hero__actions">
+              <a class="btn" href="contact.html">Demander une place</a>
+              <a class="btn btn--ghost" href="localisation.html">Voir le secteur</a>
+            </div>
           </div>
         </div>
       </div>
@@ -113,7 +111,6 @@
         <section class="section reveal">
           <h2 class="section__title">Tarif</h2>
 
-          <!-- utilise tes styles "pricing/price-card" (si tu les as déjà ajoutés via education.html) -->
           <div class="pricing">
             <article class="price-card reveal">
               <header class="price-card__head">
@@ -146,23 +143,6 @@
 
   </div>
 
-  <script>
-    // année automatique
-    const y = document.getElementById("year");
-    if (y) y.textContent = new Date().getFullYear();
-
-    // reveal / slide-in
-    const els = document.querySelectorAll(".reveal");
-    const io = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) {
-          e.target.classList.add("is-visible");
-          io.unobserve(e.target);
-        }
-      }
-    }, { threshold: 0.18 });
-
-    els.forEach(el => io.observe(el));
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>

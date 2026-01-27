@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
+<body class="page--temoignages">
   <div class="page">
 
     <!-- Décor feuillage -->
@@ -24,8 +24,9 @@
       <img class="leaf br" src="assets/leaf_transparent.png" alt="">
     </div>
 
-    <!-- Trace de pattes (discrète) -->
-    <div class="paw-trail" aria-hidden="true"></div>
+    <!-- Trace de pattes -->
+    <div class="paw-trail1" aria-hidden="true"></div>
+    <div class="paw-trail2" aria-hidden="true"></div>
 
     <header class="header">
       <div class="container header__inner">
@@ -50,38 +51,47 @@
       </div>
     </div>
 
-    <!-- Background photo + carousel -->
-    <section
-      class="background-section background-section--small testimonials-hero"
-      aria-label="Témoignages"
-      style="background-image:url('assets/forest.jpeg');"
-    >
-      <div class="background-overlay" aria-hidden="true"></div>
+    <!-- HERO photo + carrousel (photo chien + texte dessous) -->
+    <section class="hero" aria-label="Témoignages">
+      <div class="hero__overlay" aria-hidden="true"></div>
 
-      <div class="container background-content testimonials-hero__content">
+      <div class="container hero__inner">
 
         <div class="testimonials reveal" aria-label="Carrousel de témoignages">
+
           <div class="testimonials__top">
             <p class="hero__kicker">Avis</p>
             <h1 class="hero__title">Ils en parlent le mieux</h1>
+            <p class="hero__text" style="margin-top:6px;">
+              Quelques retours d’expérience sur l’éducation, les balades et la garde.
+            </p>
           </div>
 
+          <!-- CAROUSEL (app.js le gère automatiquement) -->
           <div class="t-carousel" data-carousel>
 
+            <!-- Flèches -->
             <button class="t-nav t-nav--prev" type="button" aria-label="Témoignage précédent" data-prev>‹</button>
             <button class="t-nav t-nav--next" type="button" aria-label="Témoignage suivant" data-next>›</button>
 
-            <div class="t-viewport" data-viewport>
-              <div class="t-track" data-track>
+            <!-- Viewport -->
+            <div class="tcar__viewport">
+              <!-- Track -->
+              <div class="tcar__track">
 
-                <!-- SLIDE 1 (réel paraphrasé) -->
-                <article class="t-slide" data-slide>
-                  <div class="t-media">
-                    <img src="assets/tem-1.jpg" alt="Photo du chien Oak (exemple)">
+                <!-- =========================
+                     SLIDE 1
+                     ========================= -->
+                <article class="tcar__slide">
+                  <!-- ✅ ICI tu mets la photo du chien -->
+                  <div class="tcar__media">
+                    <img src="assets/oak_img.jpeg" alt="Photo du chien Oak">
                   </div>
-                  <div class="t-card">
-                    <p class="t-title">Oak</p>
-                    <p class="t-text">
+
+                  <!-- ✅ ICI tu mets le texte du témoignage -->
+                  <div class="tcar__card">
+                    <p class="tcar__title">Oak</p>
+                    <p class="tcar__text">
                       Garde longue durée (15 jours) : Oak a passé de super “vacances”.
                       Nouvelles et vidéos régulières, organisation au top, et un compte-rendu
                       très utile après la garde. Recommandé sans hésiter.
@@ -89,54 +99,72 @@
                   </div>
                 </article>
 
-                <!-- SLIDE 2 (placeholder à remplacer) -->
-                <article class="t-slide" data-slide>
-                  <div class="t-media">
-                    <img src="assets/tem-2.jpg" alt="Photo témoignage (exemple)">
+                <!-- =========================
+                     SLIDE 2
+                     ========================= -->
+                <article class="tcar__slide">
+                  <div class="tcar__media">
+                    <!-- ✅ Photo -->
+                    <img src="assets/Polka_tem.jpeg" alt="Photo du chien Polka">
                   </div>
-                  <div class="t-card">
-                    <p class="t-title">[Nom / Chien]</p>
-                    <p class="t-text">
-                      [Colle ici le témoignage 2 depuis la page avis — texte court, lisible, pro.]
+
+                  <div class="tcar__card">
+                    <!-- ✅ Nom -->
+                    <p class="tcar__title">Polka</p>
+
+                    <!-- ✅ Texte -->
+                    <p class="tcar__text">
+                      Elodie est une éducatrice hors paire , très à l’écoute , attentive, avec de très bonnes connaissances sur le comportement des chiens . De plus elle garde notre chienne Polka ponctuellement. Bref le bonheur pour Polka et pour ses maîtres 👌. 
+                      Je vous la recommande vivement.
                     </p>
                   </div>
                 </article>
 
-                <!-- SLIDE 3 -->
-                <article class="t-slide" data-slide>
-                  <div class="t-media">
-                    <img src="assets/tem-3.jpg" alt="Photo témoignage (exemple)">
+                <!-- =========================
+                     SLIDE 3
+                     ========================= -->
+                <article class="tcar__slide">
+                  <div class="tcar__media">
+                    <img src="assets/roxie_img.jpeg" alt="Photo du chien Roxie">
                   </div>
-                  <div class="t-card">
-                    <p class="t-title">[Nom / Chien]</p>
-                    <p class="t-text">
-                      [Colle ici le témoignage 3.]
+
+                  <div class="tcar__card">
+                    <p class="tcar__title">Roxie</p>
+                    <p class="tcar__text">
+                      Ça fait environ deux ans que je fais appel aux services d'Elodie qui m'avait été recommandé par une amie. Et aucun regret, je confie Roxie les yeux fermés pour une heure de balade le jeudi en groupe. Élodie est aussi éducatrice canine. Cette double casquette permet d'avoir un rapport détaillé des comportements de ma chienne, des points d'amélioration s'il y a besoin. Et enfin, les groupes de balade sont de taille raisonnable. Je ne peux que la recommander !
                     </p>
                   </div>
                 </article>
 
-                <!-- SLIDE 4 -->
-                <article class="t-slide" data-slide>
-                  <div class="t-media">
-                    <img src="assets/tem-4.jpg" alt="Photo témoignage (exemple)">
+                <!-- =========================
+                     SLIDE 4
+                     ========================= -->
+                <article class="tcar__slide">
+                  <div class="tcar__media">
+                    <img src="assets/ida_tem.jpeg" alt="Photo du chien Ida">
                   </div>
-                  <div class="t-card">
-                    <p class="t-title">[Nom / Chien]</p>
-                    <p class="t-text">
-                      [Colle ici le témoignage 4.]
+
+                  <div class="tcar__card">
+                    <p class="tcar__title">Ida</p>
+                    <p class="tcar__text">
+                      We couldn't ask for a better support in Elodie. She is a training expert who has helped us improve our dog's behaviour when walking and when socialising with other dogs. She is kind, protective and caring with all her charges and we feel very confident sending Ida with her for walks. Elodie also looks after Ida when we take holidays, and Ida absolutely adores her! It is love!!
                     </p>
                   </div>
                 </article>
 
-                <!-- SLIDE 5 -->
-                <article class="t-slide" data-slide>
-                  <div class="t-media">
-                    <img src="assets/tem-5.jpg" alt="Photo témoignage (exemple)">
+                <!-- =========================
+                     SLIDE 5
+                     ========================= -->
+                <article class="tcar__slide">
+                  <div class="tcar__media">
+                    <img src="assets/Jin_tem.jpeg" alt="Photo du chien Jin">
                   </div>
-                  <div class="t-card">
-                    <p class="t-title">[Nom / Chien]</p>
-                    <p class="t-text">
-                      [Colle ici le témoignage 5.]
+
+                  <div class="tcar__card">
+                    <p class="tcar__title">Jin</p>
+                    <p class="tcar__text">
+                      Bonjour, cela fait maintenant plus de deux ans que notre chienne Jin, labrador, bénéficie deux fois par semaine de promenades collectives avec Elodie. Jin adore et nous aussi. Elodie est très attentive au bien-etre de Jin. Elle n‘hésite pas à nous signaler dés qu‘elle observe le moindre changement de
+comportement de Jin ou si elle voit quoi que ce soit qui ne va pas. Nous ne pouvons que chaleureusement recommander Elodie pour la garde ou la ballade de votre chien
                     </p>
                   </div>
                 </article>
@@ -144,13 +172,15 @@
               </div>
             </div>
 
-            <div class="t-dots" role="tablist" aria-label="Sélection de témoignage" data-dots></div>
+            <!-- Dots (app.js les génère automatiquement) -->
+            <div class="tcar__dots" aria-label="Sélection de témoignage"></div>
           </div>
 
           <div class="testimonials__cta">
             <a class="btn" href="contact.html">Me contacter</a>
             <a class="btn btn--ghost" href="garde.html">Voir la garde</a>
           </div>
+
         </div>
 
       </div>
@@ -164,97 +194,7 @@
 
   </div>
 
-  <script>
-    // année automatique
-    const y = document.getElementById("year");
-    if (y) y.textContent = new Date().getFullYear();
-
-    // reveal
-    const els = document.querySelectorAll(".reveal");
-    const io = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) {
-          e.target.classList.add("is-visible");
-          io.unobserve(e.target);
-        }
-      }
-    }, { threshold: 0.18 });
-    els.forEach(el => io.observe(el));
-
-    // carousel
-    (function () {
-      const root = document.querySelector("[data-carousel]");
-      if (!root) return;
-
-      const track = root.querySelector("[data-track]");
-      const slides = Array.from(root.querySelectorAll("[data-slide]"));
-      const btnPrev = root.querySelector("[data-prev]");
-      const btnNext = root.querySelector("[data-next]");
-      const dotsWrap = root.querySelector("[data-dots]");
-      const viewport = root.querySelector("[data-viewport]");
-
-      let index = 0;
-
-      // build dots
-      const dots = slides.map((_, i) => {
-        const b = document.createElement("button");
-        b.type = "button";
-        b.className = "t-dot";
-        b.setAttribute("role", "tab");
-        b.setAttribute("aria-label", `Aller au témoignage ${i + 1}`);
-        b.addEventListener("click", () => go(i));
-        dotsWrap.appendChild(b);
-        return b;
-      });
-
-      function clamp(i) {
-        if (i < 0) return slides.length - 1;
-        if (i >= slides.length) return 0;
-        return i;
-      }
-
-      function go(i) {
-        index = clamp(i);
-        track.style.transform = `translateX(${-index * 100}%)`;
-
-        dots.forEach((d, di) => d.classList.toggle("is-active", di === index));
-        btnPrev.disabled = slides.length <= 1;
-        btnNext.disabled = slides.length <= 1;
-      }
-
-      btnPrev?.addEventListener("click", () => go(index - 1));
-      btnNext?.addEventListener("click", () => go(index + 1));
-
-      // keyboard
-      root.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowLeft") go(index - 1);
-        if (e.key === "ArrowRight") go(index + 1);
-      });
-      root.tabIndex = 0;
-
-      // swipe (mobile)
-      let startX = 0, dx = 0, dragging = false;
-
-      viewport.addEventListener("pointerdown", (e) => {
-        dragging = true;
-        startX = e.clientX;
-        dx = 0;
-        viewport.setPointerCapture(e.pointerId);
-      });
-
-      viewport.addEventListener("pointermove", (e) => {
-        if (!dragging) return;
-        dx = e.clientX - startX;
-      });
-
-      viewport.addEventListener("pointerup", () => {
-        if (!dragging) return;
-        dragging = false;
-        if (Math.abs(dx) > 50) go(index + (dx < 0 ? 1 : -1));
-      });
-
-      go(0);
-    })();
-  </script>
+  <!-- ✅ Un seul script : ton app.js -->
+  <script src="app.js"></script>
 </body>
 </html>

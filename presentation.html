@@ -11,12 +11,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
 </head>
 
 <body class="page--presentation">
   <div class="page">
 
-    <!-- Décor feuillage -->
     <div class="leaves" aria-hidden="true">
       <img class="leaf tl" src="assets/leaf_transparent.png" alt="">
       <img class="leaf tr" src="assets/leaf_transparent.png" alt="">
@@ -24,8 +24,8 @@
       <img class="leaf br" src="assets/leaf_transparent.png" alt="">
     </div>
 
-    <!-- Trace de pattes -->
-    <div class="paw-trail" aria-hidden="true"></div>
+    <div class="paw-trail1" aria-hidden="true"></div>
+    <div class="paw-trail2" aria-hidden="true"></div>
 
     <header class="header">
       <div class="container header__inner">
@@ -50,27 +50,28 @@
       </div>
     </div>
 
-    <!-- HERO présentation (texte à gauche + photo cliente à droite) -->
-    <section class="hero hero--presentation" aria-label="Présentation">
+    <section class="hero" aria-label="Présentation">
       <div class="hero__overlay" aria-hidden="true"></div>
 
-      <div class="container hero__inner hero__inner--split">
-        <div class="hero__card hero__card--vertical reveal reveal--left">
-          <p class="hero__kicker">Qui je suis</p>
-          <h1 class="hero__title">Une approche respectueuse et personnalisée</h1>
-          <p class="hero__text">
-            J’accompagne les humains et leurs chiens dans la compréhension mutuelle, avec une éducation
-            bienveillante, adaptée à chaque situation.
-          </p>
+      <div class="container">
+        <div class="hero__inner hero__inner--split">
+          <div class="hero__card hero__card--vertical reveal reveal--left">
+            <p class="hero__kicker">Qui je suis</p>
+            <h1 class="hero__title">Une approche respectueuse et personnalisée</h1>
+            <p class="hero__text">
+              J’accompagne les humains et leurs chiens dans la compréhension mutuelle, avec une éducation
+              bienveillante, adaptée à chaque situation.
+            </p>
 
-          <div class="hero__actions">
-            <a class="btn" href="contact.html">Prendre rendez-vous</a>
-            <a class="btn btn--ghost" href="education.html">Voir l’éducation</a>
+            <div class="hero__actions">
+              <a class="btn" href="contact.html">Prendre rendez-vous</a>
+              <a class="btn btn--ghost" href="education.html">Voir l’éducation</a>
+            </div>
           </div>
-        </div>
 
-        <div class="hero__photo reveal reveal--right" aria-hidden="false">
-          <img src="assets/presentation-image.jpeg" alt="Éducatrice canine en extérieur">
+          <figure class="hero__media reveal reveal--right">
+            <img src="assets/presentation-image.jpeg" alt="Éducatrice canine en extérieur">
+          </figure>
         </div>
       </div>
     </section>
@@ -156,24 +157,5 @@
     </footer>
 
   </div>
-
-  <script>
-    const yearEl = document.getElementById("year");
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    const reveals = document.querySelectorAll(".reveal");
-    if (reveals.length) {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15 });
-
-      reveals.forEach(el => io.observe(el));
-    }
-  </script>
 </body>
 </html>
