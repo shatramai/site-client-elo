@@ -30,6 +30,10 @@
 
   /* HERO sizing (identique partout) */
   --hero-h: clamp(520px, 72vh, 900px);
+
+  /* ✅ réglage simple du centrage vertical */
+  --hero-pad-top: 22px;
+  --hero-pad-bottom: 22px;
 }
 
 *{ box-sizing: border-box; }
@@ -250,7 +254,7 @@ a{ color: inherit; text-decoration: none; }
 /* cadrage optionnel */
 .page--presentation .hero{ background-position: center 45%; }
 
-/* overlay léger (tu avais demandé de garder la photo plus “originale”) */
+/* overlay léger */
 .hero__overlay{
   position: absolute;
   inset: 0;
@@ -264,12 +268,20 @@ a{ color: inherit; text-decoration: none; }
   z-index: 2;
 }
 
+/* ✅ centrage vertical contrôlable sans toucher aux photos */
 .hero__inner{
   min-height: inherit;
   display: grid;
   place-items: center;
-  padding: 22px 0;
+  padding: var(--hero-pad-top) 0 var(--hero-pad-bottom);
 }
+
+/* ✅ tu veux “descendre” la card sur education / balades / garde */
+.page--education{ --hero-pad-top: 60px; --hero-pad-bottom: 22px; }
+.page--balades{ --hero-pad-top: 60px; --hero-pad-bottom: 22px; }
+.page--garde{ --hero-pad-top: 60px; --hero-pad-bottom: 22px; }
+/* home peut rester plus “haut” */
+.page--home{ --hero-pad-top: 22px; --hero-pad-bottom: 22px; }
 
 .hero__inner--split{
   place-items: stretch;
@@ -289,13 +301,14 @@ a{ color: inherit; text-decoration: none; }
   box-shadow: 0 16px 34px rgba(0,0,0,.12);
   backdrop-filter: blur(6px);
 
-  transform: translateY(-24px);
+  /* IMPORTANT: on ne touche pas au transform ici, reveal s'en charge */
+  transform: none;
+  margin: 0;
 }
 
 .hero__card--vertical{
   width: min(420px, 100%);
   justify-self: start;
-  transform: none;
 }
 
 .hero__kicker{
@@ -665,14 +678,12 @@ a{ color: inherit; text-decoration: none; }
 
 /* =====================================================
    TÉMOIGNAGES — version “propre” (cercle + capsule lisible)
-   (Scoped pour ne pas casser les autres pages)
    ===================================================== */
 .page--temoignages .testimonials{
   width: min(860px, 100%);
   margin: 0 auto;
 }
 
-/* capsule top lisible */
 .page--temoignages .testimonials__top{
   width: min(760px, 100%);
   margin: 0 auto 12px;
@@ -687,20 +698,6 @@ a{ color: inherit; text-decoration: none; }
   text-align: center;
 }
 
-.page--temoignages .testimonials__top .hero__kicker{
-  color: rgba(21,32,24,.70);
-}
-
-.page--temoignages .testimonials__top .hero__title{
-  margin-bottom: 6px;
-}
-
-.page--temoignages .testimonials__top .hero__text{
-  margin: 0;
-  color: rgba(21,32,24,.88);
-}
-
-/* carousel container */
 .page--temoignages .t-carousel{
   position: relative;
   border-radius: 18px;
@@ -711,35 +708,32 @@ a{ color: inherit; text-decoration: none; }
   box-shadow: 0 18px 42px rgba(0,0,0,.14);
   backdrop-filter: blur(6px);
 
+  width: 100%;
+  max-width: 860px;
   margin: 0 auto;
 }
 
-/* viewport */
 .page--temoignages .tcar__viewport{
+  width: 100%;
   overflow: hidden;
   touch-action: pan-y;
 }
 
-/* track */
 .page--temoignages .tcar__track{
-  display: flex;
   width: 100%;
-  transform: translateX(0);
+  display: flex;
   transition: transform .45s ease;
 }
 
-/* slide */
 .page--temoignages .tcar__slide{
   min-width: 100%;
+  width: 100%;
   padding: 18px;
-
   display: grid;
   gap: 12px;
-
-  justify-items: center; /* ✅ centre (corrige ton décalage) */
+  justify-items: center;
 }
 
-/* ✅ PHOTO EN GRAND CERCLE */
 .page--temoignages .tcar__media{
   width: clamp(220px, 42vw, 320px);
   height: clamp(220px, 42vw, 320px);
@@ -750,19 +744,16 @@ a{ color: inherit; text-decoration: none; }
   border: 4px solid rgba(255,255,255,.40);
   box-shadow: 0 18px 40px rgba(0,0,0,.18);
   background: rgba(255,255,255,.22);
-
-  margin: 0 auto;
 }
 
 .page--temoignages .tcar__media img{
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center; /* si un chien est coupé, tu peux ajuster via inline style */
+  object-position: center;
   display: block;
 }
 
-/* ✅ CARTE TEXTE */
 .page--temoignages .tcar__card{
   width: min(760px, 100%);
   margin: 0 auto;
@@ -781,7 +772,7 @@ a{ color: inherit; text-decoration: none; }
   margin: 0 0 6px;
   font-weight: 900;
   letter-spacing: .02em;
-  text-align: center; /* joli sous le cercle */
+  text-align: center;
 }
 
 .page--temoignages .tcar__text{
@@ -790,7 +781,6 @@ a{ color: inherit; text-decoration: none; }
   color: rgba(21,32,24,.90);
 }
 
-/* arrows */
 .page--temoignages .t-nav{
   position: absolute;
   top: 42%;
@@ -816,7 +806,6 @@ a{ color: inherit; text-decoration: none; }
 .page--temoignages .t-nav:hover{ transform: translateY(-50%) scale(1.03); }
 .page--temoignages .t-nav:disabled{ opacity: .45; cursor: default; }
 
-/* dots */
 .page--temoignages .tcar__dots{
   display: flex;
   justify-content: center;
@@ -848,68 +837,6 @@ a{ color: inherit; text-decoration: none; }
   flex-wrap: wrap;
   justify-content: center;
 }
-
-/* =====================================================
-   FIX DÉCALAGE À DROITE — TÉMOIGNAGES
-   À COLLER TOUT EN BAS DU CSS
-   ===================================================== */
-
-/* 1) Le hero center réellement son contenu */
-.page--temoignages .hero__inner{
-  place-items: center;
-}
-
-/* 2) Le wrapper testimonials ne doit JAMAIS être décalé */
-.page--temoignages .testimonials{
-  width: 100%;
-  max-width: 860px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* 3) Le bloc top (titre + texte) centré */
-.page--temoignages .testimonials__top{
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* 4) Le carousel doit être centré ET occuper la largeur dispo */
-.page--temoignages .t-carousel{
-  width: 100%;
-  max-width: 860px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* 5) Le viewport et le track doivent faire 100% (sinon translateX donne un “décalage”) */
-.page--temoignages .tcar__viewport{
-  width: 100%;
-  overflow: hidden;
-}
-
-.page--temoignages .tcar__track{
-  width: 100%;
-  display: flex;
-  justify-content: flex-start; /* track = slides en ligne */
-}
-
-/* 6) Chaque slide prend 100% et centre son contenu */
-.page--temoignages .tcar__slide{
-  width: 100%;
-  min-width: 100%;
-  margin: 0;
-  padding-left: 18px;
-  padding-right: 18px;
-  justify-items: center;
-}
-
-/* 7) Bonus anti-bug : aucune translation ou marge “fantôme” */
-.page--temoignages .tcar__media,
-.page--temoignages .tcar__card{
-  margin-left: auto;
-  margin-right: auto;
-}
-
 
 @media (min-width: 860px){
   .page--temoignages .tcar__slide{ padding: 20px; }
