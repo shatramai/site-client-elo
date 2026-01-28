@@ -76,7 +76,8 @@
       </div>
     </section>
 
-    <main class="main">
+    <!-- ✅ main-layer = permet au calque décoratif d'être "ancré" au main -->
+    <main class="main main-layer">
       <div class="container main__inner">
 
         <section class="section reveal">
@@ -146,6 +147,43 @@
             </div>
           </div>
         </section>
+
+      </div>
+
+      <!-- ✅ CALQUE DECORATIF (dans le MAIN, mais hors layout) -->
+      <div class="decor-layer" aria-hidden="true">
+
+        <!-- 🔧 ICI tu changes :
+             - src="..." (la photo)
+             - --d-x / --d-xr (gauche/droite)
+             - --d-y (hauteur)
+             - --d-size (taille)
+             - --d-pos (recadrage)
+        -->
+
+        <!-- Cercle gauche haut -->
+        <div class="decor-orbit"
+             style="--d-size: 210px; --d-x: +12px; --d-y: 40px; --d-pos: 50% 40%;">
+          <img src="assets/ida_tem.jpeg" alt="">
+        </div>
+
+        <!-- Cercle droite haut -->
+        <div class="decor-orbit"
+             style="--d-size: 170px; --d-xr: +25px; --d-y: 250px; --d-pos: center;">
+          <img src="assets/ida_tem.jpeg" alt="">
+        </div>
+
+        <!-- Cercle gauche milieu -->
+        <div class="decor-orbit" data-hide="md"
+             style="--d-size: 160px; --d-x: +75px; --d-y: 520px; --d-pos: 50% 30%;">
+          <img src="assets/ida_tem.jpeg" alt="">
+        </div>
+
+        <!-- Cercle droite bas -->
+        <div class="decor-orbit" data-hide="md"
+             style="--d-size: 220px; --d-xr: -65px; --d-y: 860px; --d-pos: 50% 35%;">
+          <img src="assets/dogs/pres-4.jpg" alt="">
+        </div>
 
       </div>
     </main>

@@ -301,7 +301,6 @@ a{ color: inherit; text-decoration: none; }
   box-shadow: 0 16px 34px rgba(0,0,0,.12);
   backdrop-filter: blur(6px);
 
-  /* IMPORTANT: on ne touche pas au transform ici, reveal s'en charge */
   transform: none;
   margin: 0;
 }
@@ -840,4 +839,61 @@ a{ color: inherit; text-decoration: none; }
 
 @media (min-width: 860px){
   .page--temoignages .tcar__slide{ padding: 20px; }
+}
+
+/* =====================================================
+   DECOR LAYER — PHOTOS EN CERCLES AUTOUR DU MAIN
+   ⚠️ Ne change pas la mise en page : position:absolute / pointer-events:none
+   ===================================================== */
+
+.main-layer{
+  position: relative; /* ancre le décor */
+  z-index: 2;
+}
+
+/* Calque qui couvre le contenu du main-layer */
+.decor-layer{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1; /* ✅ derrière les sections */
+}
+
+/* Un cercle décoratif (photo) */
+.decor-orbit{
+  position: absolute;
+
+  width: var(--d-size, 180px);
+  height: var(--d-size, 180px);
+  border-radius: 999px;
+  overflow: hidden;
+
+  border: 4px solid rgba(255,255,255,.45);
+  box-shadow: 0 18px 40px rgba(0,0,0,.14);
+  background: rgba(255,255,255,.18);
+
+  /* Position */
+  left: var(--d-x, auto);
+  right: var(--d-xr, auto);
+  top: var(--d-y, 0);
+
+  transform: translate(var(--d-tx, 0), var(--d-ty, 0));
+  opacity: var(--d-op, .95);
+}
+
+.decor-orbit img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--d-pos, center);
+  display: block;
+}
+
+/* Responsive: on en cache quelques-uns */
+@media (max-width: 900px){
+  .decor-orbit[data-hide="md"]{ display:none; }
+}
+
+@media (max-width: 620px){
+  .decor-layer{ display:none; }
 }
