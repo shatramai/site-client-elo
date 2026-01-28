@@ -16,6 +16,7 @@
 <body class="page--garde">
   <div class="page">
 
+    <!-- Feuilles -->
     <div class="leaves" aria-hidden="true">
       <img class="leaf tl" src="assets/leaf_transparent.png" alt="">
       <img class="leaf tr" src="assets/leaf_transparent.png" alt="">
@@ -23,9 +24,11 @@
       <img class="leaf br" src="assets/leaf_transparent.png" alt="">
     </div>
 
+    <!-- Pattes -->
     <div class="paw-trail1" aria-hidden="true"></div>
     <div class="paw-trail2" aria-hidden="true"></div>
 
+    <!-- Header -->
     <header class="header">
       <div class="container header__inner">
         <div class="logo">
@@ -34,6 +37,7 @@
       </div>
     </header>
 
+    <!-- Nav -->
     <div class="navwrap">
       <div class="container">
         <nav class="nav" aria-label="Navigation principale">
@@ -49,6 +53,7 @@
       </div>
     </div>
 
+    <!-- HERO -->
     <section class="hero" aria-label="Garde à domicile" style="--hero-bg: url('assets/forest.jpeg');">
       <div class="hero__overlay" aria-hidden="true"></div>
 
@@ -71,32 +76,27 @@
       </div>
     </section>
 
-    <main class="main">
+    <!-- MAIN -->
+    <main class="main main-layer">
       <div class="container main__inner">
 
+        <!-- La garde -->
         <section class="section reveal">
           <h2 class="section__title">La garde</h2>
 
           <div class="panel panel--tight">
             <p>
-              Je vous propose de prendre soin de votre chien pendant vos absences. Accueilli à mon domicile,
-              il vivra en vie de famille, avec mes chiens et moi, sans box, comme à la maison.
+              Je vous propose de prendre soin de votre chien pendant vos absences.
+              Accueilli à mon domicile, il vivra en vie de famille, sans box, comme à la maison.
             </p>
 
             <p>
-              Ses besoins physiques et mentaux seront pleinement respectés, avec des temps de repos adaptés
-              et une balade en forêt de deux heures chaque jour, permettant de générer une bonne fatigue.
+              Ses besoins physiques et mentaux seront respectés avec repos, sorties quotidiennes
+              et balades en forêt.
             </p>
 
             <p>
-              À la maison, un large choix d’objets de mastication (sabots de veau, corne de buffle, etc.)
-              sera à sa disposition, lui offrant détente, calme et apaisement.
-            </p>
-
-            <p>
-              Chaque chien étant unique, j’accorde une attention particulière à son individualité pour lui offrir
-              un séjour adapté. Je veille à respecter ses besoins spécifiques, qu’il s’agisse de son alimentation,
-              de ses soins (traitements, entretien...) ou de son confort, afin de lui offrir un séjour des plus sereins.
+              Mastication, confort et respect de ses habitudes pour un séjour serein.
             </p>
 
             <div class="actions">
@@ -106,6 +106,7 @@
           </div>
         </section>
 
+        <!-- Tarif -->
         <section class="section reveal">
           <h2 class="section__title">Tarif</h2>
 
@@ -119,20 +120,41 @@
               </header>
 
               <p class="price-card__text">
-                Accueil en vie de famille, sorties quotidiennes, mastication et respect des besoins spécifiques.
+                Accueil en vie de famille, sorties quotidiennes, mastication et soins.
               </p>
 
               <div class="price-card__actions">
                 <a class="btn" href="contact.html">Demander une place</a>
-                <a class="btn btn--ghost" href="contact.html">Conditions / infos</a>
+                <a class="btn btn--ghost" href="contact.html">Infos</a>
               </div>
             </article>
           </div>
         </section>
 
       </div>
+
+      <!-- ======================
+           CERClES DECORATIFS (2)
+           ====================== -->
+      <div class="decor-layer" aria-hidden="true">
+
+        <!-- Cercle gauche -->
+        <div class="decor-orbit"
+             style="--d-size: 200px; --d-x: +25px; --d-y: 120px;">
+          <img src="assets/dogs/garde-1.jpg" alt="">
+        </div>
+
+        <!-- Cercle droite -->
+        <div class="decor-orbit"
+             style="--d-size: 180px; --d-xr: +30px; --d-y: 420px;">
+          <img src="assets/dogs/garde-2.jpg" alt="">
+        </div>
+
+      </div>
+
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
       <div class="container footer__inner">
         <p class="footer__text">© <span id="year"></span> Amitié Canine — Éducateur canin comportementaliste</p>
@@ -144,3 +166,4 @@
   <script src="app.js"></script>
 </body>
 </html>
+

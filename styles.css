@@ -671,6 +671,18 @@ a{ color: inherit; text-decoration: none; }
   gap: 10px;
 }
 
+/* Centrer une seule carte quand pricing n'a qu'un élément */
+.pricing:has(.price-card:only-child){
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.pricing:has(.price-card:only-child) .price-card{
+  max-width: 480px;
+  width: 100%;
+}
+
+
 @media (max-width: 860px){
   .pricing{ grid-template-columns: 1fr; }
 }
