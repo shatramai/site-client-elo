@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galerie — Amitié Canine</title>
+  <meta name="description" content="Galerie photos — Amitié Canine. Moments d’éducation, balades et garde." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+
+<body class="page--galerie">
+  <div class="page">
+
+    <!-- FEUILLES -->
+    <div class="leaves" aria-hidden="true">
+      <img class="leaf tl" src="assets/leaf_transparent.png" alt="">
+      <img class="leaf tr" src="assets/leaf_transparent.png" alt="">
+    </div>
+
+    <div class="paw-trail1" aria-hidden="true"></div>
+    <div class="paw-trail2" aria-hidden="true"></div>
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container header__inner">
+        <div class="logo">
+          <img src="assets/logo-banniere.png" alt="Amitié Canine">
+        </div>
+      </div>
+    </header>
+
+    <!-- NAV -->
+    <div class="navwrap">
+      <div class="container">
+        <nav class="nav">
+          <a class="nav__link" href="index.html">Accueil</a>
+          <a class="nav__link" href="presentation.html">Présentation</a>
+          <a class="nav__link" href="education.html">Éducation</a>
+          <a class="nav__link" href="balades.html">Balades</a>
+          <a class="nav__link" href="garde.html">Garde</a>
+          <a class="nav__link" href="temoignages.html">Témoignages</a>
+          <a class="nav__link is-active" href="galerie.html">Galerie</a>
+          <a class="nav__link" href="localisation.html">Localisation</a>
+          <a class="nav__link" href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <main class="main">
+  <div class="container main__inner">
+
+    <section class="section reveal">
+        <h1 class="section__title">Galerie photos</h1>
+        <p style="text-align:center; max-width:720px; margin:0 auto 20px; color:rgba(21,32,24,.75);">
+        Moments d’éducation, balades, garde et instants de complicité.
+        </p>
+    </section>
+
+    <!-- ÉDUCATION -->
+    <section class="section reveal">
+      <h2 class="section__title">Éducation</h2>
+
+      <div class="gallery-grid">
+        <img src="assets/Jin_tem.jpeg" alt="">
+        <img src="assets/Polka_tem.jpeg" alt="">
+        <img src="assets/maya_img.jpeg" alt="">
+      </div>
+    </section>
+
+    <!-- BALADES -->
+    <section class="section reveal">
+      <h2 class="section__title">Balades</h2>
+
+      <div class="gallery-grid">
+        <img src="assets/gallery/balade1.jpg" alt="">
+        <img src="assets/gallery/balade2.jpg" alt="">
+        <img src="assets/gallery/balade3.jpg" alt="">
+        <img src="assets/gallery/balade4.jpg" alt="">
+      </div>
+    </section>
+
+    <!-- GARDE -->
+    <section class="section reveal">
+      <h2 class="section__title">Garde</h2>
+
+      <div class="gallery-grid">
+        <img src="assets/gallery/garde1.jpg" alt="">
+        <img src="assets/gallery/garde2.jpg" alt="">
+        <img src="assets/gallery/garde3.jpg" alt="">
+      </div>
+    </section>
+
+  </div>
+</main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p class="footer__text">© <span id="year"></span> Amitié Canine</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    /* Lightbox simple */
+    document.querySelectorAll(".gallery-grid img").forEach(img=>{
+      img.addEventListener("click",()=>{
+        const lb=document.createElement("div");
+        lb.className="lightbox";
+        lb.innerHTML=`<img src="${img.src}">`;
+        lb.onclick=()=>lb.remove();
+        document.body.appendChild(lb);
+      });
+    });
+  </script>
+
+</body>
+</html>
