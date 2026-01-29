@@ -151,8 +151,8 @@ a{ color: inherit; text-decoration: none; }
 
 /* LOGO */
 .logo{
-  width: 650px;
-  height: 170px;
+  width: 1050px;
+  height: 100px;
   margin: 0 auto;
 
   background: var(--accent-2);
@@ -161,8 +161,10 @@ a{ color: inherit; text-decoration: none; }
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between; /* ⬅️ clé */
+  padding: 0 28px;
 }
+
 
 .logo img{
   max-width: 92%;
