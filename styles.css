@@ -28,10 +28,10 @@
   --hero-bg-garde: url("assets/img_ban2.jpeg");
   --hero-bg-temoignages: url("assets/forest.jpeg");
 
-  /* HERO sizing (identique partout) */
+  /* HERO sizing */
   --hero-h: clamp(520px, 72vh, 900px);
 
-  /* ✅ réglage simple du centrage vertical */
+  /* centrage vertical */
   --hero-pad-top: 22px;
   --hero-pad-bottom: 22px;
 }
@@ -95,7 +95,7 @@ a{ color: inherit; text-decoration: none; }
 .leaf.br{ display:none; }
 
 /* =========================
-   PATTES (tes vraies classes)
+   PATTES
    ========================= */
 .paw-trail1{
   position: absolute;
@@ -149,7 +149,6 @@ a{ color: inherit; text-decoration: none; }
   gap: 10px;
 }
 
-
 /* LOGO */
 .logo{
   width: min(var(--max), calc(100% - 40px));
@@ -166,8 +165,6 @@ a{ color: inherit; text-decoration: none; }
   padding: 0 28px;
 }
 
-
-
 .logo img{
   max-width: 92%;
   max-height: 92%;
@@ -176,46 +173,37 @@ a{ color: inherit; text-decoration: none; }
   display: block;
 }
 
-/* =========================
-   LOGO — responsive (sur ta base)
-   ========================= */
-
-/* Tablette */
+/* LOGO responsive (sur ta base) */
 @media (max-width: 900px){
   .logo{
     height: 92px;
     padding: 0 18px;
     border-radius: 14px;
   }
-
   .logo img{
     max-width: 90%;
     max-height: 90%;
   }
 }
 
-/* Mobile */
 @media (max-width: 620px){
   .logo{
     height: 78px;
     padding: 0 14px;
     border-radius: 14px;
   }
-
   .logo img{
     max-width: 88%;
     max-height: 88%;
   }
 }
 
-/* Très petit mobile */
 @media (max-width: 420px){
   .logo{
     height: 70px;
     padding: 0 12px;
     border-radius: 12px;
   }
-
   .logo img{
     max-width: 86%;
     max-height: 86%;
@@ -301,10 +289,8 @@ a{ color: inherit; text-decoration: none; }
   background-repeat: no-repeat;
 }
 
-/* cadrage optionnel */
 .page--presentation .hero{ background-position: center 45%; }
 
-/* overlay léger */
 .hero__overlay{
   position: absolute;
   inset: 0;
@@ -318,7 +304,6 @@ a{ color: inherit; text-decoration: none; }
   z-index: 2;
 }
 
-/* ✅ centrage vertical contrôlable sans toucher aux photos */
 .hero__inner{
   min-height: inherit;
   display: grid;
@@ -326,11 +311,10 @@ a{ color: inherit; text-decoration: none; }
   padding: var(--hero-pad-top) 0 var(--hero-pad-bottom);
 }
 
-/* ✅ tu veux “descendre” la card sur education / balades / garde */
+/* descendre la card sur certaines pages */
 .page--education{ --hero-pad-top: 60px; --hero-pad-bottom: 22px; }
 .page--balades{ --hero-pad-top: 60px; --hero-pad-bottom: 22px; }
 .page--garde{ --hero-pad-top: 60px; --hero-pad-bottom: 22px; }
-/* home peut rester plus “haut” */
 .page--home{ --hero-pad-top: 22px; --hero-pad-bottom: 22px; }
 
 .hero__inner--split{
@@ -340,7 +324,6 @@ a{ color: inherit; text-decoration: none; }
   gap: 24px;
 }
 
-/* HERO CARD */
 .hero__card{
   width: min(620px, 100%);
   background: rgba(255,255,255,.76);
@@ -388,7 +371,6 @@ a{ color: inherit; text-decoration: none; }
   gap: 10px;
 }
 
-/* media (photo côté présentation) */
 .hero__media{
   justify-self: end;
   display: flex;
@@ -620,11 +602,6 @@ a{ color: inherit; text-decoration: none; }
     --leaf-inset: 70px;
   }
 
-  .logo{
-    width: 90%;
-    height: 120px;
-  }
-
   .hero__title{ font-size: 28px; }
 
   .hero__inner--split{
@@ -726,19 +703,18 @@ a{ color: inherit; text-decoration: none; }
   grid-template-columns: 1fr;
   justify-items: center;
 }
-
 .pricing:has(.price-card:only-child) .price-card{
   max-width: 480px;
   width: 100%;
 }
-
 
 @media (max-width: 860px){
   .pricing{ grid-template-columns: 1fr; }
 }
 
 /* =====================================================
-   TÉMOIGNAGES — version “propre” (cercle + capsule lisible)
+   TÉMOIGNAGES
+   (on garde ton style, + une petite sécurité)
    ===================================================== */
 .page--temoignages .testimonials{
   width: min(860px, 100%);
@@ -774,6 +750,7 @@ a{ color: inherit; text-decoration: none; }
   margin: 0 auto;
 }
 
+/* ✅ important pour éviter des décalages */
 .page--temoignages .tcar__viewport{
   width: 100%;
   overflow: hidden;
@@ -784,6 +761,7 @@ a{ color: inherit; text-decoration: none; }
   width: 100%;
   display: flex;
   transition: transform .45s ease;
+  will-change: transform;
 }
 
 .page--temoignages .tcar__slide{
@@ -905,23 +883,19 @@ a{ color: inherit; text-decoration: none; }
 
 /* =====================================================
    DECOR LAYER — PHOTOS EN CERCLES AUTOUR DU MAIN
-   ⚠️ Ne change pas la mise en page : position:absolute / pointer-events:none
    ===================================================== */
-
 .main-layer{
-  position: relative; /* ancre le décor */
+  position: relative;
   z-index: 2;
 }
 
-/* Calque qui couvre le contenu du main-layer */
 .decor-layer{
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 1; /* ✅ derrière les sections */
+  z-index: 1;
 }
 
-/* Un cercle décoratif (photo) */
 .decor-orbit{
   position: absolute;
 
@@ -934,7 +908,6 @@ a{ color: inherit; text-decoration: none; }
   box-shadow: 0 18px 40px rgba(0,0,0,.14);
   background: rgba(255,255,255,.18);
 
-  /* Position */
   left: var(--d-x, auto);
   right: var(--d-xr, auto);
   top: var(--d-y, 0);
@@ -951,67 +924,16 @@ a{ color: inherit; text-decoration: none; }
   display: block;
 }
 
-/* Responsive: on en cache quelques-uns */
 @media (max-width: 900px){
   .decor-orbit[data-hide="md"]{ display:none; }
 }
-
 @media (max-width: 620px){
   .decor-layer{ display:none; }
 }
 
-
 /* =========================
-   GALERIE
-========================= */
-
-.page--galerie{ --hero-bg: url("assets/forest.jpeg"); }
-
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-  gap:14px;
-}
-
-.gallery-grid img{
-  width:100%;
-  height:240px;
-  object-fit:cover;
-  border-radius:16px;
-  cursor:pointer;
-
-  border:4px solid rgba(255,255,255,.35);
-  box-shadow:0 12px 28px rgba(0,0,0,.15);
-
-  transition:transform .2s ease, box-shadow .2s ease;
-}
-
-.gallery-grid img:hover{
-  transform:translateY(-3px) scale(1.02);
-  box-shadow:0 18px 40px rgba(0,0,0,.22);
-}
-
-/* Lightbox */
-
-.lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.75);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
-  cursor:pointer;
-}
-
-.lightbox img{
-  max-width:90vw;
-  max-height:90vh;
-  border-radius:18px;
-  box-shadow:0 20px 60px rgba(0,0,0,.6);
-}
-
-/* Galerie sans image de fond */
+   GALERIE (dédupliquée)
+   ========================= */
 .page--galerie{
   --hero-bg: none;
 }
@@ -1020,10 +942,9 @@ a{ color: inherit; text-decoration: none; }
   background: var(--bg);
 }
 
-
-/* =========================
-   GALERIE
-========================= */
+.page--galerie .section{
+  padding-top: 28px;
+}
 
 .gallery-grid{
   display: grid;
@@ -1049,10 +970,6 @@ a{ color: inherit; text-decoration: none; }
   box-shadow: 0 18px 36px rgba(0,0,0,.22);
 }
 
-/* =========================
-   LIGHTBOX
-========================= */
-
 .lightbox{
   position: fixed;
   inset: 0;
@@ -1071,6 +988,81 @@ a{ color: inherit; text-decoration: none; }
   box-shadow: 0 20px 60px rgba(0,0,0,.4);
 }
 
-.page--galerie .section{
-  padding-top: 28px;
+/* =========================================
+   TÉMOIGNAGES — FIX TRACK + MOBILE FRIENDLY
+   (à coller tout en bas)
+   ========================================= */
+
+/* Fix structure : slides = 100% du viewport, pas de wrap */
+.page--temoignages .tcar__track{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.page--temoignages .tcar__slide{
+  flex: 0 0 100%;
+  min-width: 100%;
+}
+
+/* Mobile : format plus lisible */
+@media (max-width: 600px){
+  /* évite le gros “trou” du hero sur mobile */
+  .page--temoignages .hero{
+    min-height: unset;
+    padding: 12px 0 18px;
+  }
+
+  .page--temoignages .testimonials__top{
+    width: 100%;
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .page--temoignages .tcar__slide{
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .page--temoignages .tcar__media{
+    width: 170px;
+    height: 170px;
+    border-width: 3px;
+  }
+
+  .page--temoignages .tcar__card{
+    width: 100%;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .page--temoignages .tcar__title{
+    font-size: 16px;
+  }
+
+  .page--temoignages .tcar__text{
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  /* flèches en bas (plus “app-like”) */
+  .page--temoignages .t-nav{
+    top: auto;
+    bottom: 54px;
+    transform: none;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .page--temoignages .t-nav--prev{ left: 10px; }
+  .page--temoignages .t-nav--next{ right: 10px; }
+
+  .page--temoignages .tcar__dots{
+    gap: 10px;
+  }
+
+  .page--temoignages .tcar__dots button{
+    width: 12px;
+    height: 12px;
+  }
 }
