@@ -1066,3 +1066,17 @@ a{ color: inherit; text-decoration: none; }
     height: 12px;
   }
 }
+
+/* =========================================
+   TÉMOIGNAGES — FIX DÉCALAGE (structure)
+   ========================================= */
+.page--temoignages .tcar__track{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.page--temoignages .tcar__slide{
+  flex: 0 0 100%;
+  min-width: 100%;
+}
+

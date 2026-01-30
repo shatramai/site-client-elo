@@ -31,10 +31,7 @@
 })();
 
 // ===============================
-// Carousel Témoignages (FIX mobile + FIX décalage)
-// ===============================
-// ===============================
-// Carousel Témoignages (ROBUSTE)
+// Carousel Témoignages (ROBUSTE %)
 // ===============================
 (function testimonialsCarousel() {
   const root = document.querySelector("[data-carousel]");
@@ -50,37 +47,16 @@
   if (!viewport || !track || slides.length === 0) return;
 
   let index = 0;
-  let slideW = 0;
 
-  function measure() {
-    slideW = viewport.getBoundingClientRect().width || 0;
-
-    // ✅ important : le track doit faire N * largeur viewport
-    track.style.width = `${slides.length * slideW}px`;
-
-    // ✅ et chaque slide doit faire exactement slideW
-    slides.forEach((s) => {
-      s.style.width = `${slideW}px`;
-      s.style.flex = `0 0 ${slideW}px`;
-    });
-  }
-
-  function applyTransform(px, animate = true) {
-    track.style.transition = animate ? "transform .45s ease" : "none";
-    track.style.transform = `translate3d(${px}px,0,0)`;
-  }
-
-  function updateDots() {
-    if (!dotsWrap) return;
-    const dots = Array.from(dotsWrap.querySelectorAll("button"));
-    dots.forEach((d, di) => d.classList.toggle("is-active", di === index));
-  }
-
-  function setActive(i, animate = true) {
+  function setActive(i, { animate = true } = {}) {
     index = (i + slides.length) % slides.length;
-    measure();
-    applyTransform(-index * slideW, animate);
-    updateDots();
+    track.style.transition = animate ? "transform .45s ease" : "none";
+    track.style.transform = `translateX(${-index * 100}%)`;
+
+    if (dotsWrap) {
+      const dots = Array.from(dotsWrap.querySelectorAll("button"));
+      dots.forEach((d, di) => d.classList.toggle("is-active", di === index));
+    }
   }
 
   // Build dots
@@ -98,46 +74,45 @@
   prevBtn?.addEventListener("click", () => setActive(index - 1));
   nextBtn?.addEventListener("click", () => setActive(index + 1));
 
-  window.addEventListener("resize", () => setActive(index, false));
-
-  // Swipe
+  // Swipe (mobile) basé sur la largeur du viewport (stable)
   let startX = 0;
   let dx = 0;
   let dragging = false;
 
-  track.addEventListener("pointerdown", (e) => {
+  viewport.addEventListener("pointerdown", (e) => {
     dragging = true;
     startX = e.clientX;
     dx = 0;
-
-    measure();
     track.style.transition = "none";
-    track.setPointerCapture(e.pointerId);
+    viewport.setPointerCapture(e.pointerId);
   });
 
-  track.addEventListener("pointermove", (e) => {
+  viewport.addEventListener("pointermove", (e) => {
     if (!dragging) return;
     dx = e.clientX - startX;
-    applyTransform(-index * slideW + dx, false);
+
+    const w = viewport.getBoundingClientRect().width || 1;
+    const pct = (dx / w) * 100;
+    track.style.transform = `translateX(calc(${-index * 100}% + ${pct}%))`;
   });
 
   function endDrag() {
     if (!dragging) return;
     dragging = false;
 
-    const threshold = Math.min(80, slideW * 0.2);
-    if (Math.abs(dx) > threshold) {
-      setActive(index + (dx < 0 ? 1 : -1), true);
+    const w = viewport.getBoundingClientRect().width || 1;
+    const thresholdPx = Math.min(80, w * 0.2);
+
+    if (Math.abs(dx) > thresholdPx) {
+      setActive(index + (dx < 0 ? 1 : -1));
     } else {
-      setActive(index, true);
+      setActive(index);
     }
   }
 
-  track.addEventListener("pointerup", endDrag);
-  track.addEventListener("pointercancel", endDrag);
+  viewport.addEventListener("pointerup", endDrag);
+  viewport.addEventListener("pointercancel", endDrag);
 
-  // init
-  measure();
-  setActive(0, false);
+  // Init (après layout)
+  requestAnimationFrame(() => setActive(0, { animate: false }));
 })();
-
