@@ -25,7 +25,7 @@
   --hero-bg-presentation: url("assets/cascade.jpeg");
   --hero-bg-education: url("assets/img_ban.jpeg");
   --hero-bg-balades: url("assets/cara_ban.jpeg");
-  --hero-bg-garde: url("assets/balade-ban.jpeg");
+  --hero-bg-garde: url("assets/img_ban2.jpeg");
   --hero-bg-temoignages: url("assets/forest.jpeg");
 
   /* HERO sizing (identique partout) */
@@ -149,9 +149,10 @@ a{ color: inherit; text-decoration: none; }
   gap: 10px;
 }
 
+
 /* LOGO */
 .logo{
-  width: 1050px;
+  width: min(var(--max), calc(100% - 40px));
   height: 100px;
   margin: 0 auto;
 
@@ -161,9 +162,10 @@ a{ color: inherit; text-decoration: none; }
 
   display: flex;
   align-items: center;
-  justify-content: space-between; /* ⬅️ clé */
+  justify-content: space-between;
   padding: 0 28px;
 }
+
 
 
 .logo img{
@@ -172,6 +174,52 @@ a{ color: inherit; text-decoration: none; }
   height: auto;
   width: auto;
   display: block;
+}
+
+/* =========================
+   LOGO — responsive (sur ta base)
+   ========================= */
+
+/* Tablette */
+@media (max-width: 900px){
+  .logo{
+    height: 92px;
+    padding: 0 18px;
+    border-radius: 14px;
+  }
+
+  .logo img{
+    max-width: 90%;
+    max-height: 90%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 620px){
+  .logo{
+    height: 78px;
+    padding: 0 14px;
+    border-radius: 14px;
+  }
+
+  .logo img{
+    max-width: 88%;
+    max-height: 88%;
+  }
+}
+
+/* Très petit mobile */
+@media (max-width: 420px){
+  .logo{
+    height: 70px;
+    padding: 0 12px;
+    border-radius: 12px;
+  }
+
+  .logo img{
+    max-width: 86%;
+    max-height: 86%;
+  }
 }
 
 /* =========================
