@@ -594,7 +594,7 @@ a{ color: inherit; text-decoration: none; }
 }
 
 /* =========================
-   RESPONSIVE
+   RESPONSIVE GLOBAL
    ========================= */
 @media (max-width: 900px){
   :root{
@@ -713,8 +713,7 @@ a{ color: inherit; text-decoration: none; }
 }
 
 /* =====================================================
-   TÉMOIGNAGES
-   (on garde ton style, + une petite sécurité)
+   TÉMOIGNAGES — BASE (1 seule version)
    ===================================================== */
 .page--temoignages .testimonials{
   width: min(860px, 100%);
@@ -750,7 +749,7 @@ a{ color: inherit; text-decoration: none; }
   margin: 0 auto;
 }
 
-/* ✅ important pour éviter des décalages */
+/* structure robuste (anti décalage) */
 .page--temoignages .tcar__viewport{
   width: 100%;
   overflow: hidden;
@@ -758,16 +757,19 @@ a{ color: inherit; text-decoration: none; }
 }
 
 .page--temoignages .tcar__track{
-  width: 100%;
   display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
   transition: transform .45s ease;
   will-change: transform;
 }
 
 .page--temoignages .tcar__slide{
+  flex: 0 0 100%;
   min-width: 100%;
   width: 100%;
   padding: 18px;
+
   display: grid;
   gap: 12px;
   justify-items: center;
@@ -882,7 +884,109 @@ a{ color: inherit; text-decoration: none; }
 }
 
 /* =====================================================
+   TÉMOIGNAGES — MODE MOBILE DÉDIÉ (le tien)
+   ===================================================== */
+@media (max-width: 600px){
+
+  /* 1) On enlève les contraintes du hero (plus de photo, plus de hauteur imposée) */
+  .page--temoignages{
+    --hero-h: auto;
+    --hero-pad-top: 0px;
+    --hero-pad-bottom: 0px;
+  }
+
+  .page--temoignages .hero{
+    background: var(--bg) !important;
+    background-image: none !important;
+    min-height: unset !important;
+    margin: 12px 0 18px;
+    border-top: 0;
+    border-bottom: 0;
+    overflow: visible;
+  }
+
+  .page--temoignages .hero__overlay{ display: none; }
+
+  /* 2) Le conteneur du hero ne doit pas "centrer" bizarrement */
+  .page--temoignages .hero__inner{
+    display: block;
+    padding: 0;
+  }
+
+  /* 3) Bloc global : full width */
+  .page--temoignages .testimonials{
+    width: 100%;
+    margin: 0;
+  }
+
+  /* Top card (titre) : plus compact */
+  .page--temoignages .testimonials__top{
+    width: 100%;
+    margin: 0 0 12px;
+    padding: 12px 12px;
+    border-radius: 16px;
+  }
+
+  /* 4) Carrousel : pleine largeur, pas de max-width */
+  .page--temoignages .t-carousel{
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    border-radius: 16px;
+  }
+
+  /* 5) Slides : compact */
+  .page--temoignages .tcar__slide{
+    padding: 12px;
+    gap: 10px;
+  }
+
+  /* Photo : plus petite, centrée */
+  .page--temoignages .tcar__media{
+    width: 180px;
+    height: 180px;
+    border-width: 3px;
+  }
+
+  /* Texte : lisible */
+  .page--temoignages .tcar__card{
+    width: 100%;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .page--temoignages .tcar__title{ font-size: 16px; }
+
+  .page--temoignages .tcar__text{
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  /* 6) Flèches : en bas */
+  .page--temoignages .t-nav{
+    top: auto;
+    bottom: 54px;
+    transform: none;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .page--temoignages .t-nav--prev{ left: 10px; }
+  .page--temoignages .t-nav--next{ right: 10px; }
+  .page--temoignages .t-nav:hover{ transform: none; }
+
+  /* Dots : un peu plus gros */
+  .page--temoignages .tcar__dots{ gap: 10px; }
+  .page--temoignages .tcar__dots button{
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* =====================================================
    DECOR LAYER — PHOTOS EN CERCLES AUTOUR DU MAIN
+   + FIX cadrage/rotation/exif
    ===================================================== */
 .main-layer{
   position: relative;
@@ -919,10 +1023,23 @@ a{ color: inherit; text-decoration: none; }
 .decor-orbit img{
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: var(--d-pos, center);
   display: block;
+
+  object-fit: cover;
+
+  /* ✅ on utilise TES variables séparées */
+  object-position: var(--d-pos-x, 50%) var(--d-pos-y, 50%);
+
+  /* EXIF (si jamais) */
+  image-orientation: from-image;
+
+  /* rotation/zoom par variables (optionnel) */
+  transform: rotate(var(--d-rot, 0deg)) scale(var(--d-zoom, 1));
+  transform-origin: center;
 }
+
+
+
 
 @media (max-width: 900px){
   .decor-orbit[data-hide="md"]{ display:none; }
@@ -931,20 +1048,15 @@ a{ color: inherit; text-decoration: none; }
   .decor-layer{ display:none; }
 }
 
+
 /* =========================
    GALERIE (dédupliquée)
    ========================= */
-.page--galerie{
-  --hero-bg: none;
-}
+.page--galerie{ --hero-bg: none; }
 
-.page--galerie .hero{
-  background: var(--bg);
-}
+.page--galerie .hero{ background: var(--bg); }
 
-.page--galerie .section{
-  padding-top: 28px;
-}
+.page--galerie .section{ padding-top: 28px; }
 
 .gallery-grid{
   display: grid;
@@ -988,217 +1100,50 @@ a{ color: inherit; text-decoration: none; }
   box-shadow: 0 20px 60px rgba(0,0,0,.4);
 }
 
-/* =========================================
-   TÉMOIGNAGES — FIX TRACK + MOBILE FRIENDLY
-   (à coller tout en bas)
-   ========================================= */
+/* =====================================================
+   BALADES — recadrage photo + card à droite + card plus carrée
+   ===================================================== */
 
-/* Fix structure : slides = 100% du viewport, pas de wrap */
-.page--temoignages .tcar__track{
-  display: flex;
-  flex-wrap: nowrap;
+/* 1) Remonter légèrement la photo (vertical) */
+.page--balades .hero{
+  background-position: center 50%; /* plus petit = plus haut (ex: 30% => encore + haut) */
 }
 
-.page--temoignages .tcar__slide{
-  flex: 0 0 100%;
-  min-width: 100%;
+/* 2) Mettre la card plus à droite */
+.page--balades .hero__inner{
+  justify-items: end;     /* au lieu de center */
+  padding-right: 24px;    /* petit espace avec le bord */
 }
 
-/* Mobile : format plus lisible */
-@media (max-width: 600px){
-  /* évite le gros “trou” du hero sur mobile */
-  .page--temoignages .hero{
-    min-height: unset;
-    padding: 12px 0 18px;
-  }
+/* 3) Card plus “carrée” (moins large) */
+.page--balades .hero__card{
+  width: min(460px, 100%); /* avant: 620px => plus compact */
+  padding: 18px 18px;
+  transform: translate(-50px,110px);
 
-  .page--temoignages .testimonials__top{
-    width: 100%;
-    padding: 12px;
-    border-radius: 16px;
-  }
-
-  .page--temoignages .tcar__slide{
-    padding: 12px;
-    gap: 10px;
-  }
-
-  .page--temoignages .tcar__media{
-    width: 170px;
-    height: 170px;
-    border-width: 3px;
-  }
-
-  .page--temoignages .tcar__card{
-    width: 100%;
-    padding: 12px;
-    border-radius: 14px;
-  }
-
-  .page--temoignages .tcar__title{
-    font-size: 16px;
-  }
-
-  .page--temoignages .tcar__text{
-    font-size: 14px;
-    line-height: 1.55;
-  }
-
-  /* flèches en bas (plus “app-like”) */
-  .page--temoignages .t-nav{
-    top: auto;
-    bottom: 54px;
-    transform: none;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
-
-  .page--temoignages .t-nav--prev{ left: 10px; }
-  .page--temoignages .t-nav--next{ right: 10px; }
-
-  .page--temoignages .tcar__dots{
-    gap: 10px;
-  }
-
-  .page--temoignages .tcar__dots button{
-    width: 12px;
-    height: 12px;
-  }
 }
 
-/* =========================================
-   TÉMOIGNAGES — FIX DÉCALAGE (structure)
-   ========================================= */
-.page--temoignages .tcar__track{
-  display: flex;
-  flex-wrap: nowrap;
+/* Option: resserrer un peu le texte si besoin */
+.page--balades .hero__text{
+  max-width: 42ch; /* limite la ligne pour un rendu + bloc */
 }
 
-.page--temoignages .tcar__slide{
-  flex: 0 0 100%;
-  min-width: 100%;
-}
-
-/* =========================================
-   TÉMOIGNAGES — MODE MOBILE DÉDIÉ
-   (à coller tout en bas)
-   ========================================= */
-@media (max-width: 600px){
-
-  /* 1) On enlève les contraintes du hero (plus de photo, plus de hauteur imposée) */
-  .page--temoignages{
-    --hero-h: auto;
-    --hero-pad-top: 0px;
-    --hero-pad-bottom: 0px;
+/* =====================================================
+   RESPONSIVE — on revient centré sur tablette/mobile
+   ===================================================== */
+@media (max-width: 900px){
+  .page--balades .hero{
+    background-position: center 50%;
   }
-
-  .page--temoignages .hero{
-    background: var(--bg) !important;
-    background-image: none !important;
-    min-height: unset !important;
-    margin: 12px 0 18px;
-    border-top: 0;
-    border-bottom: 0;
-    overflow: visible; /* important */
-  }
-
-  .page--temoignages .hero__overlay{
-    display: none;
-  }
-
-  /* 2) Le conteneur du hero ne doit pas "centrer" bizarrement */
-  .page--temoignages .hero__inner{
-    display: block;
-    padding: 0;
-  }
-
-  /* 3) Bloc global : full width */
-  .page--temoignages .testimonials{
-    width: 100%;
-    margin: 0;
-  }
-
-  /* Top card (titre) : plus compact */
-  .page--temoignages .testimonials__top{
-    width: 100%;
-    margin: 0 0 12px;
-    padding: 12px 12px;
-    border-radius: 16px;
-  }
-
-  /* 4) Carrousel : pleine largeur, pas de max-width */
-  .page--temoignages .t-carousel{
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    border-radius: 16px;
-  }
-
-  /* 5) Track/slides : structure robuste */
-  .page--temoignages .tcar__viewport{
-    width: 100%;
-    overflow: hidden;
-    touch-action: pan-y;
-  }
-
-  .page--temoignages .tcar__track{
-    display: flex;
-    flex-wrap: nowrap;
-    width: 100%;
-  }
-
-  .page--temoignages .tcar__slide{
-    flex: 0 0 100%;
-    min-width: 100%;
-    padding: 12px;
-    gap: 10px;
+  .page--balades .hero__inner{
     justify-items: center;
+    padding-right: 0;
   }
-
-  /* Photo : plus petite, centrée */
-  .page--temoignages .tcar__media{
-    width: 180px;
-    height: 180px;
-    border-width: 3px;
+  .page--balades .hero__card{
+    width: min(620px, 100%);
   }
-
-  /* Carte texte : lisible */
-  .page--temoignages .tcar__card{
-    width: 100%;
-    padding: 12px;
-    border-radius: 14px;
-  }
-
-  .page--temoignages .tcar__title{
-    font-size: 16px;
-  }
-
-  .page--temoignages .tcar__text{
-    font-size: 14px;
-    line-height: 1.55;
-  }
-
-  /* 6) Flèches : on les met en bas (sinon ça gêne) */
-  .page--temoignages .t-nav{
-    top: auto;
-    bottom: 54px;
-    transform: none;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
-  .page--temoignages .t-nav--prev{ left: 10px; }
-  .page--temoignages .t-nav--next{ right: 10px; }
-
-  .page--temoignages .t-nav:hover{ transform: none; }
-
-  /* Dots : un peu plus gros */
-  .page--temoignages .tcar__dots{
-    gap: 10px;
-  }
-  .page--temoignages .tcar__dots button{
-    width: 12px;
-    height: 12px;
+  .page--balades .hero__text{
+    max-width: none;
   }
 }
+
