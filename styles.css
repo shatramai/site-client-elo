@@ -14,10 +14,7 @@
 
   --max: 980px;
 
-  --leaf-size: 520px;
-  --leaf-opacity: .70;
-  --leaf-inset: 50px;
-
+  /* Pattes */
   --paw-opacity: .20;
 
   /* Hero images */
@@ -34,6 +31,16 @@
   /* centrage vertical */
   --hero-pad-top: 22px;
   --hero-pad-bottom: 22px;
+
+  /* =========================
+     FEUILLES (collées au LOGO)
+     ========================= */
+  --leaf-img: url("assets/leaf_transparent.png");
+  --leaf-w: 320px;      /* taille */
+  --leaf-x: 18px;       /* pousse vers l'intérieur/extérieur */
+  --leaf-y: 10px;       /* descend/monte */
+  --leaf-rot: -18deg;   /* inclinaison */
+  --leaf-opacity: .75;  /* opacité */
 }
 
 *{ box-sizing: border-box; }
@@ -59,40 +66,13 @@ a{ color: inherit; text-decoration: none; }
 .page{
   position: relative;
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
-/* =========================
-   FEUILLES
-   ========================= */
-.leaves{
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.leaf{
-  position: absolute;
-  width: var(--leaf-size);
-  opacity: var(--leaf-opacity);
-  display: block;
-}
-
-.leaf.tl{
-  top: calc(var(--leaf-inset) * -1);
-  left: calc(var(--leaf-inset) * -1);
-  transform: scaleY(-1) rotate(-8deg);
-}
-.leaf.tr{
-  top: calc(var(--leaf-inset) * -1);
-  right: calc(var(--leaf-inset) * -1);
-  transform: scale(-1) rotate(8deg);
-}
-
-/* feuilles bas masquées */
-.leaf.bl,
-.leaf.br{ display:none; }
+/* ✅ Si tu as encore le vieux HTML <div class="leaves">…</div>,
+      on le neutralise pour éviter les conflits */
+.leaves{ display:none !important; }
 
 /* =========================
    PATTES
@@ -163,6 +143,55 @@ a{ color: inherit; text-decoration: none; }
   align-items: center;
   justify-content: space-between;
   padding: 0 28px;
+
+  position: relative;
+  overflow: visible; /* permet aux feuilles de dépasser */
+}
+
+/* ✅ Feuilles collées au logo (base de tige sur les coins) */
+.logo::before,
+.logo::after{
+  content: "";
+  position: absolute;
+  top: 0;
+
+  width: var(--leaf-w);
+  aspect-ratio: 1 / 1;
+
+  background: var(--leaf-img) no-repeat;
+  background-size: contain;
+  background-position: bottom center; /* base de tige = bas */
+
+  opacity: var(--leaf-opacity);
+  pointer-events: none;
+
+  transform-origin: 50% 100%; /* pivot sur la base */
+  z-index: 0; /* derrière le contenu du logo */
+}
+
+/* gauche : coin haut gauche */
+/* gauche : coin haut gauche (MIROIR HORIZONTAL) */
+.logo::before{
+  left: 0;
+  transform:
+    translate(calc(-50% + var(--leaf-x)), calc(-100% + var(--leaf-y)))
+    scaleX(-1)
+    rotate(var(--leaf-rot));
+}
+
+/* droite : coin haut droit (SANS miroir) */
+.logo::after{
+  right: 0;
+  transform:
+    translate(calc(50% - var(--leaf-x)), calc(-100% + var(--leaf-y)))
+    rotate(var(--leaf-rot));
+}
+
+
+/* le contenu du logo au-dessus des feuilles */
+.logo > *{
+  position: relative;
+  z-index: 1;
 }
 
 .logo img{
@@ -173,8 +202,10 @@ a{ color: inherit; text-decoration: none; }
   display: block;
 }
 
-/* LOGO responsive (sur ta base) */
+/* LOGO responsive */
 @media (max-width: 900px){
+  :root{ --leaf-w: 260px; --leaf-x: 14px; --leaf-y: 8px; }
+
   .logo{
     height: 92px;
     padding: 0 18px;
@@ -187,6 +218,8 @@ a{ color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 620px){
+  :root{ --leaf-w: 220px; --leaf-x: 12px; --leaf-y: 6px; }
+
   .logo{
     height: 78px;
     padding: 0 14px;
@@ -199,6 +232,8 @@ a{ color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 420px){
+  :root{ --leaf-w: 190px; --leaf-x: 10px; --leaf-y: 5px; }
+
   .logo{
     height: 70px;
     padding: 0 12px;
@@ -597,11 +632,6 @@ a{ color: inherit; text-decoration: none; }
    RESPONSIVE GLOBAL
    ========================= */
 @media (max-width: 900px){
-  :root{
-    --leaf-size: 300px;
-    --leaf-inset: 70px;
-  }
-
   .hero__title{ font-size: 28px; }
 
   .hero__inner--split{
@@ -698,18 +728,28 @@ a{ color: inherit; text-decoration: none; }
   gap: 10px;
 }
 
-/* Centrer une seule carte quand pricing n'a qu'un élément */
+/* Cas : 1 seule carte */
 .pricing:has(.price-card:only-child){
   grid-template-columns: 1fr;
   justify-items: center;
 }
+
 .pricing:has(.price-card:only-child) .price-card{
   max-width: 480px;
   width: 100%;
 }
 
+/* Cas : 3 cartes → centrer la 3e */
+.pricing > .price-card:last-child:nth-child(odd){
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+/* Mobile */
 @media (max-width: 860px){
-  .pricing{ grid-template-columns: 1fr; }
+  .pricing{
+    grid-template-columns: 1fr;
+  }
 }
 
 /* =====================================================
@@ -884,11 +924,9 @@ a{ color: inherit; text-decoration: none; }
 }
 
 /* =====================================================
-   TÉMOIGNAGES — MODE MOBILE DÉDIÉ (le tien)
+   TÉMOIGNAGES — MOBILE
    ===================================================== */
 @media (max-width: 600px){
-
-  /* 1) On enlève les contraintes du hero (plus de photo, plus de hauteur imposée) */
   .page--temoignages{
     --hero-h: auto;
     --hero-pad-top: 0px;
@@ -907,19 +945,16 @@ a{ color: inherit; text-decoration: none; }
 
   .page--temoignages .hero__overlay{ display: none; }
 
-  /* 2) Le conteneur du hero ne doit pas "centrer" bizarrement */
   .page--temoignages .hero__inner{
     display: block;
     padding: 0;
   }
 
-  /* 3) Bloc global : full width */
   .page--temoignages .testimonials{
     width: 100%;
     margin: 0;
   }
 
-  /* Top card (titre) : plus compact */
   .page--temoignages .testimonials__top{
     width: 100%;
     margin: 0 0 12px;
@@ -927,7 +962,6 @@ a{ color: inherit; text-decoration: none; }
     border-radius: 16px;
   }
 
-  /* 4) Carrousel : pleine largeur, pas de max-width */
   .page--temoignages .t-carousel{
     width: 100%;
     max-width: none;
@@ -935,20 +969,17 @@ a{ color: inherit; text-decoration: none; }
     border-radius: 16px;
   }
 
-  /* 5) Slides : compact */
   .page--temoignages .tcar__slide{
     padding: 12px;
     gap: 10px;
   }
 
-  /* Photo : plus petite, centrée */
   .page--temoignages .tcar__media{
     width: 180px;
     height: 180px;
     border-width: 3px;
   }
 
-  /* Texte : lisible */
   .page--temoignages .tcar__card{
     width: 100%;
     padding: 12px;
@@ -962,7 +993,6 @@ a{ color: inherit; text-decoration: none; }
     line-height: 1.55;
   }
 
-  /* 6) Flèches : en bas */
   .page--temoignages .t-nav{
     top: auto;
     bottom: 54px;
@@ -976,7 +1006,6 @@ a{ color: inherit; text-decoration: none; }
   .page--temoignages .t-nav--next{ right: 10px; }
   .page--temoignages .t-nav:hover{ transform: none; }
 
-  /* Dots : un peu plus gros */
   .page--temoignages .tcar__dots{ gap: 10px; }
   .page--temoignages .tcar__dots button{
     width: 12px;
@@ -986,7 +1015,6 @@ a{ color: inherit; text-decoration: none; }
 
 /* =====================================================
    DECOR LAYER — PHOTOS EN CERCLES AUTOUR DU MAIN
-   + FIX cadrage/rotation/exif
    ===================================================== */
 .main-layer{
   position: relative;
@@ -1026,20 +1054,13 @@ a{ color: inherit; text-decoration: none; }
   display: block;
 
   object-fit: cover;
-
-  /* ✅ on utilise TES variables séparées */
   object-position: var(--d-pos-x, 50%) var(--d-pos-y, 50%);
 
-  /* EXIF (si jamais) */
   image-orientation: from-image;
 
-  /* rotation/zoom par variables (optionnel) */
   transform: rotate(var(--d-rot, 0deg)) scale(var(--d-zoom, 1));
   transform-origin: center;
 }
-
-
-
 
 @media (max-width: 900px){
   .decor-orbit[data-hide="md"]{ display:none; }
@@ -1048,9 +1069,8 @@ a{ color: inherit; text-decoration: none; }
   .decor-layer{ display:none; }
 }
 
-
 /* =========================
-   GALERIE (dédupliquée)
+   GALERIE
    ========================= */
 .page--galerie{ --hero-bg: none; }
 
@@ -1101,36 +1121,27 @@ a{ color: inherit; text-decoration: none; }
 }
 
 /* =====================================================
-   BALADES — recadrage photo + card à droite + card plus carrée
+   BALADES — recadrage photo + card à droite + card carrée
    ===================================================== */
-
-/* 1) Remonter légèrement la photo (vertical) */
 .page--balades .hero{
-  background-position: center 50%; /* plus petit = plus haut (ex: 30% => encore + haut) */
+  background-position: center 50%;
 }
 
-/* 2) Mettre la card plus à droite */
 .page--balades .hero__inner{
-  justify-items: end;     /* au lieu de center */
-  padding-right: 24px;    /* petit espace avec le bord */
+  justify-items: end;
+  padding-right: 24px;
 }
 
-/* 3) Card plus “carrée” (moins large) */
 .page--balades .hero__card{
-  width: min(460px, 100%); /* avant: 620px => plus compact */
+  width: min(460px, 100%);
   padding: 18px 18px;
   transform: translate(-50px,110px);
-
 }
 
-/* Option: resserrer un peu le texte si besoin */
 .page--balades .hero__text{
-  max-width: 42ch; /* limite la ligne pour un rendu + bloc */
+  max-width: 42ch;
 }
 
-/* =====================================================
-   RESPONSIVE — on revient centré sur tablette/mobile
-   ===================================================== */
 @media (max-width: 900px){
   .page--balades .hero{
     background-position: center 50%;
@@ -1147,3 +1158,27 @@ a{ color: inherit; text-decoration: none; }
   }
 }
 
+/* le header crée un contexte propre */
+.header{
+  position: relative;
+  z-index: 5; /* le header est au-dessus du fond */
+}
+
+/* les feuilles sont dans le header, mais derrière le logo */
+.leaves{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 280px;          /* ajuste si besoin */
+  pointer-events: none;
+  overflow: visible;
+
+  z-index: 1;             /* <-- derrière */
+}
+
+/* le logo passe au-dessus des feuilles */
+.logo{
+  position: relative;
+  z-index: 2;             /* <-- devant les feuilles */
+}
