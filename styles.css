@@ -23,10 +23,10 @@
   /* Hero images */
   --hero-bg-home: url("assets/home-bg.jpg");
   --hero-bg-presentation: url("assets/cascade.jpeg");
-  --hero-bg-education: url("assets/img_ban.jpeg");
+  --hero-bg-education: url("assets/ban3.jpeg");
   --hero-bg-balades: url("assets/cara_ban.jpeg");
-  --hero-bg-garde: url("assets/img_ban2.jpeg");
-  --hero-bg-temoignages: url("assets/forest.jpeg");
+  --hero-bg-garde: url("assets/ban4.jpeg");
+  --hero-bg-temoignages: url("assets/ban5.jpeg");
 
   /* HERO sizing */
   --hero-h: clamp(520px, 72vh, 900px);
