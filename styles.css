@@ -1158,27 +1158,50 @@ a{ color: inherit; text-decoration: none; }
   }
 }
 
-/* le header crée un contexte propre */
+
+/* =====================================================
+   FIX FEUILLES / HEADER — une seule source de vérité
+   (feuilles via .logo::before / .logo::after)
+   ===================================================== */
+
+/* On neutralise définitivement le vieux bloc HTML .leaves */
+.leaves { display: none !important; }
+
+/* Header au-dessus du fond/hero, mais pas besoin de re-définir 15 fois */
 .header{
   position: relative;
-  z-index: 5; /* le header est au-dessus du fond */
+  z-index: 5;
+  background: transparent;
 }
 
-/* les feuilles sont dans le header, mais derrière le logo */
-.leaves{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 280px;          /* ajuste si besoin */
-  pointer-events: none;
-  overflow: visible;
-
-  z-index: 1;             /* <-- derrière */
-}
-
-/* le logo passe au-dessus des feuilles */
+/* Le logo crée le repère pour les feuilles */
 .logo{
   position: relative;
-  z-index: 2;             /* <-- devant les feuilles */
+  z-index: 2;
+  overflow: visible;
+}
+
+/* Feuilles derrière le contenu du logo, mais visibles au-dessus du header */
+.logo::before,
+.logo::after{
+  z-index: 0;            /* derrière les images du logo */
+  pointer-events: none;
+}
+
+/* Le contenu du logo passe au-dessus des feuilles */
+.logo > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* =====================================================
+   HERO — centrage vertical parfait
+   (pages Éducation + Garde)
+   ===================================================== */
+.page--education .hero__inner,
+.page--garde .hero__inner{
+  padding: 0;                  /* supprime le faux décalage */
+  min-height: var(--hero-h);
+  display: grid;
+  place-items: center;         /* centre X + Y */
 }
