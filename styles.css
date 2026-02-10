@@ -1205,3 +1205,42 @@ a{ color: inherit; text-decoration: none; }
   display: grid;
   place-items: center;         /* centre X + Y */
 }
+
+
+/* =========================================
+   BALADES — HERO mobile: le texte doit être lisible
+   ========================================= */
+@media (max-width: 600px){
+  .page--balades .hero__inner{
+    justify-items: center;
+    padding-right: 0;
+  }
+
+  .page--balades .hero__card{
+    transform: none !important;      /* <- supprime le décalage */
+    width: min(92vw, 520px);         /* <- évite de déborder */
+    margin: 0 auto;
+  }
+}
+
+/* =========================================
+   BALADES — centrage parfait de la hero card (mobile)
+   ========================================= */
+@media (max-width: 600px){
+  .page--balades .hero .container{
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .page--balades .hero__inner{
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  .page--balades .hero__card{
+    width: min(92%, 520px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
