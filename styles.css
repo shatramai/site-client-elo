@@ -1244,3 +1244,20 @@ a{ color: inherit; text-decoration: none; }
     margin-right: auto;
   }
 }
+
+/* =========================================
+   DÉSACTIVATION TOTALE DES FEUILLES
+   ========================================= */
+
+/* feuilles générées via le logo */
+.logo::before,
+.logo::after{
+  display: none !important;
+}
+
+/* anciens blocs éventuels */
+.leaves,
+.leaf,
+[class*="leaf"]{
+  display: none !important;
+}
