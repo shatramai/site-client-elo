@@ -3,8 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Galerie — Amitié Canine</title>
-  <meta name="description" content="Galerie photos — Amitié Canine. Moments d’éducation, balades et garde." />
+
+  <title>Galerie — Éducation, balades & garde (75/94/77) | Amitié Canine</title>
+  <meta name="description" content="Galerie photos : moments d’éducation canine, balades encadrées et garde en vie de famille. Secteurs 77 (Seine-et-Marne), 94 (Val-de-Marne), Paris (75) et 93." />
+
+  <link rel="canonical" href="https://amitiecanine.fr/galerie.html" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:title" content="Galerie — Amitié Canine (75/94/77)" />
+  <meta property="og:description" content="Photos d’éducation, balades encadrées et garde en vie de famille en Île-de-France." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://amitiecanine.fr/galerie.html" />
+  <meta property="og:image" content="https://amitiecanine.fr/assets/og.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,35 +22,93 @@
 
   <link rel="stylesheet" href="styles.css" />
   <script src="app.js" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://amitiecanine.fr/#localbusiness",
+  "name": "Amitié Canine",
+  "url": "https://amitiecanine.fr",
+  "logo": "https://amitiecanine.fr/assets/logo-text-bw.png",
+  "image": "https://amitiecanine.fr/assets/logo-dogs-light.png",
+  "description": "Éducatrice canine comportementaliste. Éducation, balades collectives et sociales, garde en vie de famille. Intervention Paris, Val-de-Marne (94) et Seine-et-Marne (77).",
+  "telephone": "+33652905526",
+  "email": "contact.amitiecanine@gmail.com",
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "FR",
+    "addressRegion": "Île-de-France"
+  },
+  "areaServed": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "Paris (75)"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Val-de-Marne (94)"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Seine-et-Marne (77)"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/amitiecanine/"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services canins",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Éducation canine personnalisée"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Balades collectives et sociales"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Garde en vie de famille"
+        }
+      }
+    ]
+  }
+}
+</script>
+
 </head>
 
 <body class="page--galerie">
   <div class="page">
 
-    <!-- FEUILLES -->
     <div class="leaves" aria-hidden="true">
       <img class="leaf tl" src="assets/leaf_transparent.png" alt="">
       <img class="leaf tr" src="assets/leaf_transparent.png" alt="">
     </div>
 
-    <!-- <div class="paw-trail1" aria-hidden="true"></div>
-    <div class="paw-trail2" aria-hidden="true"></div> -->
-
-    <!-- HEADER -->
     <header class="header">
       <div class="container header__inner">
         <div class="logo">
-          <img class="logo-text" src="assets/logo-text-bw.png" alt="Amitié Canine — Éducation, Balade, Garde">
+          <img class="logo-text" src="assets/logo-text-bw.png" alt="Amitié Canine — Éducation, Balades, Garde">
           <img class="logo-dogs" src="assets/logo-dogs-light.png" alt="">
-
         </div>
       </div>
     </header>
 
-    <!-- NAV -->
     <div class="navwrap">
       <div class="container">
-        <nav class="nav">
+        <nav class="nav" aria-label="Navigation principale">
           <a class="nav__link" href="index.html">Accueil</a>
           <a class="nav__link" href="presentation.html">Présentation</a>
           <a class="nav__link" href="education.html">Éducation</a>
@@ -54,92 +122,46 @@
       </div>
     </div>
 
-    <!-- MAIN -->
     <main class="main">
-  <div class="container main__inner">
+      <div class="container main__inner">
 
-    <section class="section reveal">
-        <h1 class="section__title">Galerie photos</h1>
-        <p style="text-align:center; max-width:720px; margin:0 auto 20px; color:rgba(21,32,24,.75);">
-        Moments d’éducation, balades, garde et instants de complicité.
-        </p>
+        <section class="section reveal">
+          <h1 class="section__title">Galerie photos</h1>
+
+          <p style="text-align:center; max-width:760px; margin:0 auto 20px; color:rgba(21,32,24,.75);">
+            Moments d’éducation, balades encadrées et garde en vie de famille — en Île-de-France (77, 94, Paris 75, 93).
+          </p>
 
           <div class="gallery-grid">
-        <img src="assets/dog1.jpeg" alt="">
-        <img src="assets/dog2.jpeg" alt="">
-        <img src="assets/dog3.jpeg" alt="">
-        <img src="assets/dog4.jpeg" alt="">
-        <img src="assets/dog5.jpeg" alt="">
-        <img src="assets/dog6.jpeg" alt="">
-        <img src="assets/dog7.jpeg" alt="">
-        <img src="assets/dog8.jpeg" alt="">
-        <img src="assets/dog9.jpeg" alt="">
-        <img src="assets/dog10.jpeg" alt="">
-        <img src="assets/dog11.jpeg" alt="">
-        <img src="assets/dog12.jpeg" alt="">
-        <img src="assets/dog13.jpeg" alt="">
-        <img src="assets/dog14.jpeg" alt="">
-        <img src="assets/dog15.jpeg" alt="">
-        <img src="assets/dog16.jpeg" alt="">
-        <img src="assets/dog17.jpeg" alt="">
-        <img src="assets/dog18.jpeg" alt="">
-        <img src="assets/dog19.jpeg" alt="">
-        <img src="assets/dog20.jpeg" alt="">
-       
+            <img src="assets/dog1.jpeg"  alt="Chien en extérieur — Amitié Canine">
+            <img src="assets/dog2.jpeg"  alt="Moment d’éducation canine — Amitié Canine">
+            <img src="assets/dog3.jpeg"  alt="Chien en promenade — Amitié Canine">
+            <img src="assets/dog4.jpeg"  alt="Balade encadrée — Amitié Canine">
+            <img src="assets/dog5.jpeg"  alt="Interaction canine — Amitié Canine">
+            <img src="assets/dog6.jpeg"  alt="Chien heureux en sortie — Amitié Canine">
+            <img src="assets/dog7.jpeg"  alt="Balade en groupe — Amitié Canine">
+            <img src="assets/dog8.jpeg"  alt="Chien en garde — Amitié Canine">
+            <img src="assets/dog9.jpeg"  alt="Éducation et complicité — Amitié Canine">
+            <img src="assets/dog10.jpeg" alt="Chien en sortie encadrée — Amitié Canine">
+            <img src="assets/dog11.jpeg" alt="Balade sociale — Amitié Canine">
+            <img src="assets/dog12.jpeg" alt="Chien en forêt — Amitié Canine">
+            <img src="assets/dog13.jpeg" alt="Éducatrice canine en action — Amitié Canine">
+            <img src="assets/dog14.jpeg" alt="Séance d’éducation — Amitié Canine">
+            <img src="assets/dog15.jpeg" alt="Chien en promenade — Amitié Canine">
+            <img src="assets/dog16.jpeg" alt="Balade encadrée — Amitié Canine">
+            <img src="assets/dog17.jpeg" alt="Chien en garde en vie de famille — Amitié Canine">
+            <img src="assets/dog18.jpeg" alt="Moment de détente — Amitié Canine">
+            <img src="assets/dog19.jpeg" alt="Complicité chien et humain — Amitié Canine">
+            <img src="assets/dog20.jpeg" alt="Balade et bien-être — Amitié Canine">
+          </div>
+        </section>
+
       </div>
-    </section>
+    </main>
 
-    <!-- ÉDUCATION
-    <section class="section reveal">
-      <h2 class="section__title">Ceux qui ont marqué mes premiers pas</h2>
-
-      <div class="gallery-grid">
-        <img src="assets/Jin_tem.jpeg" alt="">
-        <img src="assets/Polka_tem.jpeg" alt="">
-        <img src="assets/maya_img.jpeg" alt="">
-        <img src="assets/maya_img.jpeg" alt="">
-      </div>
-    </section> -->
-
-    <!-- BALADES -->
-    <!-- <section class="section reveal">
-      <h2 class="section__title">Souvenirs</h2>
-
-      <div class="gallery-grid">
-        <img src="assets/dog1.jpeg" alt="">
-        <img src="assets/dog2.jpeg" alt="">
-        <img src="assets/dog3.jpeg" alt="">
-        <img src="assets/dog4.jpeg" alt="">
-        <img src="assets/dog5.jpeg" alt="">
-        <img src="assets/dog6.jpeg" alt="">
-        <img src="assets/dog7.jpeg" alt="">
-        <img src="assets/dog8.jpeg" alt="">
-        <img src="assets/dog9.jpeg" alt="">
-        <img src="assets/dog10.jpeg" alt="">
-        <img src="assets/dog11.jpeg" alt="">
-        <img src="assets/dog12.jpeg" alt="">
-        <img src="assets/dog13.jpeg" alt="">
-        <img src="assets/dog14.jpeg" alt="">
-        <img src="assets/dog15.jpeg" alt="">
-        <img src="assets/dog16.jpeg" alt="">
-        <img src="assets/dog17.jpeg" alt="">
-        <img src="assets/dog18.jpeg" alt="">
-        <img src="assets/dog19.jpeg" alt="">
-        <img src="assets/dog20.jpeg" alt="">
-       
-      </div>
-    </section> -->
-
-    
-
-  </div>
-</main>
-
-
-    <!-- FOOTER -->
     <footer class="footer">
       <div class="container footer__inner">
-        <p class="footer__text">© <span id="year"></span> Amitié Canine</p>
+        <p class="footer__text">© <span id="year"></span> Amitié Canine — Éducatrice canine comportementaliste</p>
       </div>
     </footer>
 
@@ -148,12 +170,11 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    /* Lightbox simple */
     document.querySelectorAll(".gallery-grid img").forEach(img=>{
       img.addEventListener("click",()=>{
         const lb=document.createElement("div");
         lb.className="lightbox";
-        lb.innerHTML=`<img src="${img.src}">`;
+        lb.innerHTML=`<img src="${img.src}" alt="${img.alt}">`;
         lb.onclick=()=>lb.remove();
         document.body.appendChild(lb);
       });
