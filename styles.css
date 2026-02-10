@@ -1271,3 +1271,7 @@ a{ color: inherit; text-decoration: none; }
   opacity: 1 !important;
   transform: none !important;
 }
+
+body{
+  outline: 6px solid red !important;
+}
