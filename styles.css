@@ -1261,3 +1261,13 @@ a{ color: inherit; text-decoration: none; }
 [class*="leaf"]{
   display: none !important;
 }
+
+
+/* =========================================
+   FIX GALERIE — visible même si JS plante
+   (problème réel mobile)
+   ========================================= */
+.page--galerie .reveal{
+  opacity: 1 !important;
+  transform: none !important;
+}
