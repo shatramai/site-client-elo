@@ -1271,3 +1271,30 @@ a{ color: inherit; text-decoration: none; }
   opacity: 1 !important;
   transform: none !important;
 }
+
+/* =========================================
+   BALADES — Hero card centrée parfaitement en mobile
+   ========================================= */
+@media (max-width: 600px){
+
+  .page--balades .hero{
+    display: flex;
+    align-items: center;   /* centre verticalement */
+    justify-content: center; /* centre horizontalement */
+  }
+
+  .page--balades .hero__inner{
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .page--balades .hero__card{
+    transform: none !important;
+    margin: 0;
+    width: min(92%, 520px);
+  }
+
+}
